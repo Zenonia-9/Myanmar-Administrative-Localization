@@ -1,0 +1,359 @@
+﻿id,name,code,district_id:id
+township_001,Bogale,MMR017024,district_D086
+township_002,Danubyu,MMR017022,district_D085
+township_003,Dedaye,MMR017026,district_D086
+township_004,Einme,MMR017015,district_D083
+township_005,Hinthada,MMR017008,district_D082
+township_006,Ingapu,MMR017013,district_D082
+township_007,Kangyidaunt,MMR017002,district_D081
+township_008,Kyaiklat,MMR017025,district_D086
+township_009,Kyangin,MMR017012,district_D082
+township_010,Kyaunggon,MMR017007,district_D081
+township_011,Kyonpyaw,MMR017005,district_D081
+township_012,Labutta,MMR017016,district_D084
+township_013,Lemyethna,MMR017010,district_D082
+township_014,Maubin,MMR017019,district_D085
+township_015,Mawlamyinegyun,MMR017018,district_D084
+township_016,Myanaung,MMR017011,district_D082
+township_017,Myaungmya,MMR017014,district_D083
+township_018,Ngapudaw,MMR017004,district_D081
+township_019,Nyaungdon,MMR017021,district_D085
+township_020,Pantanaw,MMR017020,district_D085
+township_021,Pathein,MMR017001,district_D081
+township_022,Pyapon,MMR017023,district_D086
+township_023,Thabaung,MMR017003,district_D081
+township_024,Wakema,MMR017017,district_D083
+township_025,Yegyi,MMR017006,district_D081
+township_026,Zalun,MMR017009,district_D082
+township_027,Bago,MMR007001,district_D030
+township_028,Daik-U,MMR007007,district_D030
+township_029,Htantabin,MMR007014,district_D031
+township_030,Kawa,MMR007003,district_D030
+township_031,Kyaukkyi,MMR007011,district_D031
+township_032,Kyauktaga,MMR007006,district_D030
+township_033,Nyaunglebin,MMR007005,district_D030
+township_034,Oktwin,MMR007013,district_D031
+township_035,Phyu,MMR007012,district_D031
+township_036,Shwegyin,MMR007008,district_D030
+township_037,Taungoo,MMR007009,district_D031
+township_038,Thanatpin,MMR007002,district_D030
+township_039,Waw,MMR007004,district_D030
+township_040,Yedashe,MMR007010,district_D031
+township_041,Gyobingauk,MMR008014,district_D033
+township_042,Letpadan,MMR008008,district_D033
+township_043,Minhla,MMR008009,district_D033
+township_044,Monyo,MMR008013,district_D033
+township_045,Nattalin,MMR008012,district_D033
+township_046,Okpho,MMR008010,district_D033
+township_047,Padaung,MMR008003,district_D032
+township_048,Paukkhaung,MMR008002,district_D032
+township_049,Paungde,MMR008004,district_D032
+township_050,Pyay,MMR008001,district_D032
+township_051,Shwedaung,MMR008006,district_D032
+township_052,Thayarwady,MMR008007,district_D033
+township_053,Thegon,MMR008005,district_D032
+township_054,Zigon,MMR008011,district_D033
+township_055,Falam,MMR004001,district_D011
+township_056,Hakha,MMR004002,district_D013
+township_057,Kanpetlet,MMR004008,district_D012
+township_058,Matupi,MMR004007,district_D014
+township_059,Mindat,MMR004006,district_D012
+township_060,Paletwa,MMR004009,district_D014
+township_061,Tedim,MMR004004,district_D011
+township_062,Thantlang,MMR004003,district_D013
+township_063,Tonzang,MMR004005,district_D011
+township_064,Bhamo,MMR001010,district_D003
+township_065,Chipwi,MMR001005,district_D001
+township_066,Hpakant,MMR001009,district_D002
+township_067,Injangyang,MMR001003,district_D001
+township_068,Khaunglanhpu,MMR001018,district_D004
+township_069,Machanbaw,MMR001016,district_D004
+township_070,Mansi,MMR001013,district_D003
+township_071,Mogaung,MMR001008,district_D002
+township_072,Mohnyin,MMR001007,district_D002
+township_073,Momauk,MMR001012,district_D003
+township_074,Myitkyina,MMR001001,district_D001
+township_075,Nawngmun,MMR001017,district_D004
+township_076,Puta-O,MMR001014,district_D004
+township_077,Shwegu,MMR001011,district_D003
+township_078,Sumprabum,MMR001015,district_D004
+township_079,Tanai,MMR001004,district_D001
+township_080,Tsawlaw,MMR001006,district_D001
+township_081,Waingmaw,MMR001002,district_D001
+township_082,Bawlake,MMR002005,district_D006
+township_083,Demoso,MMR002002,district_D005
+township_084,Hpasawng,MMR002006,district_D006
+township_085,Hpruso,MMR002003,district_D005
+township_086,Loikaw,MMR002001,district_D005
+township_087,Mese,MMR002007,district_D006
+township_088,Shadaw,MMR002004,district_D005
+township_089,Hlaingbwe,MMR003002,district_D007
+township_090,Hpa-An,MMR003001,district_D007
+township_091,Hpapun,MMR003003,district_D010
+township_092,Kawkareik,MMR003006,district_D009
+township_093,Kyainseikgyi,MMR003007,district_D009
+township_094,Myawaddy,MMR003005,district_D008
+township_095,Thandaunggyi,MMR003004,district_D007
+township_096,Aunglan,MMR009016,district_D036
+township_097,Chauk,MMR009003,district_D034
+township_098,Gangaw,MMR009023,district_D038
+township_099,Kamma,MMR009015,district_D036
+township_100,Magway,MMR009001,district_D034
+township_101,Minbu,MMR009007,district_D035
+township_102,Mindon,MMR009014,district_D036
+township_103,Minhla,MMR009013,district_D036
+township_104,Myaing,MMR009020,district_D037
+township_105,Myothit,MMR009005,district_D034
+township_106,Natmauk,MMR009006,district_D034
+township_107,Ngape,MMR009009,district_D035
+township_108,Pakokku,MMR009018,district_D037
+township_109,Pauk,MMR009021,district_D037
+township_110,Pwintbyu,MMR009008,district_D035
+township_111,Salin,MMR009010,district_D035
+township_112,Saw,MMR009025,district_D038
+township_113,Seikphyu,MMR009022,district_D037
+township_114,Sidoktaya,MMR009011,district_D035
+township_115,Sinbaungwe,MMR009017,district_D036
+township_116,Taungdwingyi,MMR009004,district_D034
+township_117,Thayet,MMR009012,district_D036
+township_118,Tilin,MMR009024,district_D038
+township_119,Yenangyaung,MMR009002,district_D034
+township_120,Yesagyo,MMR009019,district_D037
+township_121,Amarapura,MMR010006,district_D039
+township_122,Aungmyaythazan,MMR010001,district_D039
+township_123,Chanayethazan,MMR010002,district_D039
+township_124,Chanmyathazi,MMR010004,district_D039
+township_125,Kyaukpadaung,MMR010020,district_D043
+township_126,Kyaukse,MMR010013,district_D041
+township_127,Madaya,MMR010009,district_D040
+township_128,Mahaaungmyay,MMR010003,district_D039
+township_129,Mahlaing,MMR010029,district_D045
+township_130,Meiktila,MMR010028,district_D045
+township_131,Mogoke,MMR010011,district_D040
+township_132,Myingyan,MMR010017,district_D042
+township_133,Myittha,MMR010015,district_D041
+township_134,Natogyi,MMR010019,district_D042
+township_135,Ngazun,MMR010021,district_D042
+township_136,Nyaung-U,MMR010022,district_D043
+township_137,Patheingyi,MMR010007,district_D039
+township_138,Pyawbwe,MMR010024,district_D044
+township_139,Pyigyitagon,MMR010005,district_D039
+township_140,Pyinoolwin,MMR010008,district_D040
+township_141,Singu,MMR010010,district_D040
+township_142,Sintgaing,MMR010014,district_D041
+township_143,Tada-U,MMR010016,district_D041
+township_144,Taungtha,MMR010018,district_D042
+township_145,Thabeikkyin,MMR010012,district_D040
+township_146,Thazi,MMR010030,district_D045
+township_147,Wundwin,MMR010031,district_D045
+township_148,Yamethin,MMR010023,district_D044
+township_149,Bilin,MMR011010,district_D047
+township_150,Chaungzon,MMR011003,district_D046
+township_151,Kyaikmaraw,MMR011002,district_D046
+township_152,Kyaikto,MMR011009,district_D047
+township_153,Mawlamyine,MMR011001,district_D046
+township_154,Mudon,MMR011005,district_D046
+township_155,Paung,MMR011008,district_D047
+township_156,Thanbyuzayat,MMR011004,district_D046
+township_157,Thaton,MMR011007,district_D047
+township_158,Ye,MMR011006,district_D046
+township_159,Det Khi Na Thi Ri,MMR018004,district_D088
+township_160,Lewe,MMR018007,district_D088
+township_161,Oke Ta Ra Thi Ri,MMR018008,district_D087
+township_162,Poke Ba Thi Ri,MMR018005,district_D087
+township_163,Pyinmana,MMR018006,district_D088
+township_164,Tatkon,MMR018003,district_D087
+township_165,Za Bu Thi Ri,MMR018002,district_D088
+township_166,Zay Yar Thi Ri,MMR018001,district_D087
+township_167,Ann,MMR012014,district_D050
+township_168,Buthidaung,MMR012010,district_D049
+township_169,Gwa,MMR012017,district_D051
+township_170,Kyaukpyu,MMR012011,district_D050
+township_171,Kyauktaw,MMR012004,district_D052
+township_172,Maungdaw,MMR012009,district_D049
+township_173,Minbya,MMR012005,district_D052
+township_174,Mrauk-U,MMR012003,district_D052
+township_175,Munaung,MMR012012,district_D050
+township_176,Myebon,MMR012006,district_D052
+township_177,Pauktaw,MMR012007,district_D048
+township_178,Ponnagyun,MMR012002,district_D048
+township_179,Ramree,MMR012013,district_D050
+township_180,Rathedaung,MMR012008,district_D048
+township_181,Sittwe,MMR012001,district_D048
+township_182,Thandwe,MMR012015,district_D051
+township_183,Toungup,MMR012016,district_D051
+township_184,Ayadaw,MMR005014,district_D017
+township_185,Banmauk,MMR005023,district_D018
+township_186,Budalin,MMR005013,district_D017
+township_187,Chaung-U,MMR005015,district_D017
+township_188,Hkamti,MMR005033,district_D022
+township_189,Homalin,MMR005034,district_D022
+township_190,Indaw,MMR005021,district_D018
+township_191,Kale,MMR005027,district_D019
+township_192,Kalewa,MMR005028,district_D019
+township_193,Kanbalu,MMR005007,district_D024
+township_194,Kani,MMR005017,district_D023
+township_195,Katha,MMR005020,district_D018
+township_196,Kawlin,MMR005024,district_D025
+township_197,Khin-U,MMR005005,district_D016
+township_198,Kyunhla,MMR005008,district_D024
+township_199,Lahe,MMR005036,district_D026
+township_200,Layshi,MMR005035,district_D026
+township_201,Mawlaik,MMR005031,district_D021
+township_202,Mingin,MMR005029,district_D019
+township_203,Monywa,MMR005012,district_D017
+township_204,Myaung,MMR005003,district_D015
+township_205,Myinmu,MMR005002,district_D015
+township_206,Nanyun,MMR005037,district_D026
+township_207,Pale,MMR005019,district_D023
+township_208,Paungbyin,MMR005032,district_D021
+township_209,Pinlebu,MMR005026,district_D025
+township_210,Sagaing,MMR005001,district_D015
+township_211,Salingyi,MMR005018,district_D023
+township_212,Shwebo,MMR005004,district_D016
+township_213,Tabayin,MMR005010,district_D016
+township_214,Tamu,MMR005030,district_D020
+township_215,Taze,MMR005011,district_D016
+township_216,Tigyaing,MMR005022,district_D018
+township_217,Wetlet,MMR005006,district_D016
+township_218,Wuntho,MMR005025,district_D025
+township_219,Ye-U,MMR005009,district_D016
+township_220,Yinmarbin,MMR005016,district_D023
+township_221,Ho Tawng (Ho Tao),MMR016320,district_D080
+township_222,Kengtung,MMR016001,district_D076
+township_223,Mong Hpen,MMR016319,district_D080
+township_224,Mong Kar,MMR016322,district_D080
+township_225,Mong Pawk,MMR016321,district_D080
+township_226,Monghpyak,MMR016010,district_D078
+township_227,Monghsat,MMR016006,district_D077
+township_228,Mongkhet,MMR016002,district_D076
+township_229,Mongla,MMR016005,district_D076
+township_230,Mongping,MMR016007,district_D076
+township_231,Mongton,MMR016008,district_D077
+township_232,Mongyang,MMR016003,district_D076
+township_233,Mongyawng,MMR016011,district_D078
+township_234,Nam Hpai,MMR016323,district_D080
+township_235,Tachileik,MMR016009,district_D078
+township_236,Aik Chan (Ai' Chun),MMR015311,district_D071
+township_237,Chinshwehaw Sub-township (Kokang SAZ),MMR015203,district_D070
+township_238,Hkun Mar (Hkwin Ma),MMR015306,district_D071
+township_239,Hopang,MMR015021,district_D067
+township_240,Hsawng Hpa (Saun Pha),MMR015305,district_D071
+township_241,Hseni,MMR015002,district_D062
+township_242,Hsipaw,MMR015014,district_D064
+township_243,Ka Lawng Hpar,MMR015310,district_D071
+township_244,Kawng Min Hsang,MMR015304,district_D071
+township_245,Konkyan,MMR015023,district_D074
+township_246,Konkyan (Kokang SAZ),MMR015201,district_D070
+township_247,Kunlong,MMR015020,district_D062
+township_248,Kutkai,MMR015011,district_D063
+township_249,Kyaukme,MMR015012,district_D064
+township_250,Lashio,MMR015001,district_D062
+township_251,Laukkaing,MMR015022,district_D074
+township_252,Laukkaing (Kokang SAZ),MMR015202,district_D070
+township_253,Lin Haw,MMR015309,district_D071
+township_254,Long Htan,MMR015307,district_D071
+township_255,Mabein,MMR015018,district_D069
+township_256,Man Man Hseng,MMR015313,district_D072
+township_257,Man Tun,MMR015303,district_D071
+township_258,Manton,MMR015019,district_D073
+township_259,Matman,MMR015024,district_D068
+township_260,Mongmao,MMR015008,district_D067
+township_261,Mongmit,MMR015017,district_D069
+township_262,Mongyai,MMR015003,district_D062
+township_263,Muse,MMR015009,district_D063
+township_264,Nam Hkam Wu,MMR015315,district_D072
+township_265,Nam Tit,MMR015301,district_D071
+township_266,Namhkan,MMR015010,district_D063
+township_267,Namhsan,MMR015016,district_D073
+township_268,Namtu,MMR015015,district_D064
+township_269,Nar Kawng,MMR015316,district_D072
+township_270,Nar Wee (Na Wi),MMR015302,district_D071
+township_271,Narphan,MMR015006,district_D068
+township_272,Nawng Hkit,MMR015314,district_D072
+township_273,Nawnghkio,MMR015013,district_D064
+township_274,Pang Hkam,MMR015317,district_D072
+township_275,Pang Yang,MMR015318,district_D072
+township_276,Pangsang (Panghkam),MMR015005,district_D068
+township_277,Pangwaun,MMR015007,district_D067
+township_278,Tangyan,MMR015004,district_D062
+township_279,Yawng Lin,MMR015308,district_D071
+township_280,Yin Pang,MMR015312,district_D071
+township_281,Hopong,MMR014003,district_D061
+township_282,Hsihseng,MMR014004,district_D061
+township_283,Kalaw,MMR014005,district_D057
+township_284,Kunhing,MMR014014,district_D058
+township_285,Kyethi,MMR014015,district_D058
+township_286,Laihka,MMR014012,district_D058
+township_287,Langkho,MMR014018,district_D059
+township_288,Lawksawk,MMR014008,district_D057
+township_289,Loilen,MMR014011,district_D058
+township_290,Mawkmai,MMR014020,district_D059
+township_291,Monghsu,MMR014017,district_D058
+township_292,Mongkaing,MMR014016,district_D058
+township_293,Mongnai,MMR014019,district_D059
+township_294,Mongpan,MMR014021,district_D059
+township_295,Nansang,MMR014013,district_D058
+township_296,Nyaungshwe,MMR014002,district_D057
+township_297,Pekon,MMR014010,district_D057
+township_298,Pindaya,MMR014006,district_D060
+township_299,Pinlaung,MMR014009,district_D061
+township_300,Taunggyi,MMR014001,district_D057
+township_301,Ywangan,MMR014007,district_D060
+township_302,Bokpyin,MMR006010,district_D029
+township_303,Dawei,MMR006001,district_D027
+township_304,Kawthoung,MMR006009,district_D029
+township_305,Kyunsu,MMR006006,district_D028
+township_306,Launglon,MMR006002,district_D027
+township_307,Myeik,MMR006005,district_D028
+township_308,Palaw,MMR006007,district_D028
+township_309,Tanintharyi,MMR006008,district_D028
+township_310,Thayetchaung,MMR006003,district_D027
+township_311,Yebyu,MMR006004,district_D027
+township_312,Ahlone,MMR013037,district_D056
+township_313,Bahan,MMR013044,district_D056
+township_314,Botahtaung,MMR013017,district_D054
+township_315,Cocokyun,MMR013032,district_D055
+township_316,Dagon,MMR013043,district_D056
+township_317,Dagon Myothit (East),MMR013020,district_D054
+township_318,Dagon Myothit (North),MMR013019,district_D054
+township_319,Dagon Myothit (Seikkan),MMR013021,district_D054
+township_320,Dagon Myothit (South),MMR013018,district_D054
+township_321,Dala,MMR013030,district_D055
+township_322,Dawbon,MMR013014,district_D054
+township_323,Hlaing,MMR013040,district_D056
+township_324,Hlaingtharya,MMR013008,district_D053
+township_325,Hlegu,MMR013004,district_D053
+township_326,Hmawbi,MMR013003,district_D053
+township_327,Htantabin,MMR013006,district_D053
+township_328,Insein,MMR013001,district_D053
+township_329,Kamaryut,MMR013041,district_D056
+township_330,Kawhmu,MMR013028,district_D055
+township_331,Kayan,MMR013026,district_D055
+township_332,Kungyangon,MMR013029,district_D055
+township_333,Kyauktada,MMR013033,district_D056
+township_334,Kyauktan,MMR013024,district_D055
+township_335,Kyeemyindaing,MMR013038,district_D056
+township_336,Lanmadaw,MMR013035,district_D056
+township_337,Latha,MMR013036,district_D056
+township_338,Mayangone,MMR013042,district_D056
+township_339,Mingaladon,MMR013002,district_D053
+township_340,Mingalartaungnyunt,MMR013022,district_D054
+township_341,North Okkalapa,MMR013012,district_D054
+township_342,Pabedan,MMR013034,district_D056
+township_343,Pazundaung,MMR013016,district_D054
+township_344,Sanchaung,MMR013039,district_D056
+township_345,Seikgyikanaungto,MMR013031,district_D055
+township_346,Seikkan,MMR013045,district_D056
+township_347,Shwepyithar,MMR013007,district_D053
+township_348,South Okkalapa,MMR013011,district_D054
+township_349,Taikkyi,MMR013005,district_D053
+township_350,Tamwe,MMR013015,district_D054
+township_351,Thaketa,MMR013013,district_D054
+township_352,Thanlyin,MMR013023,district_D055
+township_353,Thingangyun,MMR013009,district_D054
+township_354,Thongwa,MMR013025,district_D055
+township_355,Twantay,MMR013027,district_D055
+township_356,Yankin,MMR013010,district_D054
+township_357,Hlaingtharya (East),MMR013046,district_D053
+township_358,Hlaingtharya (West),MMR013047,district_D053

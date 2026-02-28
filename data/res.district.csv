@@ -1,0 +1,89 @@
+﻿id,name,code,state_id:id,type
+district_D001,Myitkyina,MMR001D001,mm_state_001,district
+district_D002,Mohnyin,MMR001D002,mm_state_001,district
+district_D003,Bhamo,MMR001D003,mm_state_001,district
+district_D004,Puta-O,MMR001D004,mm_state_001,district
+district_D005,Loikaw,MMR002D001,mm_state_002,district
+district_D006,Bawlake,MMR002D002,mm_state_002,district
+district_D007,Hpa-An,MMR003D001,mm_state_003,district
+district_D008,Myawaddy,MMR003D002,mm_state_003,district
+district_D009,Kawkareik,MMR003D003,mm_state_003,district
+district_D010,Hpapun,MMR003D004,mm_state_003,district
+district_D011,Falam,MMR004D001,mm_state_004,district
+district_D012,Mindat,MMR004D002,mm_state_004,district
+district_D013,Hakha,MMR004D003,mm_state_004,district
+district_D014,Matupi,MMR004D004,mm_state_004,district
+district_D015,Sagaing,MMR005D001,mm_state_005,district
+district_D016,Shwebo,MMR005D002,mm_state_005,district
+district_D017,Monywa,MMR005D003,mm_state_005,district
+district_D018,Katha,MMR005D004,mm_state_005,district
+district_D019,Kale,MMR005D005,mm_state_005,district
+district_D020,Tamu,MMR005D006,mm_state_005,district
+district_D021,Mawlaik,MMR005D007,mm_state_005,district
+district_D022,Hkamti,MMR005D008,mm_state_005,district
+district_D023,Yinmarbin,MMR005D009,mm_state_005,district
+district_D024,Kanbalu,MMR005D010,mm_state_005,district
+district_D025,Kawlin,MMR005D011,mm_state_005,district
+district_D026,Naga Self-Administered Zone,MMR005S001,mm_state_005,saz
+district_D027,Dawei,MMR006D001,mm_state_006,district
+district_D028,Myeik,MMR006D002,mm_state_006,district
+district_D029,Kawthoung,MMR006D003,mm_state_006,district
+district_D030,Bago,MMR007D001,mm_state_007,district
+district_D031,Taungoo,MMR007D002,mm_state_007,district
+district_D032,Pyay,MMR008D001,mm_state_008,district
+district_D033,Thayarwady,MMR008D002,mm_state_008,district
+district_D034,Magway,MMR009D001,mm_state_009,district
+district_D035,Minbu,MMR009D002,mm_state_009,district
+district_D036,Thayet,MMR009D003,mm_state_009,district
+district_D037,Pakokku,MMR009D004,mm_state_009,district
+district_D038,Gangaw,MMR009D005,mm_state_009,district
+district_D039,Mandalay,MMR010D001,mm_state_010,district
+district_D040,Pyinoolwin,MMR010D002,mm_state_010,district
+district_D041,Kyaukse,MMR010D003,mm_state_010,district
+district_D042,Myingyan,MMR010D004,mm_state_010,district
+district_D043,Nyaung-U,MMR010D005,mm_state_010,district
+district_D044,Yamethin,MMR010D006,mm_state_010,district
+district_D045,Meiktila,MMR010D007,mm_state_010,district
+district_D046,Mawlamyine,MMR011D001,mm_state_011,district
+district_D047,Thaton,MMR011D002,mm_state_011,district
+district_D048,Sittwe,MMR012D001,mm_state_012,district
+district_D049,Maungdaw,MMR012D002,mm_state_012,district
+district_D050,Kyaukpyu,MMR012D003,mm_state_012,district
+district_D051,Thandwe,MMR012D004,mm_state_012,district
+district_D052,Mrauk-U,MMR012D005,mm_state_012,district
+district_D053,Yangon (North),MMR013D001,mm_state_013,district
+district_D054,Yangon (East),MMR013D002,mm_state_013,district
+district_D055,Yangon (South),MMR013D003,mm_state_013,district
+district_D056,Yangon (West),MMR013D004,mm_state_013,district
+district_D057,Taunggyi,MMR014D001,mm_state_014,district
+district_D058,Loilen,MMR014D002,mm_state_014,district
+district_D059,Langkho,MMR014D003,mm_state_014,district
+district_D060,Danu Self-Administered Zone,MMR014S001,mm_state_014,saz
+district_D061,Pa-O Self-Administered Zone,MMR014S002,mm_state_014,saz
+district_D062,Lashio,MMR015D001,mm_state_015,district
+district_D063,Muse,MMR015D002,mm_state_015,district
+district_D064,Kyaukme,MMR015D003,mm_state_015,district
+district_D065,Kunlong,MMR015D004,mm_state_015,district
+district_D066,Laukkaing,MMR015D005,mm_state_015,district
+district_D067,Hopang,MMR015D006,mm_state_015,district
+district_D068,Matman,MMR015D007,mm_state_015,district
+district_D069,Mongmit,MMR015D008,mm_state_015,district
+district_D070,Laukkaing (Kokang SAZ),MMR015D221,mm_state_015,district
+district_D071,Mong Maw (Wa SAD),MMR015D331,mm_state_015,district
+district_D072,Wein Kawng (Wein Kao) (Wa SAD),MMR015D332,mm_state_015,district
+district_D073,Pa Laung Self-Administered Zone,MMR015S001,mm_state_015,saz
+district_D074,Kokang Self-Administered Zone,MMR015S002,mm_state_015,saz
+district_D075,Wa Self-Administered Division,MMR015S501,mm_state_015,sad
+district_D076,Kengtung,MMR016D001,mm_state_016,district
+district_D077,Monghsat,MMR016D002,mm_state_016,district
+district_D078,Tachileik,MMR016D003,mm_state_016,district
+district_D079,Monghpyak,MMR016D004,mm_state_016,district
+district_D080,Mong Pawk (Wa SAD),MMR016D333,mm_state_016,district
+district_D081,Pathein,MMR017D001,mm_state_017,district
+district_D082,Hinthada,MMR017D002,mm_state_017,district
+district_D083,Myaungmya,MMR017D003,mm_state_017,district
+district_D084,Labutta,MMR017D004,mm_state_017,district
+district_D085,Maubin,MMR017D005,mm_state_017,district
+district_D086,Pyapon,MMR017D006,mm_state_017,district
+district_D087,Oke Ta Ra,MMR018D001,mm_state_018,district
+district_D088,Det Khi Na,MMR018D002,mm_state_018,district
