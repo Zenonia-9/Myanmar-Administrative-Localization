@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <menuitem id="menu_l10n_mm_localization_group" 
+        name="Myanmar Localization"
+        parent="contacts.menu_localisation" 
+        sequence="7"/>
+
+    <menuitem
+        id="menu_l10n_mm_pcode_district"
+        name="District"
+        parent="menu_l10n_mm_localization_group"
+        action="action_res_district"
+        sequence="1"/>
+    
+    <menuitem
+        id="menu_l10n_mm_pcode_township"
+        name="Township"
+        parent="menu_l10n_mm_localization_group"
+        action="action_res_township"
+        sequence="2"/>
+
+    <menuitem
+        id="menu_l10n_mm_pcode_town"
+        name="Town"
+        parent="menu_l10n_mm_localization_group"
+        action="action_res_town"
+        sequence="3"/>
+
+</odoo>

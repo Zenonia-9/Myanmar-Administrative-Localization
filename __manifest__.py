@@ -28,6 +28,11 @@ hierarchy using official MIMU P-codes.
         'data/res.township.csv',
         'data/res.town.csv',
         'data/res.ward.csv',
+        # Views
+        'views/res_district_views.xml',
+        'views/res_township_views.xml',
+        'views/res_town_views.xml',
+        'views/menu.xml',
     ],
     'installable': True,
     'application': False,
