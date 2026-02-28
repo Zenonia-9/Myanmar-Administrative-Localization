@@ -1,4 +1,4 @@
-﻿id,name,code,state_id:id,type
+id,name,code,state_id:id,district_type
 district_D001,Myitkyina,MMR001D001,mm_state_001,district
 district_D002,Mohnyin,MMR001D002,mm_state_001,district
 district_D003,Bhamo,MMR001D003,mm_state_001,district

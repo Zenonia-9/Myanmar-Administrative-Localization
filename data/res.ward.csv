@@ -1,4 +1,4 @@
-﻿id,name,code,township_id:id,town_id:id,type
+id,name,p_code,township_id:id,town_id:id,ward_type
 ward_00001,No (1) Ward,MMR017024701501,township_001,town_001,ward
 ward_00002,No (10) Ward,MMR017024701510,township_001,town_001,ward
 ward_00003,No (2) Ward,MMR017024701502,township_001,town_001,ward
