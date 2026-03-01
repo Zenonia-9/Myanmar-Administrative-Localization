@@ -5,12 +5,29 @@
         <field name="name">res.district.view.list</field>
         <field name="model">res.district</field>
         <field name="arch" type="xml">
-            <list string="">
-                <field name="name" />
-                <field name="code" />
-                <field name="state_id" />
-                <field name="district_type" />
+            <list>
+                <field name="name"/>
+                <field name="code"/>
+                <field name="state_id"/>
+                <field name="district_type"/>
             </list>
+        </field>
+    </record>
+
+    <record id="res_district_view_search" model="ir.ui.view">
+        <field name="name">res.district.view.search</field>
+        <field name="model">res.district</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="code"/>
+                <field name="state_id"/>
+                <field name="district_type"/>
+                <group expand="0" string="Group By">
+                    <filter name="group_state" string="State/Region" context="{'group_by': 'state_id'}"/>
+                    <filter name="group_type" string="Type" context="{'group_by': 'district_type'}"/>
+                </group>
+            </search>
         </field>
     </record>
 
@@ -18,13 +35,17 @@
         <field name="name">res.district.view.form</field>
         <field name="model">res.district</field>
         <field name="arch" type="xml">
-            <form string="">
+            <form>
                 <sheet>
                     <group>
-                        <field name="name" />
-                        <field name="code" />
-                        <field name="state_id" />
-                        <field name="district_type" />
+                        <group>
+                            <field name="name"/>
+                            <field name="code"/>
+                        </group>
+                        <group>
+                            <field name="state_id"/>
+                            <field name="district_type"/>
+                        </group>
                     </group>
                 </sheet>
             </form>
@@ -32,7 +53,7 @@
     </record>
 
     <record id="action_res_district" model="ir.actions.act_window">
-        <field name="name">District</field>
+        <field name="name">Districts</field>
         <field name="res_model">res.district</field>
         <field name="view_mode">list,form</field>
         <field name="help" type="html">

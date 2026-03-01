@@ -8,23 +8,30 @@
 
     <menuitem
         id="menu_l10n_mm_pcode_district"
-        name="District"
+        name="Districts"
         parent="menu_l10n_mm_localization_group"
         action="action_res_district"
         sequence="1"/>
     
     <menuitem
         id="menu_l10n_mm_pcode_township"
-        name="Township"
+        name="Townships"
         parent="menu_l10n_mm_localization_group"
         action="action_res_township"
         sequence="2"/>
 
     <menuitem
         id="menu_l10n_mm_pcode_town"
-        name="Town"
+        name="Towns"
         parent="menu_l10n_mm_localization_group"
         action="action_res_town"
         sequence="3"/>
+
+    <menuitem
+        id="menu_l10n_mm_pcode_ward"
+        name="Wards"
+        parent="menu_l10n_mm_localization_group"
+        action="action_res_ward"
+        sequence="4"/>
 
 </odoo>

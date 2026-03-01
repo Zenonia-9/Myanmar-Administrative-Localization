@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_partner_form_inherit_mm_pcode" model="ir.ui.view">
+        <field name="name">res.partner.form.inherit.mm.pcode</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <field name="city" position="before">
+                <field name="l10n_mm_is_myanmar" invisible="1"/>
+                <field name="l10n_mm_ward_id"
+                       class="o_address_street"
+                       invisible="not l10n_mm_is_myanmar" 
+                       placeholder="Ward"
+                       options="{'no_open': True, 'no_create': True, 'no_quick_create': True}"
+                       readonly="type == 'contact' and parent_id"/>
+                <field name="l10n_mm_town_id"
+                       class="o_address_city"
+                       invisible="not l10n_mm_is_myanmar" 
+                       placeholder="Town"
+                       options="{'no_open': True, 'no_create': True, 'no_quick_create': True}"
+                       readonly="type == 'contact' and parent_id"/>
+                <field name="l10n_mm_township_id"
+                       class="o_address_city"
+                       invisible="not l10n_mm_is_myanmar" 
+                       placeholder="Township"
+                       options="{'no_open': True, 'no_create': True, 'no_quick_create': True}"
+                       readonly="type == 'contact' and parent_id"/>
+                <field name="l10n_mm_district_id" 
+                       class="o_address_state" 
+                       invisible="not l10n_mm_is_myanmar" 
+                       placeholder="District"
+                       options="{'no_open': True, 'no_create': True, 'no_quick_create': True}"
+                       readonly="type == 'contact' and parent_id"/>
+                <field name="l10n_mm_pcode"
+                       class="o_address_state"
+                       invisible="not l10n_mm_is_myanmar" 
+                       placeholder="P-Code (e.g. MMR017024040)"
+                       readonly="type == 'contact' and parent_id"/>
+            </field>
+                
+            <field name="city" position="attributes">
+                <attribute name="invisible">l10n_mm_is_myanmar</attribute>
+            </field>
+            <field name="zip" position="attributes">
+                <attribute name="invisible">l10n_mm_is_myanmar</attribute>
+            </field>
+        </field>
+    </record>
+</odoo>
