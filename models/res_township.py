@@ -4,6 +4,7 @@ from odoo import api, fields, models
 class ResTownship(models.Model):
     _name = 'res.township'
     _description = 'Myanmar Township'
+    _order = 'name'
 
     name = fields.Char(required=True)
     code = fields.Char(
@@ -19,3 +20,7 @@ class ResTownship(models.Model):
         string='District',
         required=True,
     )
+
+    _sql_constraints = [
+        ('code_uniq', 'unique(code)', 'Township code must be unique!'),
+    ]

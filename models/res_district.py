@@ -4,6 +4,7 @@ from odoo import api, fields, models
 class ResDistrict(models.Model):
     _name = 'res.district'
     _description = 'Myanmar District'
+    _order = 'name'
 
     name = fields.Char(required=True)
     code = fields.Char(
@@ -24,4 +25,7 @@ class ResDistrict(models.Model):
         ('saz', 'Self-Administered Zone'),
         ('sad', 'Self-Administered Division'),
     ],  default='district')
-    
+
+    _sql_constraints = [
+        ('code_uniq', 'unique(code)', 'District code must be unique!'),
+    ]

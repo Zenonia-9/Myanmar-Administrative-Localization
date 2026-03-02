@@ -44,6 +44,64 @@
             <field name="zip" position="attributes">
                 <attribute name="invisible">l10n_mm_is_myanmar</attribute>
             </field>
+
+            <!-- Same for child contact addresses -->
+            <xpath expr="//field[@name='child_ids']//form//field[@name='city']" position="before">
+                <field name="l10n_mm_is_myanmar" invisible="1"/>
+                <field name="l10n_mm_ward_id"
+                       class="o_address_street"
+                       invisible="not l10n_mm_is_myanmar" 
+                       placeholder="Ward"
+                       options="{'no_open': True, 'no_create': True, 'no_quick_create': True}"/>
+                <field name="l10n_mm_town_id"
+                       class="o_address_city"
+                       invisible="not l10n_mm_is_myanmar" 
+                       placeholder="Town"
+                       options="{'no_open': True, 'no_create': True, 'no_quick_create': True}"/>
+                <field name="l10n_mm_township_id"
+                       class="o_address_city"
+                       invisible="not l10n_mm_is_myanmar" 
+                       placeholder="Township"
+                       options="{'no_open': True, 'no_create': True, 'no_quick_create': True}"/>
+                <field name="l10n_mm_district_id" 
+                       class="o_address_state" 
+                       invisible="not l10n_mm_is_myanmar" 
+                       placeholder="District"
+                       options="{'no_open': True, 'no_create': True, 'no_quick_create': True}"/>
+                <field name="l10n_mm_pcode"
+                       class="o_address_state"
+                       invisible="not l10n_mm_is_myanmar" 
+                       placeholder="P-Code (e.g. MMR017024040)"/>
+            </xpath>
+            <xpath expr="//field[@name='child_ids']//form//field[@name='city']" position="attributes">
+                <attribute name="invisible">l10n_mm_is_myanmar</attribute>
+            </xpath>
+            <xpath expr="//field[@name='child_ids']//form//field[@name='zip']" position="attributes">
+                <attribute name="invisible">l10n_mm_is_myanmar</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_partner_kanban_inherit_mm_pcode" model="ir.ui.view">
+        <field name="name">res.partner.kanban.inherit.mm.pcode</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.res_partner_kanban_view"/>
+        <field name="arch" type="xml">
+            <field name="city" position="after">
+                <field name="l10n_mm_ward_id"/>
+            </field>
+            <xpath expr="//div[contains(@t-if, 'record.city.raw_value')]" position="replace">
+                <div t-if="record.city.raw_value or record.l10n_mm_ward_id.raw_value or record.country_id.raw_value">
+                    <t t-if="record.l10n_mm_ward_id.raw_value">
+                        <field name="l10n_mm_ward_id"/>
+                    </t>
+                    <t t-if="record.city.raw_value">
+                        <field name="city"/>
+                    </t>
+                    <span t-if="(record.city.raw_value or record.l10n_mm_ward_id.raw_value) and record.country_id.raw_value">, </span>
+                    <field name="country_id"/>
+                </div>
+            </xpath>
         </field>
     </record>
 </odoo>

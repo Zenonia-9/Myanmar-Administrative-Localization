@@ -5,6 +5,7 @@ class ResWard(models.Model):
     _name = 'res.ward'
     _description = 'Myanmar Ward / Village Tract'
     _rec_name = 'name'
+    _order = 'p_code'
 
     name = fields.Char(required=True)
     p_code = fields.Char(
@@ -34,12 +35,17 @@ class ResWard(models.Model):
     help='Specifies whether this record is a Ward or a Village Tract.'
     )
 
+    _sql_constraints = [
+        ('p_code_uniq', 'unique(p_code)', 'P-code must be unique!'),
+    ]
+
     @api.depends(
         "name",
         "township_id.name",
         "township_id.district_id.name",
     )
     def _compute_display_name(self):
+        # Compute display name with hierarchical structure: Ward, Township, District
         for rec in self:
             parts = [rec.name or ""]
             if rec.township_id:
@@ -47,3 +53,15 @@ class ResWard(models.Model):
             if rec.township_id.district_id:
                 parts.append(rec.township_id.district_id.name)
             rec.display_name = ", ".join(p for p in parts if p)
+
+    @api.model
+    def _name_search(self, name='', domain=None, operator='ilike', limit=None, order=None):
+        # Search by name, p_code, township, or district
+        domain = domain or []
+        if name:
+            domain = ['|', '|', '|',
+                      ('name', operator, name),
+                      ('p_code', operator, name),
+                      ('township_id.name', operator, name),
+                      ('township_id.district_id.name', operator, name)] + domain
+        return self._search(domain, limit=limit, order=order)
