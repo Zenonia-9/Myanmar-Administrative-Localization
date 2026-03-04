@@ -15,7 +15,7 @@ hierarchy using official MIMU P-codes.
 - Supports reporting and data standardization
 """,
     'category': 'Localization',
-    'author': "Your Name",
+    'author': "Zenonia",
     'website': "https://github.com/Zenonia-9/Myanmar-Administrative-Localization",
     'license': 'LGPL-3',
     'depends': ['base', 'contacts'],

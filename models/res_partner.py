@@ -173,3 +173,4 @@ class ResPartner(models.Model):
             'l10n_mm_town_id',
             'l10n_mm_ward_id',
         ]
+    
