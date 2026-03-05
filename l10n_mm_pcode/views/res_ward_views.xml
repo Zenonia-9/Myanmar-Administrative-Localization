@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="res_ward_view_tree" model="ir.ui.view">
+        <field name="name">res.ward.view.list</field>
+        <field name="model">res.ward</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="p_code"/>
+                <field name="township_id"/>
+                <field name="town_id"/>
+                <field name="ward_type"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="res_ward_view_search" model="ir.ui.view">
+        <field name="name">res.ward.view.search</field>
+        <field name="model">res.ward</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="p_code"/>
+                <field name="township_id"/>
+                <field name="town_id"/>
+                <field name="ward_type"/>
+                <group expand="0" string="Group By">
+                    <filter name="group_township" string="Township" context="{'group_by': 'township_id'}"/>
+                    <filter name="group_town" string="Town" context="{'group_by': 'town_id'}"/>
+                    <filter name="group_type" string="Type" context="{'group_by': 'ward_type'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="res_ward_view_form" model="ir.ui.view">
+        <field name="name">res.ward.view.form</field>
+        <field name="model">res.ward</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="p_code"/>
+                            <field name="ward_type"/>
+                        </group>
+                        <group>
+                            <field name="township_id"/>
+                            <field name="town_id"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    
+    <record id="action_res_ward" model="ir.actions.act_window">
+        <field name="name">Wards</field>
+        <field name="res_model">res.ward</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Click "Create" to add a new ward.
+            </p>
+        </field>
+    </record>
+</odoo>

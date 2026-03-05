@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_employee_form_inherit_mm_hr" model="ir.ui.view">
+        <field name="name">hr.employee.form.inherit.mm.hr</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="arch" type="xml">
+            <field name="private_city" position="before">
+                <field name="private_l10n_mm_is_myanmar" invisible="1"/>
+                <field name="private_l10n_mm_ward_id"
+                       class="o_address_street"
+                       invisible="not private_l10n_mm_is_myanmar"
+                       placeholder="Ward"
+                       options="{'no_open': True, 'no_create': True, 'no_quick_create': True}"/>
+                <field name="private_l10n_mm_town_id"
+                       class="o_address_city"
+                       invisible="not private_l10n_mm_is_myanmar"
+                       placeholder="Town"
+                       options="{'no_open': True, 'no_create': True, 'no_quick_create': True}"/>
+                <field name="private_l10n_mm_township_id"
+                       class="o_address_city"
+                       invisible="not private_l10n_mm_is_myanmar"
+                       placeholder="Township"
+                       options="{'no_open': True, 'no_create': True, 'no_quick_create': True}"/>
+                <field name="private_l10n_mm_district_id"
+                       class="o_address_state"
+                       invisible="not private_l10n_mm_is_myanmar"
+                       placeholder="District"
+                       options="{'no_open': True, 'no_create': True, 'no_quick_create': True}"/>
+                <field name="private_l10n_mm_pcode"
+                       class="o_address_state"
+                       invisible="not private_l10n_mm_is_myanmar"
+                       placeholder="P-Code (e.g. MMR017024040)"/>
+            </field>
+            <field name="private_city" position="attributes">
+                <attribute name="invisible">private_l10n_mm_is_myanmar</attribute>
+            </field>
+            <field name="private_zip" position="attributes">
+                <attribute name="invisible">private_l10n_mm_is_myanmar</attribute>
+            </field>
+        </field>
+    </record>
+</odoo>
