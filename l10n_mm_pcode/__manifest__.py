@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     'name': "Myanmar Administrative Localization",
-    'version': "1.0.0",
+    'version': "18.0.0.1",
     'summary': "Adds Myanmar administrative hierarchy (MIMU P-codes) for contacts",
     'description': """
 Myanmar Administrative Localization (l10n_mm_pcode)
