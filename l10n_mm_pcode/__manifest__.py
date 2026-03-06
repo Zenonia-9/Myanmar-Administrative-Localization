@@ -19,6 +19,9 @@ hierarchy using official MIMU P-codes.
     'website': "https://github.com/Zenonia-9/Myanmar-Administrative-Localization",
     'license': 'LGPL-3',
     'depends': ['base', 'contacts'],
+    'images': [
+        'static/description/icon.png',
+    ],
     'data': [
         # Security
         'security/ir.model.access.csv',
