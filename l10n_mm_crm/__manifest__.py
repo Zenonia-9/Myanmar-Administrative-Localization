@@ -9,11 +9,14 @@ Myanmar CRM Localization
 Extends CRM leads/opportunities with Myanmar administrative hierarchy fields
 in the Extra Information tab.
 """,
-    'category': 'Sales/CRM',
+    'category': 'Sales/CRM/Localization',
     'author': "Zenonia",
     'website': "https://github.com/Zenonia-9/Myanmar-Administrative-Localization",
     'license': 'LGPL-3',
     'depends': ['crm', 'l10n_mm_pcode'],
+    'images': [
+        'static/description/icon.png',
+    ],
     'data': [
         'views/crm_lead_views.xml',
     ],
