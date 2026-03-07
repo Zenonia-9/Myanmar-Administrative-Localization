@@ -1,0 +1,9 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_res_district_all,res.district.all,model_res_district,base.group_user,1,0,0,0
+access_res_district_manager,res.district.manager,model_res_district,base.group_partner_manager,1,1,1,1
+access_res_town_all,res.town.all,model_res_town,base.group_user,1,0,0,0
+access_res_town_manager,res.town.manager,model_res_town,base.group_partner_manager,1,1,1,1
+access_res_township_all,res.township.all,model_res_township,base.group_user,1,0,0,0
+access_res_township_manager,res.township.manager,model_res_township,base.group_partner_manager,1,1,1,1
+access_res_ward_all,res.ward.all,model_res_ward,base.group_user,1,0,0,0
+access_res_ward_manager,res.ward.manager,model_res_ward,base.group_partner_manager,1,1,1,1

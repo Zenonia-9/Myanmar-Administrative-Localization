@@ -1,0 +1,19 @@
+id,name,code,country_id:id
+mm_state_001,Kachin,MMR001,base.mm
+mm_state_002,Kayah,MMR002,base.mm
+mm_state_003,Kayin,MMR003,base.mm
+mm_state_004,Chin,MMR004,base.mm
+mm_state_005,Sagaing,MMR005,base.mm
+mm_state_006,Tanintharyi,MMR006,base.mm
+mm_state_007,Bago (East),MMR007,base.mm
+mm_state_008,Bago (West),MMR008,base.mm
+mm_state_009,Magway,MMR009,base.mm
+mm_state_010,Mandalay,MMR010,base.mm
+mm_state_011,Mon,MMR011,base.mm
+mm_state_012,Rakhine,MMR012,base.mm
+mm_state_013,Yangon,MMR013,base.mm
+mm_state_014,Shan (South),MMR014,base.mm
+mm_state_015,Shan (North),MMR015,base.mm
+mm_state_016,Shan (East),MMR016,base.mm
+mm_state_017,Ayeyarwady,MMR017,base.mm
+mm_state_018,Nay Pyi Taw,MMR018,base.mm
