@@ -45,8 +45,7 @@ class ResWard(models.Model):
         'name_mm',
         'township_id.name',
         'township_id.name_mm',
-        'township_id.district_id.name',
-        'township_id.district_id.name_mm',
+        'township_id.district_id.state_id.name',
     )
     def _compute_display_name(self):
         use_mm = self.env['ir.config_parameter'].sudo().get_param('l10n_mm_pcode.use_myanmar_language')
@@ -54,8 +53,8 @@ class ResWard(models.Model):
             parts = [rec.name_mm if use_mm and rec.name_mm else rec.name]
             if rec.township_id:
                 parts.append(rec.township_id.name_mm if use_mm and rec.township_id.name_mm else rec.township_id.name)
-            if rec.township_id.district_id:
-                parts.append(rec.township_id.district_id.name_mm if use_mm and rec.township_id.district_id.name_mm else rec.township_id.district_id.name)
+            if rec.township_id.district_id.state_id:
+                parts.append(rec.township_id.district_id.state_id.name_mm if use_mm and rec.township_id.district_id.state_id.name_mm else rec.township_id.district_id.state_id.name)
             rec.display_name = ', '.join(p for p in parts if p)
 
     @api.model
