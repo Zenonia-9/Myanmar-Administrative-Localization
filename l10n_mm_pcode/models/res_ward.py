@@ -57,9 +57,20 @@ class ResWard(models.Model):
                 parts.append(rec.township_id.district_id.state_id.name_mm if use_mm and rec.township_id.district_id.state_id.name_mm else rec.township_id.district_id.state_id.name)
             rec.display_name = ', '.join(p for p in parts if p)
 
-    @api.model
-    def _name_search(self, name='', domain=None, operator='ilike', limit=None, order=None):
-        domain = domain or []
-        if name:
-            domain = ['|', ('name', operator, name), ('name_mm', operator, name)] + domain
-        return self._search(domain, limit=limit, order=order)
+    def _search_display_name(self, operator, value):
+        return [
+            '|', '|', '|', '|', '|',
+            ('name', operator, value),
+            ('name_mm', operator, value),
+            ('township_id.name', operator, value),
+            ('township_id.name_mm', operator, value),
+            ('township_id.district_id.state_id.name', operator, value),
+            ('township_id.district_id.state_id.name_mm', operator, value),
+        ]
+
+    # @api.model
+    # def _name_search(self, name='', domain=None, operator='ilike', limit=None, order=None):
+    #     domain = domain or []
+    #     if name:
+    #         domain = ['|', ('name', operator, name), ('name_mm', operator, name)] + domain
+    #     return self._search(domain, limit=limit, order=order)
