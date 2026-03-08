@@ -1,1 +1,1 @@
-from . import res_partner, res_district, res_township, res_town, res_ward, res_country  # noqa: F401
+from . import res_partner, res_district, res_township, res_town, res_ward, res_country, res_country_state, res_config_settings  # noqa: F401

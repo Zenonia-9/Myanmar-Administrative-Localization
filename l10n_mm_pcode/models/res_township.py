@@ -7,6 +7,7 @@ class ResTownship(models.Model):
     _order = 'name'
 
     name = fields.Char(required=True)
+    name_mm = fields.Char(string='Myanmar Name')
     code = fields.Char(
         string='Township Code',
         required=True,
@@ -24,3 +25,9 @@ class ResTownship(models.Model):
     _sql_constraints = [
         ('code_uniq', 'unique(code)', 'Township code must be unique!'),
     ]
+
+    @api.depends('name', 'name_mm')
+    def _compute_display_name(self):
+        use_mm = self.env['ir.config_parameter'].sudo().get_param('l10n_mm_pcode.use_myanmar_language')
+        for rec in self:
+            rec.display_name = rec.name_mm if use_mm and rec.name_mm else rec.name

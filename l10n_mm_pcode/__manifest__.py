@@ -25,6 +25,14 @@ hierarchy using official MIMU P-codes.
     'data': [
         # Security
         'security/ir.model.access.csv',
+        # Views (load first to ensure model fields are registered)
+        'views/res_district_views.xml',
+        'views/res_township_views.xml',
+        'views/res_town_views.xml',
+        'views/res_ward_views.xml',
+        'views/res_partner_views.xml',
+        'views/res_config_settings_views.xml',
+        'views/menu.xml',
         # Data
         'data/res.country.state.csv',
         'data/res.district.csv',
@@ -32,13 +40,6 @@ hierarchy using official MIMU P-codes.
         'data/res.town.csv',
         'data/res.ward.csv',
         'data/res_country_data.xml',
-        # Views
-        'views/res_district_views.xml',
-        'views/res_township_views.xml',
-        'views/res_town_views.xml',
-        'views/res_ward_views.xml',
-        'views/res_partner_views.xml',
-        'views/menu.xml',
     ],
     'installable': True,
     'application': False,

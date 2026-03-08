@@ -8,6 +8,7 @@ class ResWard(models.Model):
     _order = 'p_code'
 
     name = fields.Char(required=True)
+    name_mm = fields.Char(string='Myanmar Name')
     p_code = fields.Char(
         string='P-Code',
         required=True,
@@ -40,28 +41,26 @@ class ResWard(models.Model):
     ]
 
     @api.depends(
-        "name",
-        "township_id.name",
-        "township_id.district_id.name",
+        'name',
+        'name_mm',
+        'township_id.name',
+        'township_id.name_mm',
+        'township_id.district_id.name',
+        'township_id.district_id.name_mm',
     )
     def _compute_display_name(self):
-        # Compute display name with hierarchical structure: Ward, Township, District
+        use_mm = self.env['ir.config_parameter'].sudo().get_param('l10n_mm_pcode.use_myanmar_language')
         for rec in self:
-            parts = [rec.name or ""]
+            parts = [rec.name_mm if use_mm and rec.name_mm else rec.name]
             if rec.township_id:
-                parts.append(rec.township_id.name)
+                parts.append(rec.township_id.name_mm if use_mm and rec.township_id.name_mm else rec.township_id.name)
             if rec.township_id.district_id:
-                parts.append(rec.township_id.district_id.name)
-            rec.display_name = ", ".join(p for p in parts if p)
+                parts.append(rec.township_id.district_id.name_mm if use_mm and rec.township_id.district_id.name_mm else rec.township_id.district_id.name)
+            rec.display_name = ', '.join(p for p in parts if p)
 
     @api.model
     def _name_search(self, name='', domain=None, operator='ilike', limit=None, order=None):
-        # Search by name, p_code, township, or district
         domain = domain or []
         if name:
-            domain = ['|', '|', '|',
-                      ('name', operator, name),
-                      ('p_code', operator, name),
-                      ('township_id.name', operator, name),
-                      ('township_id.district_id.name', operator, name)] + domain
+            domain = ['|', ('name', operator, name), ('name_mm', operator, name)] + domain
         return self._search(domain, limit=limit, order=order)
