@@ -1,0 +1,537 @@
+id,name,code,township_id:id
+town_001001701,Myitkyina Town,MMR001001701,township_001001
+town_001001702,Sinbo Town,MMR001001702,township_001001
+town_001002701,Waingmaw Town,MMR001002701,township_001002
+town_001002702,Sadung Town,MMR001002702,township_001002
+town_001002703,Kan Paik Ti Town,MMR001002703,township_001002
+town_001003701,Injangyang Town,MMR001003701,township_001003
+town_001004701,Tanai Town,MMR001004701,township_001004
+town_001004702,Shin Bway Yang Town,MMR001004702,township_001004
+town_001005701,Chipwi Town,MMR001005701,township_001005
+town_001005702,Pang War Town,MMR001005702,township_001005
+town_001006701,Tsawlaw Town,MMR001006701,township_001006
+town_001007701,Mohnyin Town,MMR001007701,township_001007
+town_001007702,Hopin Town,MMR001007702,township_001007
+town_001007703,Inn Taw Gyi Town,MMR001007703,township_001007
+town_001007704,Nam Mun Town,MMR001007704,township_001007
+town_001007705,Nam Mar Town,MMR001007705,township_001007
+town_001008701,Mogaung Town,MMR001008701,township_001008
+town_001008702,Nammatee Town,MMR001008702,township_001008
+town_001009701,Hpakant Town,MMR001009701,township_001009
+town_001009702,Kamaing Town,MMR001009702,township_001009
+town_001010701,Bhamo Town,MMR001010701,township_001010
+town_001011701,Shwegu Town,MMR001011701,township_001011
+town_001011702,Myo Hla Town,MMR001011702,township_001011
+town_001012701,Momauk Town,MMR001012701,township_001012
+town_001012702,Lwegel Town,MMR001012702,township_001012
+town_001012703,Dawthponeyan Town,MMR001012703,township_001012
+town_001013701,Mansi Town,MMR001013701,township_001013
+town_001014701,Puta-O Town,MMR001014701,township_001014
+town_001015701,Sumprabum Town,MMR001015701,township_001015
+town_001016701,Machanbaw Town,MMR001016701,township_001016
+town_001017701,Nawngmun Town,MMR001017701,township_001017
+town_001017702,Pannandin Town,MMR001017702,township_001017
+town_001018701,Khaunglanhpu Town,MMR001018701,township_001018
+town_002001701,Loikaw Town,MMR002001701,township_002001
+town_002001702,Loilen Lay Town,MMR002001702,township_002001
+town_002001703,Law Pi Ta Town,MMR002001703,township_002001
+town_002002701,Demoso Town,MMR002002701,township_002002
+town_002002702,Nan Mei Khon Town,MMR002002702,township_002002
+town_002003701,Hpruso Town,MMR002003701,township_002003
+town_002004701,Shadaw Town,MMR002004701,township_002004
+town_002005701,Bawlake Town,MMR002005701,township_002005
+town_002005702,Ywarthit Town,MMR002005702,township_002005
+town_002006701,Hpasawng Town,MMR002006701,township_002006
+town_002007701,Mese Town,MMR002007701,township_002007
+town_003001701,Hpa-An Town,MMR003001701,township_003001
+town_003002701,Hlaingbwe Town,MMR003002701,township_003002
+town_003002702,Paingkyon Town,MMR003002702,township_003002
+town_003002703,Shan Ywar Thit Town,MMR003002703,township_003002
+town_003003701,Hpapun Town,MMR003003701,township_003003
+town_003003702,Kamarmaung Town,MMR003003702,township_003003
+town_003004701,Thandaunggyi Town,MMR003004701,township_003004
+town_003004702,Thandaung Town,MMR003004702,township_003004
+town_003004703,Leik Tho Town,MMR003004703,township_003004
+town_003004704,Baw Ga Li Town,MMR003004704,township_003004
+town_003005701,Myawaddy Town,MMR003005701,township_003005
+town_003005702,Su Ka Li Town,MMR003005702,township_003005
+town_003005703,Waw Lay Myaing (Waw Lay) Town,MMR003005703,township_003005
+town_003006701,Kawkareik Town,MMR003006701,township_003006
+town_003006702,Kyondoe Town,MMR003006702,township_003006
+town_003007701,Kyainseikgyi Town,MMR003007701,township_003007
+town_003007702,Hpayarthonesu Town,MMR003007702,township_003007
+town_003007703,Kyaikdon Town,MMR003007703,township_003007
+town_004001701,Falam Town,MMR004001701,township_004001
+town_004001702,Rihkhawdar Town,MMR004001702,township_004001
+town_004001703,Webula Town,MMR004001703,township_004001
+town_004002701,Hakha Town,MMR004002701,township_004002
+town_004002702,Surkhua Town,MMR004002702,township_004002
+town_004003701,Thantlang Town,MMR004003701,township_004003
+town_004003702,Hnaring Town,MMR004003702,township_004003
+town_004004701,Tedim Town,MMR004004701,township_004004
+town_004004702,Khaikam Town,MMR004004702,township_004004
+town_004005701,Tonzang Town,MMR004005701,township_004005
+town_004005702,Cikha Town,MMR004005702,township_004005
+town_004006701,Mindat Town,MMR004006701,township_004006
+town_004006702,M'kuiimnu Town,MMR004006702,township_004006
+town_004007701,Matupi Town,MMR004007701,township_004007
+town_004007702,Rezua Town,MMR004007702,township_004007
+town_004007703,Lalengpi Town,MMR004007703,township_004007
+town_004008701,Kanpetlet Town,MMR004008701,township_004008
+town_004008702,Kyin Dway Town,MMR004008702,township_004008
+town_004009701,Paletwa Town,MMR004009701,township_004009
+town_004009702,Samee Town,MMR004009702,township_004009
+town_005001701,Sagaing Town,MMR005001701,township_005001
+town_005001702,Sar Taung Town,MMR005001702,township_005001
+town_005002701,Myinmu Town,MMR005002701,township_005002
+town_005003701,Myaung Town,MMR005003701,township_005003
+town_005004701,Shwebo Town,MMR005004701,township_005004
+town_005004702,Kyauk Myaung Town,MMR005004702,township_005004
+town_005005701,Khin-U Town,MMR005005701,township_005005
+town_005006701,Wetlet Town,MMR005006701,township_005006
+town_005007701,Kanbalu Town,MMR005007701,township_005007
+town_005007702,Zee Kone Town,MMR005007702,township_005007
+town_005008701,Kyunhla Town,MMR005008701,township_005008
+town_005009701,Ye-U Town,MMR005009701,township_005009
+town_005010701,Tabayin Town,MMR005010701,township_005010
+town_005010702,Saing Pyin Town,MMR005010702,township_005010
+town_005011701,Taze Town,MMR005011701,township_005011
+town_005012701,Monywa Town,MMR005012701,township_005012
+town_005013701,Budalin Town,MMR005013701,township_005013
+town_005014701,Ayadaw Town,MMR005014701,township_005014
+town_005015701,Chaung-U Town,MMR005015701,township_005015
+town_005016701,Yinmarbin Town,MMR005016701,township_005016
+town_005017701,Kani Town,MMR005017701,township_005017
+town_005018701,Salingyi Town,MMR005018701,township_005018
+town_005019701,Pale Town,MMR005019701,township_005019
+town_005020701,Katha Town,MMR005020701,township_005020
+town_005021701,Indaw Town,MMR005021701,township_005021
+town_005021702,Maw Lu Town,MMR005021702,township_005021
+town_005022701,Tigyaing Town,MMR005022701,township_005022
+town_005023701,Banmauk Town,MMR005023701,township_005023
+town_005024701,Kawlin Town,MMR005024701,township_005024
+town_005025701,Wuntho Town,MMR005025701,township_005025
+town_005026701,Pinlebu Town,MMR005026701,township_005026
+town_005027701,Kale Town,MMR005027701,township_005027
+town_005028701,Kalewa Town,MMR005028701,township_005028
+town_005029701,Mingin Town,MMR005029701,township_005029
+town_005030701,Tamu Town,MMR005030701,township_005030
+town_005030702,Myothit Town,MMR005030702,township_005030
+town_005030703,Khampat Town,MMR005030703,township_005030
+town_005031701,Mawlaik Town,MMR005031701,township_005031
+town_005032701,Paungbyin Town,MMR005032701,township_005032
+town_005033701,Hkamti Town,MMR005033701,township_005033
+town_005034701,Homalin Town,MMR005034701,township_005034
+town_005034702,Shwe Pyi Aye Town,MMR005034702,township_005034
+town_005034703,Mo Waing Lut Town,MMR005034703,township_005034
+town_005035701,Layshi Town,MMR005035701,township_005035
+town_005035702,Mowailut Town,MMR005035702,township_005035
+town_005035703,Somra Town,MMR005035703,township_005035
+town_005036701,Lahe Town,MMR005036701,township_005036
+town_005036702,Thangpakwe Town,MMR005036702,township_005036
+town_005037701,Namyung Town,MMR005037701,township_005037
+town_005037702,Pansau Town,MMR005037702,township_005037
+town_005037703,Dohi Town,MMR005037703,township_005037
+town_006001701,Dawei Town,MMR006001701,township_006001
+town_006001702,Myitta Town,MMR006001702,township_006001
+town_006002701,Launglon Town,MMR006002701,township_006002
+town_006003701,Thayetchaung Town,MMR006003701,township_006003
+town_006004701,Yebyu Town,MMR006004701,township_006004
+town_006004702,Kaleinaung Town,MMR006004702,township_006004
+town_006005701,Myeik Town,MMR006005701,township_006005
+town_006006701,Kyunsu Town,MMR006006701,township_006006
+town_006007701,Palaw Town,MMR006007701,township_006007
+town_006007702,Palauk Town,MMR006007702,township_006007
+town_006007703,Pala Town,MMR006007703,township_006007
+town_006008701,Tanintharyi Town,MMR006008701,township_006008
+town_006008702,Maw Taung Town,MMR006008702,township_006008
+town_006009701,Kawthoung Town,MMR006009701,township_006009
+town_006009702,Khamaukgyi Town,MMR006009702,township_006009
+town_006010701,Bokpyin Town,MMR006010701,township_006010
+town_006010702,Pyigyimandaing Town,MMR006010702,township_006010
+town_006010703,Karathuri Town,MMR006010703,township_006010
+town_007001701,Bago Town,MMR007001701,township_007001
+town_007001702,Hpayargyi Town,MMR007001702,township_007001
+town_007001703,Inntakaw Town,MMR007001703,township_007001
+town_007002701,Thanatpin Town,MMR007002701,township_007002
+town_007003701,Kawa Town,MMR007003701,township_007003
+town_007003702,Thetkala Town,MMR007003702,township_007003
+town_007004701,Waw Town,MMR007004701,township_007004
+town_007005701,Nyaunglebin Town,MMR007005701,township_007005
+town_007005702,Madauk Town,MMR007005702,township_007005
+town_007005703,Pyuntasa Town,MMR007005703,township_007005
+town_007005704,Peinzalok Town,MMR007005704,township_007005
+town_007006701,Kyauktaga Town,MMR007006701,township_007006
+town_007006702,Penwegon Town,MMR007006702,township_007006
+town_007006703,Hpa Do Town,MMR007006703,township_007006
+town_007007701,Daik-U Town,MMR007007701,township_007007
+town_007008701,Shwegyin Town,MMR007008701,township_007008
+town_007009701,Taungoo Town,MMR007009701,township_007009
+town_007009702,Kaytumati Town,MMR007009702,township_007009
+town_007010701,Yedashe Town,MMR007010701,township_007010
+town_007010702,Hswar Town,MMR007010702,township_007010
+town_007010703,Yae Ni Town,MMR007010703,township_007010
+town_007010704,Myo Hla Town,MMR007010704,township_007010
+town_007011701,Kyaukkyi Town,MMR007011701,township_007011
+town_007012701,Phyu Town,MMR007012701,township_007012
+town_007012702,Kanyutkwin Town,MMR007012702,township_007012
+town_007012703,Zayyawadi Town,MMR007012703,township_007012
+town_007013701,Oktwin Town,MMR007013701,township_007013
+town_007013702,Kywe Pwe Town,MMR007013702,township_007013
+town_007014701,Htantabin Town,MMR007014701,township_007014
+town_008001701,Pyay Town,MMR008001701,township_008001
+town_008001702,Paungdale Town,MMR008001702,township_008001
+town_008002701,Paukkhaung Town,MMR008002701,township_008002
+town_008003701,Padaung Town,MMR008003701,township_008003
+town_008003702,Oakshitpin Town,MMR008003702,township_008003
+town_008004701,Paungde Town,MMR008004701,township_008004
+town_008005701,Thegon Town,MMR008005701,township_008005
+town_008005702,Puteekone Town,MMR008005702,township_008005
+town_008005703,Inn Ma Town,MMR008005703,township_008005
+town_008005704,Sin Mee Swea Town,MMR008005704,township_008005
+town_008006701,Shwedaung Town,MMR008006701,township_008006
+town_008007701,Thayarwady Town,MMR008007701,township_008007
+town_008007702,Thonse Town,MMR008007702,township_008007
+town_008008701,Letpadan Town,MMR008008701,township_008008
+town_008009701,Minhla Town,MMR008009701,township_008009
+town_008009702,Sit Kwin Town,MMR008009702,township_008009
+town_008010701,Okpho Town,MMR008010701,township_008010
+town_008010702,Oe Thei Kone Town,MMR008010702,township_008010
+town_008011701,Zigon Town,MMR008011701,township_008011
+town_008012701,Nattalin Town,MMR008012701,township_008012
+town_008012702,Tar Pun Town,MMR008012702,township_008012
+town_008013701,Monyo Town,MMR008013701,township_008013
+town_008014701,Gyobingauk Town,MMR008014701,township_008014
+town_009001701,Magway Town,MMR009001701,township_009001
+town_009002701,Yenangyaung Town,MMR009002701,township_009002
+town_009003701,Chauk Town,MMR009003701,township_009003
+town_009003702,Sa Lay Town,MMR009003702,township_009003
+town_009004701,Taungdwingyi Town,MMR009004701,township_009004
+town_009005701,Myothit Town,MMR009005701,township_009005
+town_009006701,Natmauk Town,MMR009006701,township_009006
+town_009007701,Minbu Town,MMR009007701,township_009007
+town_009007702,Saku Town,MMR009007702,township_009007
+town_009008701,Pwintbyu Town,MMR009008701,township_009008
+town_009009701,Ngape Town,MMR009009701,township_009009
+town_009010701,Salin Town,MMR009010701,township_009010
+town_009010702,Sinphyukyun Town,MMR009010702,township_009010
+town_009011701,Sidoktaya Town,MMR009011701,township_009011
+town_009012701,Thayet Town,MMR009012701,township_009012
+town_009013701,Minhla Town,MMR009013701,township_009013
+town_009014701,Mindon Town,MMR009014701,township_009014
+town_009015701,Kamma Town,MMR009015701,township_009015
+town_009016701,Aunglan Town,MMR009016701,township_009016
+town_009017701,Sinbaungwe Town,MMR009017701,township_009017
+town_009018701,Pakokku Town,MMR009018701,township_009018
+town_009018702,Kamma Town,MMR009018702,township_009018
+town_009018703,Myit Chay Town,MMR009018703,township_009018
+town_009019701,Yesagyo Town,MMR009019701,township_009019
+town_009020701,Myaing Town,MMR009020701,township_009020
+town_009021701,Pauk Town,MMR009021701,township_009021
+town_009022701,Seikphyu Town,MMR009022701,township_009022
+town_009023701,Gangaw Town,MMR009023701,township_009023
+town_009023702,Kyaw Town,MMR009023702,township_009023
+town_009024701,Tilin Town,MMR009024701,township_009024
+town_009025701,Saw Town,MMR009025701,township_009025
+town_009025702,Kyaukhtu Town,MMR009025702,township_009025
+town_010000777,Mandalay City,MMR010000777,township_010001
+town_010001701,Aungmyaythazan Town,MMR010001701,township_010001
+town_010002701,Chanayethazan Town,MMR010002701,township_010002
+town_010003701,Mahaaungmyay Town,MMR010003701,township_010003
+town_010004701,Chanmyathazi Town,MMR010004701,township_010004
+town_010005701,Pyigyitagon Town,MMR010005701,township_010005
+town_010006701,Amarapura Town,MMR010006701,township_010006
+town_010006702,Myitnge Town,MMR010006702,township_010006
+town_010007701,Patheingyi Town,MMR010007701,township_010007
+town_010008701,Pyinoolwin Town,MMR010008701,township_010008
+town_010009701,Madaya Town,MMR010009701,township_010009
+town_010010701,Singu Town,MMR010010701,township_010010
+town_010011701,Mogoke Town,MMR010011701,township_010011
+town_010012701,Thabeikkyin Town,MMR010012701,township_010012
+town_010012702,Takaung Town,MMR010012702,township_010012
+town_010013701,Kyaukse Town,MMR010013701,township_010013
+town_010014701,Sintgaing Town,MMR010014701,township_010014
+town_010015701,Myittha Town,MMR010015701,township_010015
+town_010015702,Ku Me Town,MMR010015702,township_010015
+town_010016701,Tada-U Town,MMR010016701,township_010016
+town_010017701,Myingyan Town,MMR010017701,township_010017
+town_010017702,Si Mee Khon Town,MMR010017702,township_010017
+town_010018701,Taungtha Town,MMR010018701,township_010018
+town_010019701,Natogyi Town,MMR010019701,township_010019
+town_010020701,Kyaukpadaung Town,MMR010020701,township_010020
+town_010021701,Ngazun Town,MMR010021701,township_010021
+town_010022701,Nyaung-U Town,MMR010022701,township_010022
+town_010022702,Bagan Town,MMR010022702,township_010022
+town_010022703,Ngathayauk Town,MMR010022703,township_010022
+town_010023701,Yamethin Town,MMR010023701,township_010023
+town_010024701,Pyawbwe Town,MMR010024701,township_010024
+town_010028701,Meiktila Town,MMR010028701,township_010028
+town_010029701,Mahlaing Town,MMR010029701,township_010029
+town_010030701,Thazi Town,MMR010030701,township_010030
+town_010031701,Wundwin Town,MMR010031701,township_010031
+town_011001701,Mawlamyine Town,MMR011001701,township_011001
+town_011002701,Kyaikmaraw Town,MMR011002701,township_011002
+town_011003701,Chaungzon Town,MMR011003701,township_011003
+town_011004701,Thanbyuzayat Town,MMR011004701,township_011004
+town_011004702,Kyaikkhami Town,MMR011004702,township_011004
+town_011005701,Mudon Town,MMR011005701,township_011005
+town_011005702,Kamarwet Town,MMR011005702,township_011005
+town_011006701,Ye Town,MMR011006701,township_011006
+town_011006702,Lamaing Town,MMR011006702,township_011006
+town_011006703,Khawzar Town,MMR011006703,township_011006
+town_011007701,Thaton Town,MMR011007701,township_011007
+town_011007702,Thuwunnawady Town,MMR011007702,township_011007
+town_011008701,Paung Town,MMR011008701,township_011008
+town_011008702,Zinkyaik Town,MMR011008702,township_011008
+town_011009701,Kyaikto Town,MMR011009701,township_011009
+town_011009702,Thein Za Yat Town,MMR011009702,township_011009
+town_011010701,Bilin Town,MMR011010701,township_011010
+town_012001701,Sittwe Town,MMR012001701,township_012001
+town_012002701,Ponnagyun Town,MMR012002701,township_012002
+town_012003701,Mrauk-U Town,MMR012003701,township_012003
+town_012004701,Kyauktaw Town,MMR012004701,township_012004
+town_012005701,Minbya Town,MMR012005701,township_012005
+town_012006701,Myebon Town,MMR012006701,township_012006
+town_012006702,Kanhtauntkyi Town,MMR012006702,township_012006
+town_012007701,Pauktaw Town,MMR012007701,township_012007
+town_012008701,Rathedaung Town,MMR012008701,township_012008
+town_012009701,Maungdaw Town,MMR012009701,township_012009
+town_012009702,Taungpyoletwea Town,MMR012009702,township_012009
+town_012009703,Kha Maung Seik Town,MMR012009703,township_012009
+town_012009704,Myin Hlut Town,MMR012009704,township_012009
+town_012010701,Buthidaung Town,MMR012010701,township_012010
+town_012011701,Kyaukpyu Town,MMR012011701,township_012011
+town_012011702,Sa Ne Town,MMR012011702,township_012011
+town_012012701,Munaung Town,MMR012012701,township_012012
+town_012013701,Ramree Town,MMR012013701,township_012013
+town_012013702,Lay Taung Town,MMR012013702,township_012013
+town_012014701,Ann Town,MMR012014701,township_012014
+town_012014702,Tat Taung Town,MMR012014702,township_012014
+town_012015701,Thandwe Town,MMR012015701,township_012015
+town_012015702,Ngapali Town,MMR012015702,township_012015
+town_012016701,Toungup Town,MMR012016701,township_012016
+town_012016702,Ma-Ei Town,MMR012016702,township_012016
+town_012016703,Tan Hlwe Ywar Ma Town,MMR012016703,township_012016
+town_012017701,Gwa Town,MMR012017701,township_012017
+town_012017702,Kyeintali Town,MMR012017702,township_012017
+town_013001701,Insein,MMR013001701,township_013001
+town_013002701,Mingaladon,MMR013002701,township_013002
+town_013002702,Htaukkyant Town,MMR013002702,township_013002
+town_013003701,Hmawbi Town,MMR013003701,township_013003
+town_013004701,Hlegu Town,MMR013004701,township_013004
+town_013005701,Taikkyi Town,MMR013005701,township_013005
+town_013005702,Okekan Town,MMR013005702,township_013005
+town_013005703,Ahpyauk Town,MMR013005703,township_013005
+town_013006701,Htantabin Town,MMR013006701,township_013006
+town_013007701,Shwepyithar Town,MMR013007701,township_013007
+town_013008701,Hlaingtharya Town,MMR013008701,township_013008
+town_013009701,Thingangyun,MMR013009701,township_013009
+town_013010701,Yankin,MMR013010701,township_013010
+town_013011701,South Okkalapa,MMR013011701,township_013011
+town_013012701,North Okkalapa,MMR013012701,township_013012
+town_013013701,Thaketa,MMR013013701,township_013013
+town_013014701,Dawbon,MMR013014701,township_013014
+town_013015701,Tamwe,MMR013015701,township_013015
+town_013016701,Pazundaung,MMR013016701,township_013016
+town_013017701,Botahtaung,MMR013017701,township_013017
+town_013018701,Dagon Myothit (South) Town,MMR013018701,township_013018
+town_013019701,Dagon Myothit (North) Town,MMR013019701,township_013019
+town_013020701,Dagon Myothit (East),MMR013020701,township_013020
+town_013021701,Dagon Myothit (Seikkan),MMR013021701,township_013021
+town_013022701,Mingalartaungnyunt,MMR013022701,township_013022
+town_013023701,Thanlyin Town,MMR013023701,township_013023
+town_013024701,Kyauktan Town,MMR013024701,township_013024
+town_013024702,Tadar Town,MMR013024702,township_013024
+town_013025701,Thongwa Town,MMR013025701,township_013025
+town_013026701,Kayan Town,MMR013026701,township_013026
+town_013027701,Twantay Town,MMR013027701,township_013027
+town_013028701,Kawhmu Town,MMR013028701,township_013028
+town_013029701,Kungyangon Town,MMR013029701,township_013029
+town_013030701,Dala,MMR013030701,township_013030
+town_013031701,Seikgyikanaungto,MMR013031701,township_013031
+town_013032701,Cocokyun Town,MMR013032701,township_013032
+town_013000777,Yangon City,MMR013000777,township_013033
+town_013033701,Kyauktada,MMR013033701,township_013033
+town_013034701,Pabedan,MMR013034701,township_013034
+town_013035701,Lanmadaw,MMR013035701,township_013035
+town_013036701,Latha,MMR013036701,township_013036
+town_013037701,Ahlone,MMR013037701,township_013037
+town_013038701,Kyeemyindaing,MMR013038701,township_013038
+town_013039701,Sanchaung,MMR013039701,township_013039
+town_013040701,Hlaing,MMR013040701,township_013040
+town_013041701,Kamaryut,MMR013041701,township_013041
+town_013042701,Mayangone,MMR013042701,township_013042
+town_013043701,Dagon,MMR013043701,township_013043
+town_013044701,Bahan,MMR013044701,township_013044
+town_013045701,Seikkan,MMR013045701,township_013045
+town_013046701,Hlaingtharya (East) Town,MMR013046701,township_013046
+town_013047701,Hlaingtharya (West) Town,MMR013047701,township_013047
+town_014001701,Taunggyi Town,MMR014001701,township_014001
+town_014001702,Ayetharyar Town,MMR014001702,township_014001
+town_014001703,Kyauktalonegyi Town,MMR014001703,township_014001
+town_014001704,Shwenyaung Town,MMR014001704,township_014001
+town_014002701,Nyaungshwe Town,MMR014002701,township_014002
+town_014002702,Nang Pang Town,MMR014002702,township_014002
+town_014003701,Hopong Town,MMR014003701,township_014003
+town_014004701,Hsihseng Town,MMR014004701,township_014004
+town_014005701,Kalaw Town,MMR014005701,township_014005
+town_014005702,Aungpan Town,MMR014005702,township_014005
+town_014005703,He Hoe Town,MMR014005703,township_014005
+town_014006701,Pindaya Town,MMR014006701,township_014006
+town_014007701,Ywangan Town,MMR014007701,township_014007
+town_014008701,Lawksawk Town,MMR014008701,township_014008
+town_014008702,Intaw Town,MMR014008702,township_014008
+town_014009701,Pinlaung Town,MMR014009701,township_014009
+town_014009702,Naungtayar Town,MMR014009702,township_014009
+town_014009703,Pawng Lawng Town,MMR014009703,township_014009
+town_014010701,Pekon Town,MMR014010701,township_014010
+town_014011701,Loilen Town,MMR014011701,township_014011
+town_014011702,Pinlon Town,MMR014011702,township_014011
+town_014012701,Laihka Town,MMR014012701,township_014012
+town_014013701,Nansang Town,MMR014013701,township_014013
+town_014013702,Kho Lam Town,MMR014013702,township_014013
+town_014014701,Kunhing Town,MMR014014701,township_014014
+town_014014702,Kar Li Town,MMR014014702,township_014014
+town_014015701,Kyethi Town,MMR014015701,township_014015
+town_014015702,Mongnawng Town,MMR014015702,township_014015
+town_014016701,Mongkaing Town,MMR014016701,township_014016
+town_014017701,Monghsu Town,MMR014017701,township_014017
+town_014017702,Mongsan (Hmonesan) Town,MMR014017702,township_014017
+town_014018701,Langkho Town,MMR014018701,township_014018
+town_014018702,Homein Town,MMR014018702,township_014018
+town_014019701,Mongnai Town,MMR014019701,township_014019
+town_014019702,Kengtawng Town,MMR014019702,township_014019
+town_014020701,Mawkmai Town,MMR014020701,township_014020
+town_014021701,Mongpan Town,MMR014021701,township_014021
+town_015001701,Lashio Town,MMR015001701,township_015001
+town_015002701,Hseni Town,MMR015002701,township_015002
+town_015003701,Mongyai Town,MMR015003701,township_015003
+town_015004701,Tangyan Town,MMR015004701,township_015004
+town_015005701,Pangsang (Panghkam) Town,MMR015005701,township_015005
+town_015005702,Man Kan Town,MMR015005702,township_015005
+town_015006701,Narphan Town,MMR015006701,township_015006
+town_015007701,Pangwaun Town,MMR015007701,township_015007
+town_015008701,Mongmao Town,MMR015008701,township_015008
+town_015009701,Muse Town,MMR015009701,township_015009
+town_015009702,Monekoe Town,MMR015009702,township_015009
+town_015009703,Manhlyoe (Manhero) Town,MMR015009703,township_015009
+town_015009704,Pang Hseng (Kyu Koke) Town,MMR015009704,township_015009
+town_015010701,Namhkan Town,MMR015010701,township_015010
+town_015011701,Kutkai Town,MMR015011701,township_015011
+town_015011702,Tarmoenye Town,MMR015011702,township_015011
+town_015012701,Kyaukme Town,MMR015012701,township_015012
+town_015012702,Mongngawt Town,MMR015012702,township_015012
+town_015012703,Monglon Town,MMR015012703,township_015012
+town_015013701,Nawnghkio Town,MMR015013701,township_015013
+town_015014701,Hsipaw Town,MMR015014701,township_015014
+town_015015701,Namtu Town,MMR015015701,township_015015
+town_015016701,Namhsan Town,MMR015016701,township_015016
+town_015017701,Mongmit Town,MMR015017701,township_015017
+town_015018701,Mabein Town,MMR015018701,township_015018
+town_015019701,Manton Town,MMR015019701,township_015019
+town_015020701,Kunlong Town,MMR015020701,township_015020
+town_015021701,Hopang Town,MMR015021701,township_015021
+town_015021702,Namtit Town,MMR015021702,township_015021
+town_015021703,Pan Lon Town,MMR015021703,township_015021
+town_015022701,Laukkaing Town,MMR015022701,township_015022
+town_015022702,Chinshwehaw Town,MMR015022702,township_015022
+town_015023701,Konkyan Town,MMR015023701,township_015023
+town_015023702,Maw Hteik Town,MMR015023702,township_015023
+town_015024701,Matman Town,MMR015024701,township_015024
+town_015301701,Nam Tit Town,MMR015301701,township_015301
+town_015302701,Nar Wee (Na Wi) Town,MMR015302701,township_015302
+town_015303701,Man Tun Town,MMR015303701,township_015303
+town_015304702,Mong Maw Town,MMR015304702,township_015304
+town_015305701,Hsawng Hpa (Saun Pha) Town,MMR015305701,township_015305
+town_015306701,Hkun Mar (Hkwin Ma) Town,MMR015306701,township_015306
+town_015307701,Long Htan Town,MMR015307701,township_015307
+town_015308701,Yawng Lin Town,MMR015308701,township_015308
+town_015309701,Lin Haw Town,MMR015309701,township_015309
+town_015310701,Ka Lawng Hpar Town,MMR015310701,township_015310
+town_015311701,Aik Chan (Ai' Chun) Town,MMR015311701,township_015311
+town_015312701,Yin Pang Town,MMR015312701,township_015312
+town_015313701,Man Man Hseng Town,MMR015313701,township_015313
+town_015314701,Nawng Hkit Town,MMR015314701,township_015314
+town_015314702,Wein Kawn Town,MMR015314702,township_015314
+town_015315701,Nam Hkam Wu Town,MMR015315701,township_015315
+town_015316701,Nar Kawng Town,MMR015316701,township_015316
+town_015317701,Pang Hkam Town,MMR015317701,township_015317
+town_015318701,Pang Yang Town,MMR015318701,township_015318
+town_016001701,Kengtung Town,MMR016001701,township_016001
+town_016002701,Mongkhet Town,MMR016002701,township_016002
+town_016003701,Mongyang Town,MMR016003701,township_016003
+town_016003702,Mongpauk Town,MMR016003702,township_016003
+town_016005701,Mongla Town,MMR016005701,township_016005
+town_016006701,Monghsat Town,MMR016006701,township_016006
+town_016006702,Mongkhoke Town,MMR016006702,township_016006
+town_016007701,Mongping Town,MMR016007701,township_016007
+town_016007702,Tontar Town,MMR016007702,township_016007
+town_016008701,Mongton Town,MMR016008701,township_016008
+town_016008702,Ponparkyin Town,MMR016008702,township_016008
+town_016008703,Hmone Hta Town,MMR016008703,township_016008
+town_016009701,Tachileik Town,MMR016009701,township_016009
+town_016009702,Kenglat Town,MMR016009702,township_016009
+town_016009703,Tarlay Town,MMR016009703,township_016009
+town_016010701,Monghpyak Town,MMR016010701,township_016010
+town_016011701,Mongyawng Town,MMR016011701,township_016011
+town_016011702,Mongyu Town,MMR016011702,township_016011
+town_016319701,Mong Hpen Town,MMR016319701,township_016319
+town_016320701,Ho Tawng (Ho Tao) Town,MMR016320701,township_016320
+town_016321701,Mong Pawk Town,MMR016321701,township_016321
+town_016322701,Mong Kar Town,MMR016322701,township_016322
+town_016323701,Nam Hpai Town,MMR016323701,township_016323
+town_017001701,Pathein Town,MMR017001701,township_017001
+town_017001702,Shwethaungyan Town,MMR017001702,township_017001
+town_017001703,Ngwesaung Town,MMR017001703,township_017001
+town_017001704,Chaung Thar Town,MMR017001704,township_017001
+town_017002701,Kangyidaunt Town,MMR017002701,township_017002
+town_017003701,Thabaung Town,MMR017003701,township_017003
+town_017004701,Ngapudaw Town,MMR017004701,township_017004
+town_017004702,Ngayokekaung Town,MMR017004702,township_017004
+town_017004703,Hainggyikyun Town,MMR017004703,township_017004
+town_017005701,Kyonpyaw Town,MMR017005701,township_017005
+town_017005702,Ahtaung Town,MMR017005702,township_017005
+town_017006701,Yegyi Town,MMR017006701,township_017006
+town_017006702,Ngathaingchaung Town,MMR017006702,township_017006
+town_017006703,Ahthoke Town,MMR017006703,township_017006
+town_017007701,Kyaunggon Town,MMR017007701,township_017007
+town_017008701,Hinthada Town,MMR017008701,township_017008
+town_017008702,Ta Loke Htaw Town,MMR017008702,township_017008
+town_017008703,Du Yar Town,MMR017008703,township_017008
+town_017009701,Zalun Town,MMR017009701,township_017009
+town_017010701,Lemyethna Town,MMR017010701,township_017010
+town_017011701,Myanaung Town,MMR017011701,township_017011
+town_017011702,Kanaung Town,MMR017011702,township_017011
+town_017011703,In Pin Town,MMR017011703,township_017011
+town_017012701,Kyangin Town,MMR017012701,township_017012
+town_017012702,Batye Town,MMR017012702,township_017012
+town_017013701,Ingapu Town,MMR017013701,township_017013
+town_017013702,Htoogyi Town,MMR017013702,township_017013
+town_017013703,Me Za Li Kone Town,MMR017013703,township_017013
+town_017014701,Myaungmya Town,MMR017014701,township_017014
+town_017015701,Einme Town,MMR017015701,township_017015
+town_017016701,Labutta Town,MMR017016701,township_017016
+town_017016702,Pyinsalu Town,MMR017016702,township_017016
+town_017016703,Labutta (3) Mile Town,MMR017016703,township_017016
+town_017016704,Hainggyikyun Town,MMR017016704,township_017016
+town_017017701,Wakema Town,MMR017017701,township_017017
+town_017017702,Kyonmangae Town,MMR017017702,township_017017
+town_017018701,Mawlamyinegyun Town,MMR017018701,township_017018
+town_017019701,Maubin Town,MMR017019701,township_017019
+town_017020701,Pantanaw Town,MMR017020701,township_017020
+town_017021701,Nyaungdon Town,MMR017021701,township_017021
+town_017022701,Danubyu Town,MMR017022701,township_017022
+town_017023701,Pyapon Town,MMR017023701,township_017023
+town_017023702,Ahmar Town,MMR017023702,township_017023
+town_017024701,Bogale Town,MMR017024701,township_017024
+town_017025701,Kyaiklat Town,MMR017025701,township_017025
+town_017026701,Dedaye Town,MMR017026701,township_017026
+town_018000777,Nay Pyi Taw Town,MMR018000777,township_018001
+town_018001701,Zay Yar Thi Ri Town,MMR018001701,township_018001
+town_018002701,Za Bu Thi Ri Town,MMR018002701,township_018002
+town_018003701,Tatkon Town,MMR018003701,township_018003
+town_018004701,Det Khi Na Thi Ri Town,MMR018004701,township_018004
+town_018005701,Poke Ba Thi RiTown,MMR018005701,township_018005
+town_018006701,Pyinmana Town,MMR018006701,township_018006
+town_018007701,Lewe Town,MMR018007701,township_018007
+town_018008701,Oke Ta Ra Thi Ri Town,MMR018008701,township_018008
