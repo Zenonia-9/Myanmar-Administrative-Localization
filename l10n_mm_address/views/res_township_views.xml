@@ -8,7 +8,6 @@
             <list>
                 <field name="name"/>
                 <field name="code"/>
-                <field name="zip"/>
                 <field name="district_id"/>
                 <field name="latitude" optional="show"/>
                 <field name="longitude" optional="show"/>
@@ -23,7 +22,6 @@
             <search>
                 <field name="name"/>
                 <field name="code"/>
-                <field name="zip"/>
                 <field name="district_id"/>
                 <group expand="0" string="Group By">
                     <filter name="group_district" string="District" context="{'group_by': 'district_id'}"/>
@@ -42,7 +40,6 @@
                         <group>
                             <field name="name"/>
                             <field name="code"/>
-                            <field name="zip"/>
                         </group>
                         <group>
                             <field name="district_id"/>

@@ -15,10 +15,11 @@ class ResTownship(models.Model):
             'Township P-code. Example: MMR017024 where '
             'MMR017 = State/Region and 024 = Township.',
     )
-    zip = fields.Char(
-        string="Zip",
-        size=5,
-        help='',
+    zip_ids = fields.One2many(
+        'res.zip',
+        'township_id',
+        string='Zip Code',
+        readonly=True,
     )
     district_id = fields.Many2one(
         'res.district',
@@ -30,5 +31,4 @@ class ResTownship(models.Model):
 
     _sql_constraints = [
         ('code_uniq', 'unique(code)', 'Township code must be unique!'),
-        ('zip_uniq', 'unique(zip)', 'Postal code must be unique!'),
     ]

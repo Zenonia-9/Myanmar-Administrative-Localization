@@ -28,6 +28,7 @@ This module provides the Myanmar administrative address hierarchy:
         'data/res.district.csv',
         'data/res.township.csv',
         'data/res.town.csv',
+        'data/res.zip.csv',
         'data/res.ward.csv',
 
         'views/res_district_views.xml',

@@ -6,7 +6,6 @@
 %(l10n_mm_ward_name)s
 %(l10n_mm_town_name)s, %(l10n_mm_township_name)s
 %(l10n_mm_district_name)s, %(state_name)s
-%(l10n_mm_postalcode)s
 %(country_name)s</field>
     </record>
 </odoo>

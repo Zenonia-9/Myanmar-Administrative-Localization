@@ -30,6 +30,11 @@ class ResPartner(models.Model):
         'res.ward',
         string='Ward'
     )
+    l10n_mm_zip_id = fields.Many2one(
+        'res.zip',
+        string='Zip Code',
+        domain="[('township_id','=',l10n_mm_township_id)]"
+    )
     l10n_mm_ward_name = fields.Char(
         related='l10n_mm_ward_id.name',
         readonly=True
@@ -53,6 +58,10 @@ class ResPartner(models.Model):
     l10n_mm_postalcode = fields.Char(
         string="Postal Code",
         help="7 digits Postal Code"
+    )
+    l10n_mm_postcode = fields.Char(
+        related='l10n_mm_zip_id.postcode',
+        readonly=True
     )
     l10n_mm_is_myanmar = fields.Boolean(
         compute='_compute_l10n_mm_is_myanmar'
@@ -79,7 +88,8 @@ class ResPartner(models.Model):
                 rec.l10n_mm_township_id = rec.l10n_mm_ward_id.township_id
             elif not rec.l10n_mm_township_id:
                 rec.l10n_mm_township_id = False
-
+    
+    # Have to add postcode compute
     @api.onchange('l10n_mm_pcode')
     def _onchange_l10n_mm_pcode(self):
         if self.l10n_mm_pcode:
@@ -90,7 +100,7 @@ class ResPartner(models.Model):
                 self.l10n_mm_township_id = ward.township_id
                 self.l10n_mm_district_id = ward.township_id.district_id
                 self.l10n_mm_postalcode = self.l10n_mm_ward_id.postal_code
-                self.zip = ward.township_id.zip
+                
                 self.state_id = ward.township_id.district_id.state_id
                 self.country_id = self.state_id.country_id
             else:
@@ -101,14 +111,24 @@ class ResPartner(models.Model):
         if self.l10n_mm_ward_id:
             self.l10n_mm_pcode = self.l10n_mm_ward_id.p_code
             self.l10n_mm_postalcode = self.l10n_mm_ward_id.postal_code
-            self.zip = self.l10n_mm_ward_id.township_id.zip
+            
             self.state_id = self.l10n_mm_ward_id.township_id.district_id.state_id
             self.country_id = self.state_id.country_id
+    
+    @api.onchange('l10n_mm_town_id')
+    def _onchange_l10n_mm_town_id(self):
+        if self.l10n_mm_town_id:
+            self.state_id = self.l10n_mm_town_id.township_id.district_id.state_id
+            self.country_id = self.state_id.country_id
+            if self.l10n_mm_ward_id and self.l10n_mm_ward_id.town_id != self.town_id:
+                self.l10n_mm_ward_id = False
+                self.l10n_mm_postalcode = False
+                self.l10n_mm_pcode = False
 
     @api.onchange('l10n_mm_township_id')
     def _onchange_l10n_mm_township_id(self):
         if self.l10n_mm_township_id:
-            self.zip = self.l10n_mm_township_id.zip
+            
             self.state_id = self.l10n_mm_township_id.district_id.state_id
             self.country_id = self.state_id.country_id
             if self.l10n_mm_ward_id and self.l10n_mm_ward_id.township_id != self.l10n_mm_township_id:
@@ -129,7 +149,7 @@ class ResPartner(models.Model):
                 self.l10n_mm_ward_id = False
                 self.l10n_mm_postalcode = False
                 self.l10n_mm_pcode = False
-                self.zip = False
+                
 
     @api.onchange('state_id')
     def _onchange_state_id(self):
@@ -141,7 +161,7 @@ class ResPartner(models.Model):
                 self.l10n_mm_ward_id = False
                 self.l10n_mm_postalcode = False
                 self.l10n_mm_pcode = False
-                self.zip = False
+                
 
     @api.onchange('country_id')
     def _onchange_country_id(self):
@@ -154,7 +174,7 @@ class ResPartner(models.Model):
             self.l10n_mm_ward_id = False
             self.l10n_mm_postalcode = False
             self.l10n_mm_pcode = False
-            self.zip = False
+            
 
     def _address_fields(self):
         fields_list = super()._address_fields()

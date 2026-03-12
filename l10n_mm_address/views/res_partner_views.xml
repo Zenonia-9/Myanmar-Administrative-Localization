@@ -36,17 +36,18 @@
                        invisible="not l10n_mm_is_myanmar" 
                        placeholder="P-Code (e.g. MMR017024040)"
                        readonly="type == 'contact' and parent_id"/>
+                <field name="l10n_mm_zip_id"
+                       class="o_address_state"
+                       invisible="not l10n_mm_is_myanmar" 
+                       placeholder="Postcode"
+                       readonly="type == 'contact' and parent_id"/>
             </field>
                 
             <field name="city" position="attributes">
                 <attribute name="invisible">l10n_mm_is_myanmar</attribute>
             </field>
-            <field name="zip" position="after">
-                <field name="l10n_mm_postalcode"
-                       class="o_address_state"
-                       invisible="not l10n_mm_is_myanmar" 
-                       placeholder="Postal Code"
-                       readonly="type == 'contact' and parent_id"/>
+            <field name="zip" position="attributes">
+                <attribute name="invisible">l10n_mm_is_myanmar</attribute>
             </field>
 
             <!-- Same for child contact addresses -->
@@ -75,17 +76,14 @@
                 <field name="l10n_mm_pcode"
                        class="o_address_state"
                        invisible="not l10n_mm_is_myanmar" 
-                       placeholder="P-Code (e.g. MMR017024040)"/>
+                       placeholder="P-Code"/>
             </xpath>
             <xpath expr="//field[@name='child_ids']//form//field[@name='city']" position="attributes">
                 <attribute name="invisible">l10n_mm_is_myanmar</attribute>
             </xpath>
-            <xpath expr="//field[@name='child_ids']//form//field[@name='zip']" position="after">
-                <field name="l10n_mm_postalcode"
-                       class="o_address_state"
-                       invisible="not l10n_mm_is_myanmar" 
-                       placeholder="Postal Code"
-                       readonly="type == 'contact' and parent_id"/>
+            <xpath expr="//field[@name='child_ids']//form//field[@name='zip']" position="attributes">
+                <attribute name="invisible">l10n_mm_is_myanmar</attribute>
+            </xpath>
             </xpath>
         </field>
     </record>
