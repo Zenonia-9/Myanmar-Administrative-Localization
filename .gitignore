@@ -2,3 +2,4 @@ __pycache__/
 _src/
 .vscode/
 *.pyc
+web_enterprise_extension/
