@@ -21,6 +21,12 @@ class ResTownship(models.Model):
         string='Zip Code',
         readonly=True,
     )
+    ward_ids = fields.One2many(
+        'res.ward',
+        'township_id',
+        string='Wards',
+        readonly=True,
+    )
     district_id = fields.Many2one(
         'res.district',
         string='District',

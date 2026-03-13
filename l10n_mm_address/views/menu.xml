@@ -7,31 +7,38 @@
         sequence="7"/>
 
     <menuitem
-        id="menu_l10n_mm_pcode_district"
+        id="menu_l10n_mm_district"
         name="Districts"
         parent="menu_l10n_mm_localization_group"
         action="action_res_district"
         sequence="1"/>
     
     <menuitem
-        id="menu_l10n_mm_pcode_township"
+        id="menu_l10n_mm_township"
         name="Townships"
         parent="menu_l10n_mm_localization_group"
         action="action_res_township"
         sequence="2"/>
 
     <menuitem
-        id="menu_l10n_mm_pcode_town"
+        id="menu_l10n_mm_town"
         name="Towns"
         parent="menu_l10n_mm_localization_group"
         action="action_res_town"
         sequence="3"/>
 
     <menuitem
-        id="menu_l10n_mm_pcode_ward"
+        id="menu_l10n_mm_ward"
         name="Wards"
         parent="menu_l10n_mm_localization_group"
         action="action_res_ward"
         sequence="4"/>
+
+    <menuitem
+        id="menu_l10n_mm_zip"
+        name="Post Codes"
+        parent="menu_l10n_mm_localization_group"
+        action="action_res_zip"
+        sequence="5"/>
 
 </odoo>

@@ -35,6 +35,7 @@ This module provides the Myanmar administrative address hierarchy:
         'views/res_township_views.xml',
         'views/res_town_views.xml',
         'views/res_ward_views.xml',
+        'views/res_zip_views.xml',
         'views/res_partner_views.xml',
         'views/menu.xml',
     ],

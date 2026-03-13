@@ -11,6 +11,7 @@
                        class="o_address_street"
                        invisible="not l10n_mm_is_myanmar" 
                        placeholder="Ward"
+                       domain="[('id','in', l10n_mm_ward_ids)]"
                        options="{'no_open': True, 'no_create': True, 'no_quick_create': True}"
                        readonly="type == 'contact' and parent_id"/>
                 <field name="l10n_mm_town_id"
@@ -26,20 +27,16 @@
                        options="{'no_open': True, 'no_create': True, 'no_quick_create': True}"
                        readonly="type == 'contact' and parent_id"/>
                 <field name="l10n_mm_district_id" 
-                       class="o_address_state" 
+                       class="o_address_city" 
                        invisible="not l10n_mm_is_myanmar" 
                        placeholder="District"
                        options="{'no_open': True, 'no_create': True, 'no_quick_create': True}"
                        readonly="type == 'contact' and parent_id"/>
                 <field name="l10n_mm_pcode"
-                       class="o_address_state"
+                       class="o_address_city"
                        invisible="not l10n_mm_is_myanmar" 
-                       placeholder="P-Code (e.g. MMR017024040)"
-                       readonly="type == 'contact' and parent_id"/>
-                <field name="l10n_mm_zip_id"
-                       class="o_address_state"
-                       invisible="not l10n_mm_is_myanmar" 
-                       placeholder="Postcode"
+                       placeholder="P-Code"
+                       options="{'no_open': True, 'no_create': True, 'no_quick_create': True}"
                        readonly="type == 'contact' and parent_id"/>
             </field>
                 
@@ -49,6 +46,14 @@
             <field name="zip" position="attributes">
                 <attribute name="invisible">l10n_mm_is_myanmar</attribute>
             </field>
+            <field name="state_id" position="after">
+                <field name="l10n_mm_zip_id"
+                       class="o_address_city" 
+                       invisible="not l10n_mm_is_myanmar" 
+                       placeholder="Postcode"
+                       options="{'no_open': True, 'no_create': True, 'no_quick_create': True}"
+                       readonly="type == 'contact' and parent_id"/>
+            </field>
 
             <!-- Same for child contact addresses -->
             <xpath expr="//field[@name='child_ids']//form//field[@name='city']" position="before">
@@ -57,26 +62,33 @@
                        class="o_address_street"
                        invisible="not l10n_mm_is_myanmar" 
                        placeholder="Ward"
-                       options="{'no_open': True, 'no_create': True, 'no_quick_create': True}"/>
+                       domain="[('id','in', l10n_mm_ward_ids)]"
+                       options="{'no_open': True, 'no_create': True, 'no_quick_create': True}"
+                       readonly="type == 'contact' and parent_id"/>
                 <field name="l10n_mm_town_id"
                        class="o_address_city"
                        invisible="not l10n_mm_is_myanmar" 
                        placeholder="Town"
-                       options="{'no_open': True, 'no_create': True, 'no_quick_create': True}"/>
+                       options="{'no_open': True, 'no_create': True, 'no_quick_create': True}"
+                       readonly="type == 'contact' and parent_id"/>
                 <field name="l10n_mm_township_id"
                        class="o_address_city"
                        invisible="not l10n_mm_is_myanmar" 
                        placeholder="Township"
-                       options="{'no_open': True, 'no_create': True, 'no_quick_create': True}"/>
+                       options="{'no_open': True, 'no_create': True, 'no_quick_create': True}"
+                       readonly="type == 'contact' and parent_id"/>
                 <field name="l10n_mm_district_id" 
-                       class="o_address_state" 
+                       class="o_address_city" 
                        invisible="not l10n_mm_is_myanmar" 
                        placeholder="District"
-                       options="{'no_open': True, 'no_create': True, 'no_quick_create': True}"/>
+                       options="{'no_open': True, 'no_create': True, 'no_quick_create': True}"
+                       readonly="type == 'contact' and parent_id"/>
                 <field name="l10n_mm_pcode"
-                       class="o_address_state"
+                       class="o_address_city"
                        invisible="not l10n_mm_is_myanmar" 
-                       placeholder="P-Code"/>
+                       placeholder="P-Code"
+                       options="{'no_open': True, 'no_create': True, 'no_quick_create': True}"
+                       readonly="type == 'contact' and parent_id"/>
             </xpath>
             <xpath expr="//field[@name='child_ids']//form//field[@name='city']" position="attributes">
                 <attribute name="invisible">l10n_mm_is_myanmar</attribute>
@@ -84,30 +96,59 @@
             <xpath expr="//field[@name='child_ids']//form//field[@name='zip']" position="attributes">
                 <attribute name="invisible">l10n_mm_is_myanmar</attribute>
             </xpath>
+
+            <xpath expr="//field[@name='child_ids']//form//field[@name='state_id']" position="after">
+                <field name="l10n_mm_zip_id"
+                       class="o_address_city" 
+                       invisible="not l10n_mm_is_myanmar" 
+                       placeholder="Postcode"
+                       options="{'no_open': True, 'no_create': True, 'no_quick_create': True}"
+                       readonly="type == 'contact' and parent_id"/>
             </xpath>
         </field>
     </record>
 
-    <record id="view_partner_kanban_inherit_mm_pcode" model="ir.ui.view">
-        <field name="name">res.partner.kanban.inherit.mm.pcode</field>
+    <record id="view_partner_kanban_inherit_mm_simple" model="ir.ui.view">
+        <field name="name">res.partner.kanban.inherit.mm.simple</field>
         <field name="model">res.partner</field>
         <field name="inherit_id" ref="base.res_partner_kanban_view"/>
         <field name="arch" type="xml">
-            <field name="city" position="after">
-                <field name="l10n_mm_ward_id"/>
-            </field>
+
+            <!-- Replace the div that shows city -->
             <xpath expr="//div[contains(@t-if, 'record.city.raw_value')]" position="replace">
-                <div t-if="record.city.raw_value or record.l10n_mm_ward_id.raw_value or record.country_id.raw_value">
-                    <t t-if="record.l10n_mm_ward_id.raw_value">
-                        <field name="l10n_mm_ward_id"/>
+                <div t-if="
+                    record.l10n_mm_ward_name.raw_value
+                    or record.l10n_mm_township_id.raw_value
+                    or record.l10n_mm_district_id.raw_value
+                    or record.country_id.raw_value
+                ">
+                    <!-- Ward -->
+                    <t t-if="record.l10n_mm_ward_name.raw_value">
+                        <field name="l10n_mm_ward_name"/>
                     </t>
-                    <t t-if="record.city.raw_value">
-                        <field name="city"/>
+
+                    <!-- Township -->
+                    <t t-if="record.l10n_mm_township_id.raw_value">
+                        <span t-if="record.l10n_mm_ward_name.raw_value">, </span>
+                        <field name="l10n_mm_township_id"/>
                     </t>
-                    <span t-if="(record.city.raw_value or record.l10n_mm_ward_id.raw_value) and record.country_id.raw_value">, </span>
+
+                    <!-- District -->
+                    <t t-if="record.l10n_mm_district_id.raw_value">
+                        <span t-if="record.l10n_mm_ward_name.raw_value or record.l10n_mm_township_id.raw_value">, </span>
+                        <field name="l10n_mm_district_id"/>
+                    </t>
+
+                    <!-- Country -->
+                    <span t-if="
+                        record.l10n_mm_ward_name.raw_value
+                        or record.l10n_mm_township_id.raw_value
+                        or record.l10n_mm_district_id.raw_value
+                    ">, </span>
                     <field name="country_id"/>
                 </div>
             </xpath>
+
         </field>
     </record>
 </odoo>
