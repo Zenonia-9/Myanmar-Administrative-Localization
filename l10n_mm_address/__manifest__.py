@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'Myanmar Address Localization',
-    'version': '18.0.2.5',
+    'version': '18.0.4.0',
     'category': 'Localization',
     'summary': 'Myanmar address hierarchy (State/Region, District, Township, Town, Ward/Village Tract)',
     'description': """

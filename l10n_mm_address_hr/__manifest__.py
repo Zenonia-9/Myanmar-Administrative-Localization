@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     'name': "Myanmar HR Address Localization",
-    'version': "18.0.1.0",
+    'version': "18.0.4.0",
     'summary': "Myanmar address fields for employee private addresses",
     'description': """
 Myanmar HR Address Localization
