@@ -49,6 +49,11 @@ Adds Myanmar address fields to employee private addresses.
 Myanmar Information Management Unit (MIMU)  
 https://themimu.info/mm/place-codes
 
+Myanmar Post — Official postal code data
+https://myanmarpost.com.mm/postcode
+
+Dr. Nyein Chan's P-Code Database
+https://pcode.drnyeinchan.com/
 ---
 
 ## Requirements
