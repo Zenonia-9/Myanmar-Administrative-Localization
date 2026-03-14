@@ -19,6 +19,9 @@ This module provides the Myanmar administrative address hierarchy:
     'author': 'Zenonia',
     'website': 'https://github.com/Zenonia-9/Myanmar-Administrative-Localization',
     'depends': ['base', 'contacts'],
+    'images': [
+        'static/description/icon.png',
+    ],
     'data': [
         'security/ir.model.access.csv',
 
@@ -43,4 +46,4 @@ This module provides the Myanmar administrative address hierarchy:
     'application': False,
     'auto_install': False,
     'license': 'LGPL-3',
-}
+} # type: ignore

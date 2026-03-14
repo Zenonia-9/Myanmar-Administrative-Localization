@@ -32,8 +32,8 @@ class ResTownship(models.Model):
         string='District',
         required=True,
     )
-    latitude = fields.Float(string="Latitude", digits=(16, 6))
-    longitude = fields.Float(string="Longitude", digits=(16, 6))
+    latitude = fields.Float(string="Latitude", digits=(10, 7))
+    longitude = fields.Float(string="Longitude", digits=(10, 7))
 
     _sql_constraints = [
         ('code_uniq', 'unique(code)', 'Township code must be unique!'),

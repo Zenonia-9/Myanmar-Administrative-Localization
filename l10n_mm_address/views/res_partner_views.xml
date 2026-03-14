@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <record id="view_partner_form_inherit_mm_pcode" model="ir.ui.view">
-        <field name="name">res.partner.form.inherit.mm.pcode</field>
+    <record id="view_partner_form_inherit_mm_address" model="ir.ui.view">
+        <field name="name">res.partner.form.inherit.mm.address</field>
         <field name="model">res.partner</field>
         <field name="inherit_id" ref="base.view_partner_form"/>
         <field name="arch" type="xml">
@@ -108,44 +108,35 @@
         </field>
     </record>
 
-    <record id="view_partner_kanban_inherit_mm_simple" model="ir.ui.view">
-        <field name="name">res.partner.kanban.inherit.mm.simple</field>
+    <record id="view_partner_kanban_inherit_mm_address" model="ir.ui.view">
+        <field name="name">res.partner.kanban.inherit.mm.address</field>
         <field name="model">res.partner</field>
         <field name="inherit_id" ref="base.res_partner_kanban_view"/>
         <field name="arch" type="xml">
 
-            <!-- Replace the div that shows city -->
-            <xpath expr="//div[contains(@t-if, 'record.city.raw_value')]" position="replace">
-                <div t-if="
-                    record.l10n_mm_ward_name.raw_value
-                    or record.l10n_mm_township_id.raw_value
-                    or record.l10n_mm_district_id.raw_value
-                    or record.country_id.raw_value
-                ">
-                    <!-- Ward -->
+            <xpath expr="//t[@t-name='card']//div[contains(@t-if,'record.city.raw_value')]" position="replace">
+                <div t-if="record.city.raw_value or record.l10n_mm_ward_name.raw_value or record.l10n_mm_township_name.raw_value or record.state_id.raw_value or record.country_id.raw_value">
+
                     <t t-if="record.l10n_mm_ward_name.raw_value">
                         <field name="l10n_mm_ward_name"/>
                     </t>
-
-                    <!-- Township -->
-                    <t t-if="record.l10n_mm_township_id.raw_value">
-                        <span t-if="record.l10n_mm_ward_name.raw_value">, </span>
-                        <field name="l10n_mm_township_id"/>
+                    <span t-if="record.l10n_mm_ward_name.raw_value">, </span>
+                    <t t-if="record.l10n_mm_township_name.raw_value">
+                        <field name="l10n_mm_township_name"/>
                     </t>
-
-                    <!-- District -->
-                    <t t-if="record.l10n_mm_district_id.raw_value">
-                        <span t-if="record.l10n_mm_ward_name.raw_value or record.l10n_mm_township_id.raw_value">, </span>
-                        <field name="l10n_mm_district_id"/>
+                    <span t-if="record.l10n_mm_township_name.raw_value">, </span>
+                    <t t-if="record.state_id.raw_value">
+                        <field name="state_id"/>
                     </t>
+                    <t t-if="record.city.raw_value">
+                        <field name="city"/>
+                    </t>
+                    <span t-if="(record.city.raw_value or record.state_id.raw_value) and record.country_id.raw_value">
+                        , 
+                    </span>
 
-                    <!-- Country -->
-                    <span t-if="
-                        record.l10n_mm_ward_name.raw_value
-                        or record.l10n_mm_township_id.raw_value
-                        or record.l10n_mm_district_id.raw_value
-                    ">, </span>
                     <field name="country_id"/>
+
                 </div>
             </xpath>
 

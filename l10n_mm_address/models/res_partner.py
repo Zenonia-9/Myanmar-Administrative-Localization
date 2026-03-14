@@ -66,6 +66,14 @@ class ResPartner(models.Model):
         related='l10n_mm_zip_id.postcode',
         readonly=True
     )
+    partner_latitude = fields.Float(
+        related="l10n_mm_township_id.latitude",
+        store=True
+    )
+    partner_longitude = fields.Float(
+        related="l10n_mm_township_id.longitude",
+        store=True
+    )
     l10n_mm_is_myanmar = fields.Boolean(
         compute='_compute_l10n_mm_is_myanmar'
     )
@@ -189,13 +197,13 @@ class ResPartner(models.Model):
             # Set state & country
             self.state_id = self.l10n_mm_township_id.district_id.state_id
             self.country_id = self.state_id.country_id
+            self.l10n_mm_zip_id = False
 
             # Reset ward if it doesn't belong to this township
             if self.l10n_mm_ward_id and self.l10n_mm_ward_id.township_id != self.l10n_mm_township_id:
                 self.l10n_mm_ward_id = False
                 self.l10n_mm_postalcode = False
                 self.l10n_mm_pcode = False
-                self.l10n_mm_zip_id = False
 
             # Reset town if it doesn't belong to township
             if self.l10n_mm_town_id and self.l10n_mm_town_id.township_id != self.l10n_mm_township_id:
