@@ -11,13 +11,15 @@ using the l10n_mm_address module.
 """,
     'category': 'Sales/CRM/Localization',
     'author': "Zenonia",
-    'website': "https://github.com/Zenonia-9/Myanmar-Administrative-Localization",
     'license': 'LGPL-3',
     'depends': ['crm', 'l10n_mm_address'],
+    'images': [
+        'static/description/icon.png',
+    ],
     'data': [
         'views/crm_lead_views.xml',
     ],
     'installable': True,
     'application': False,
     'auto_install': False,
-}
+} # type: ignore

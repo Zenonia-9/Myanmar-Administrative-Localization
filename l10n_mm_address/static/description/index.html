@@ -1,257 +1,284 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; max-width: 900px; margin: 0 auto; padding: 20px; }
-        h1 { color: #875A7B; border-bottom: 3px solid #875A7B; padding-bottom: 10px; }
-        h2 { color: #875A7B; margin-top: 30px; border-left: 4px solid #875A7B; padding-left: 10px; }
-        h3 { color: #666; margin-top: 20px; }
-        .feature { background: #f9f9f9; padding: 15px; margin: 10px 0; border-radius: 5px; border-left: 4px solid #875A7B; }
-        .feature strong { color: #875A7B; }
-        ul { padding-left: 20px; }
-        li { margin: 8px 0; }
-        code { background: #f4f4f4; padding: 2px 6px; border-radius: 3px; font-family: 'Courier New', monospace; color: #c7254e; }
-        .screenshot { text-align: center; margin: 20px 0; }
-        .screenshot img { max-width: 100%; border: 1px solid #ddd; border-radius: 5px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
-        .screenshot p { font-style: italic; color: #666; margin-top: 8px; }
-        .hierarchy { background: #e8f4f8; padding: 15px; border-radius: 5px; font-family: monospace; margin: 15px 0; }
-        .badge { display: inline-block; background: #875A7B; color: white; padding: 3px 8px; border-radius: 3px; font-size: 0.85em; margin: 2px; }
-        .info-box { background: #fff3cd; border: 1px solid #ffc107; padding: 15px; border-radius: 5px; margin: 15px 0; }
-        .footer { text-align: center; margin-top: 40px; padding-top: 20px; border-top: 2px solid #875A7B; color: #666; }
-    </style>
-</head>
-<body>
-    <h1>🇲🇲 Myanmar Address Localization</h1>
-    
-    <p><strong>Complete Myanmar administrative address hierarchy with MIMU P-code integration for Odoo 18</strong></p>
-    
-    <div class="info-box">
-        <strong>📦 What's Included:</strong> 18 States/Regions • 86 Districts • 358 Townships • 800+ Towns • 16,000+ Wards/Village Tracts • 900+ Postal Codes
+<section class="container my-5">
+
+    <!-- ================= HERO ================= -->
+    <div class="hero-section text-center p-5 mb-5">
+        <h1 class="display-4 fw-bold" style="color: #6b395e;">Myanmar Address Localization</h1>
+        <h3 class="mt-3">
+            Complete Myanmar administrative hierarchy with MIMU P-code & Postal Code integration
+        </h3>
+        <p class="mt-3">
+            Full administrative hierarchy with State/Region → District → Township → Town → Ward/Village Tract
+            using official MIMU P-codes, plus 900+ postal codes and township-level map coordinates.
+        </p>
     </div>
 
-    <h2>✨ Key Features</h2>
-    
-    <div class="feature">
-        <strong>🗺️ Complete Administrative Hierarchy</strong>
-        <ul>
-            <li>18 States and Regions</li>
-            <li>86 Districts (including Self-Administered Zones and Divisions)</li>
-            <li>358 Townships with coordinates and postal codes</li>
-            <li>800+ Towns</li>
-            <li>16,000+ Wards and Village Tracts</li>
-        </ul>
+    <!-- ================= KEY FEATURES ================= -->
+    <h2 class="text-center mb-4">Key Features</h2>
+
+    <div class="row g-4">
+
+        <div class="col-12 col-md-6">
+            <div class="feature-card">
+                <ul>
+                    <li><strong>18 States/Regions</strong> with official MIMU codes</li>
+                    <li><strong>86 Districts</strong> including SAZ/SAD</li>
+                    <li><strong>358 Townships</strong> with coordinates and postal codes</li>
+                    <li><strong>800+ Towns</strong> for urban centers</li>
+                    <li><strong>16,000+ Wards/Village Tracts</strong> with unique P-codes</li>
+                    <li><strong>900+ Postal Codes</strong> linked to townships</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="col-12 col-md-6">
+            <div class="feature-card">
+                <ul>
+                    <li><strong>P-code Auto-fill</strong> — Enter P-code, all fields populate</li>
+                    <li><strong>Cascading Selection</strong> — Ward → Township → District → State</li>
+                    <li><strong>Postal Code Filtering</strong> — Filtered by selected township</li>
+                    <li><strong>Map View Support</strong> — Township-level coordinates</li>
+                    <li><strong>Smart Search</strong> — Find by name, P-code, or location</li>
+                    <li><strong>Integrated Address Format</strong> — Myanmar-standard printing</li>
+                </ul>
+            </div>
+        </div>
+
     </div>
 
-    <div class="feature">
-        <strong>📍 MIMU P-Code Support</strong>
-        <ul>
-            <li>Full 15-character hierarchical P-code system</li>
-            <li>Auto-fill address by entering P-code</li>
-            <li>Automatic validation and lookup</li>
-        </ul>
-    </div>
+    <!-- ================= P-CODE AUTOFILL ================= -->
+    <section class="mt-5 section-box">
+        <h2 class="text-center">P-code Auto-fill</h2>
 
-    <div class="feature">
-        <strong>📮 Postal Code Integration</strong>
-        <ul>
-            <li>900+ postal codes linked to townships</li>
-            <li>5-digit format with leading zeros preserved</li>
-            <li>Automatic filtering by selected township</li>
-        </ul>
-    </div>
+        <div class="text-center mt-4">
+            <img src="screens/pcode_autofill.png" class="img-fluid" alt="P-code auto-fill demonstration"/>
+        </div>
 
-    <div class="feature">
-        <strong>🗺️ Map View Support</strong>
-        <ul>
-            <li>Township-level coordinates (latitude/longitude)</li>
-            <li>Centroid-based positioning</li>
-            <li>Integrated with Odoo's map view</li>
-        </ul>
-    </div>
+        <p class="text-center mt-3">
+            Enter a MIMU P-code (e.g., MMR017024040) and watch all address fields populate automatically.
+        </p>
+    </section>
 
-    <h2>📊 Address Hierarchy</h2>
-    
-    <div class="hierarchy">
+    <!-- ================= ADDRESS FIELDS ================= -->
+    <section class="mt-5 section-box">
+        <h2 class="text-center">Myanmar Address Fields</h2>
+
+        <div class="text-center mt-4">
+            <img src="screens/partner_form.png" class="img-fluid" alt="Contact form with Myanmar address fields"/>
+        </div>
+
+        <p class="text-center mt-3">
+            Myanmar-specific fields appear automatically when Myanmar is selected as country.
+        </p>
+    </section>
+
+    <!-- ================= WARD SELECTION ================= -->
+    <section class="mt-5 section-box">
+        <h2 class="text-center">Hierarchical Ward Selection</h2>
+
+        <div class="text-center mt-4">
+            <img src="screens/ward_dropdown.png" class="img-fluid" alt="Ward dropdown with hierarchical display"/>
+        </div>
+
+        <p class="text-center mt-3">
+            Search wards by name, P-code, township, or district with hierarchical display.
+        </p>
+    </section>
+
+    <!-- ================= POSTAL CODES ================= -->
+    <section class="mt-5 section-box">
+        <h2 class="text-center">Postal Code Integration</h2>
+
+        <div class="text-center mt-4">
+            <img src="screens/postcode_dropdown.png" class="img-fluid" alt="Postal code dropdown filtered by township"/>
+        </div>
+
+        <p class="text-center mt-3">
+            Postal codes automatically filtered by selected township — 900+ codes in 5-digit format.
+        </p>
+    </section>
+
+    <!-- ================= MAP VIEW ================= -->
+    <section class="mt-5 section-box">
+        <h2 class="text-center">Map View</h2>
+
+        <div class="text-center mt-4">
+            <img src="screens/map_view1.png" class="img-fluid" alt="Map view with township coordinates"/>
+        </div>
+
+        <p class="text-center mt-3">
+            Township-level centroid coordinates integrated with Odoo's map view.
+        </p>
+    </section>
+
+    <!-- ================= KANBAN ================= -->
+    <section class="mt-5 section-box">
+        <h2 class="text-center">Kanban View Integration</h2>
+
+        <div class="text-center mt-4">
+            <img src="screens/kanban_view.png" class="img-fluid" alt="Contact kanban with Myanmar address"/>
+        </div>
+
+        <p class="text-center mt-3">
+            Myanmar addresses display correctly in kanban and list views.
+        </p>
+    </section>
+
+    <!-- ================= ADMIN DATA ================= -->
+    <section class="mt-5">
+        <h2 class="text-center mb-4">Administrative Data Management</h2>
+
+        <div class="row g-4">
+            <div class="col-12 col-md-6 text-center">
+                <img src="screens/district_list.png" class="img-fluid" alt="Districts list"/>
+                <p class="mt-2"><strong>Districts</strong></p>
+            </div>
+
+            <div class="col-12 col-md-6 text-center">
+                <img src="screens/township_list.png" class="img-fluid" alt="Townships list"/>
+                <p class="mt-2"><strong>Townships</strong></p>
+            </div>
+
+            <div class="col-12 col-md-6 text-center">
+                <img src="screens/ward_list.png" class="img-fluid" alt="Wards list"/>
+                <p class="mt-2"><strong>Wards / Village Tracts</strong></p>
+            </div>
+
+            <div class="col-12 col-md-6 text-center">
+                <img src="screens/menu_config.png" class="img-fluid" alt="Configuration menu"/>
+                <p class="mt-2"><strong>Configuration Menu</strong></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= HIERARCHY STRUCTURE ================= -->
+    <section class="mt-5 section-box">
+        <h2 class="text-center">Address Hierarchy</h2>
+
+        <pre class="hierarchy-text mt-4">
 State/Region (res.country.state)
-  └── District (res.district)
-      └── Township (res.township)
-          ├── Town (res.town)
-          │   └── Ward/Village Tract (res.ward)
-          └── Ward/Village Tract (res.ward)
+   └── District (res.district)
+        └── Township (res.township)
+             ├── Town (res.town)
+             │    └── Ward/Village Tract (res.ward)
+             └── Ward/Village Tract (res.ward)
+        </pre>
+    </section>
+
+    <!-- ================= P-CODE STRUCTURE ================= -->
+    <section class="mt-5 section-box">
+        <h2 class="text-center">P-code Structure</h2>
+
+        <div class="table-responsive mt-4">
+            <table class="table table-bordered text-center">
+                <thead>
+                    <tr>
+                        <th>Level</th>
+                        <th>Example</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Country</td><td>MMR</td><td>Myanmar ISO-3</td></tr>
+                    <tr><td>State</td><td>MMR017</td><td>Ayeyarwady Region</td></tr>
+                    <tr><td>District</td><td>MMR017D006</td><td>Pyapon District</td></tr>
+                    <tr><td>Township</td><td>MMR017024</td><td>Bogale Township</td></tr>
+                    <tr><td>Ward</td><td>MMR017024040</td><td>Specific ward/village tract</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- ================= DATA SOURCES ================= -->
+    <section class="mt-5 section-box">
+        <h2 class="text-center">Data Sources</h2>
+
+        <ul class="mt-4">
+            <li>
+                <strong>MIMU (Myanmar Information Management Unit)</strong> —
+                Official P-codes and administrative boundaries<br/>
+                https://themimu.info/mm/place-codes
+            </li>
+
+            <li class="mt-3">
+                <strong>Myanmar Post</strong> —
+                Official postal code data<br/>
+                https://myanmarpost.com.mm/postcode
+            </li>
+
+            <li class="mt-3">
+                <strong>Dr. Nyein Chan's P-Code Database</strong><br/>
+                https://pcode.drnyeinchan.com/
+            </li>
+        </ul>
+    </section>
+
+    <!-- ================= INSTALLATION ================= -->
+    <section class="mt-5 section-box">
+        <h2 class="text-center">Installation</h2>
+
+        <ol class="mt-4">
+            <li>Place <strong>l10n_mm_address</strong> in your Odoo addons path</li>
+            <li>Restart Odoo server (if needed)</li>
+            <li>Update Apps List</li>
+            <li>Search for "Myanmar - Address Localization"</li>
+            <li>Click Install</li>
+        </ol>
+
+        <p class="mt-3 text-center">
+            No additional configuration required.
+            Myanmar address fields appear automatically.
+        </p>
+    </section>
+
+    <!-- ================= FOOTER ================= -->
+    <div class="text-center mt-5">
+        <h4>Author</h4>
+        <p>Zenonia</p>
+
+        <h4>License</h4>
+        <p>LGPL-3</p>
+
+        <a href="https://github.com/Zenonia-9/Myanmar-Administrative-Localization"
+           class="btn btn-primary mt-3" target="_blank">
+            GitHub Repository
+        </a>
     </div>
 
-    <h2>🔢 P-Code Structure</h2>
-    
-    <p>MIMU P-codes are hierarchical 15-character codes:</p>
-    <ul>
-        <li><code>MMR</code> - Country code (Myanmar)</li>
-        <li><code>001-018</code> - State/Region code</li>
-        <li><code>D001-D333</code> - District code (or S/SAD for special zones)</li>
-        <li><code>001-358</code> - Township code</li>
-        <li><code>0001-9999</code> - Ward/Village Tract code</li>
-    </ul>
-    
-    <p><strong>Example:</strong> <code>MMR017024040</code> = Myanmar → Ayeyarwady (017) → Pyapon District (024) → Ward/Village Tract (040)</p>
+</section>
 
-    <h2>📸 Screenshots</h2>
+<style>
 
-    <div class="screenshot">
-        <img src="screens/partner_form.png" alt="Partner Form">
-        <p>Myanmar address fields in contact form with hierarchical filtering</p>
-    </div>
+.hero-section {
+    background: linear-gradient(135deg, #875A7B, #5B8DEF);
+    color: white;
+    border-radius: 16px;
+}
 
-    <div class="screenshot">
-        <img src="screens/pcode_autofill.png" alt="P-Code Auto-fill">
-        <p>Auto-fill address using MIMU P-code</p>
-    </div>
+.feature-card {
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 14px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+    height: 100%;
+}
 
-    <div class="screenshot">
-        <img src="screens/ward_dropdown.png" alt="Ward Dropdown">
-        <p>Ward selection with hierarchical filtering</p>
-    </div>
+.section-box {
+    background: #f9f9fb;
+    padding: 30px;
+    border-radius: 14px;
+}
 
-    <div class="screenshot">
-        <img src="screens/postcode_dropdown.png" alt="Postal Code Dropdown">
-        <p>Postal code selection filtered by township</p>
-    </div>
+.hierarchy-text {
+    font-family: monospace;
+    background: #f4f4f4;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 600px;
+    margin: auto;
+}
 
-    <div class="screenshot">
-        <img src="screens/kanban_view.png" alt="Kanban View">
-        <p>Myanmar address display in kanban view</p>
-    </div>
+img {
+    border-radius: 12px;
+}
 
-    <div class="screenshot">
-        <img src="screens/map_view1.png" alt="Map View">
-        <p>Map view with township-level coordinates</p>
-    </div>
-
-    <div class="screenshot">
-        <img src="screens/menu_config.png" alt="Configuration Menu">
-        <p>Myanmar localization configuration menu</p>
-    </div>
-
-    <div class="screenshot">
-        <img src="screens/district_list.png" alt="District List">
-        <p>District management with type classification</p>
-    </div>
-
-    <div class="screenshot">
-        <img src="screens/township_list.png" alt="Township List">
-        <p>Township list with coordinates</p>
-    </div>
-
-    <div class="screenshot">
-        <img src="screens/ward_list.png" alt="Ward List">
-        <p>Ward and Village Tract management</p>
-    </div>
-
-    <h2>🚀 Usage</h2>
-
-    <h3>Address Entry</h3>
-    <p>When country is set to Myanmar, the following fields appear:</p>
-    <ul>
-        <li><strong>District</strong> - Filtered by selected State</li>
-        <li><strong>Township</strong> - Filtered by selected District</li>
-        <li><strong>Town</strong> - Filtered by selected Township</li>
-        <li><strong>Ward</strong> - Filtered by selected Town or Township</li>
-        <li><strong>P-Code</strong> - Auto-fills from ward selection or manual entry</li>
-        <li><strong>Postal Code</strong> - Filtered by selected Township</li>
-    </ul>
-
-    <h3>P-Code Auto-fill</h3>
-    <p>Simply enter a valid MIMU P-code in the P-Code field, and the system will automatically populate:</p>
-    <ul>
-        <li>Ward/Village Tract</li>
-        <li>Town (if applicable)</li>
-        <li>Township</li>
-        <li>District</li>
-        <li>State/Region</li>
-        <li>Postal Code</li>
-    </ul>
-
-    <h3>Configuration Access</h3>
-    <p>Navigate to: <strong>Contacts → Configuration → Myanmar Localization</strong></p>
-    <ul>
-        <li>Districts</li>
-        <li>Townships</li>
-        <li>Towns</li>
-        <li>Wards</li>
-        <li>Post Codes</li>
-    </ul>
-
-    <h2>📋 Technical Details</h2>
-
-    <h3>Models</h3>
-    <ul>
-        <li><code>res.district</code> - Districts/SAZ/SAD</li>
-        <li><code>res.township</code> - Townships with coordinates</li>
-        <li><code>res.town</code> - Towns</li>
-        <li><code>res.ward</code> - Wards and Village Tracts</li>
-        <li><code>res.zip</code> - Post codes</li>
-        <li><code>res.country</code> - Enhanced with <code>enforce_townships</code> field</li>
-    </ul>
-
-    <h3>Data Sources</h3>
-    <p>This module is built upon data from multiple authoritative sources. We extend our sincere gratitude to:</p>
-    <ul>
-        <li><strong>MIMU (Myanmar Information Management Unit)</strong> - Official P-codes and administrative boundaries<br>
-            <a href="https://themimu.info/mm/place-codes" target="_blank">https://themimu.info/mm/place-codes</a></li>
-        <li><strong>Myanmar Post</strong> - Official postal code data<br>
-            <a href="https://myanmarpost.com.mm/postcode" target="_blank">https://myanmarpost.com.mm/postcode</a></li>
-        <li><strong>Myanmars.net</strong> - Postal code reference<br>
-            <a href="https://www.myanmars.net/postal-code/naypyitaw.html" target="_blank">https://www.myanmars.net/postal-code/naypyitaw.html</a></li>
-        <li><strong>MMR Postcode Base</strong> - Comprehensive postal code database<br>
-            <a href="https://mmr.postcodebase.com/" target="_blank">https://mmr.postcodebase.com/</a></li>
-        <li><strong>Dr. Nyein Chan's P-Code Database</strong> - P-code reference and validation<br>
-            <a href="https://pcode.drnyeinchan.com/" target="_blank">https://pcode.drnyeinchan.com/</a></li>
-    </ul>
-    <p><em>All data is loaded via CSV files in the <code>data/</code> folder. Coordinates represent township-level centroids.</em></p>
-
-    <h3>Security</h3>
-    <ul>
-        <li>Read access for all users (<code>base.group_user</code>)</li>
-        <li>Write access for partner managers (<code>base.group_partner_manager</code>)</li>
-    </ul>
-
-    <h2>🏷️ District Types</h2>
-    <ul>
-        <li><span class="badge">District</span> Regular administrative district</li>
-        <li><span class="badge">SAZ</span> Self-Administered Zone</li>
-        <li><span class="badge">SAD</span> Self-Administered Division</li>
-    </ul>
-
-    <h2>🏘️ Ward Types</h2>
-    <ul>
-        <li><span class="badge">Ward</span> Urban administrative ward (4-digit P-code suffix)</li>
-        <li><span class="badge">Village Tract</span> Rural administrative division (3-digit P-code suffix)</li>
-    </ul>
-
-    <h2>🔮 Future Enhancements</h2>
-    <ul>
-        <li>Myanmar language name support (fields ready: <code>name_mm</code>)</li>
-        <li>Village-level coordinate precision</li>
-        <li>Enhanced map clustering for dense areas</li>
-        <li>Enforcement of township selection at country level</li>
-    </ul>
-
-    <h2>📦 Installation</h2>
-    <ol>
-        <li>Copy the <code>l10n_mm_address</code> folder to your Odoo addons directory</li>
-        <li>Update the apps list in Odoo</li>
-        <li>Install the "Myanmar - Address Localization" module</li>
-        <li>Data will be automatically imported during installation</li>
-    </ol>
-
-    <h2>🤝 Support & Contribution</h2>
-    <p>For issues, suggestions, or contributions, please visit:</p>
-    <p><strong>GitHub:</strong> <a href="https://github.com/Zenonia-9/Myanmar-Administrative-Localization" target="_blank">Myanmar-Administrative-Localization</a></p>
-
-    <div class="footer">
-        <p><strong>Author:</strong> Zenonia</p>
-        <p><strong>License:</strong> LGPL-3</p>
-        <p><strong>Version:</strong> 18.0.2.5</p>
-        <p>Made with ❤️ for Myanmar 🇲🇲</p>
-    </div>
-</body>
-</html>
+</style>

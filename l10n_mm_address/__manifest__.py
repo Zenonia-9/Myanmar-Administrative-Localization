@@ -17,7 +17,6 @@ This module provides the Myanmar administrative address hierarchy:
 - Wards and Village Tracts (with P-Code support)
 """,
     'author': 'Zenonia',
-    'website': 'https://github.com/Zenonia-9/Myanmar-Administrative-Localization',
     'depends': ['base', 'contacts'],
     'images': [
         'static/description/icon.png',
