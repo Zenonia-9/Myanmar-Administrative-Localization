@@ -44,18 +44,10 @@ class ResWard(models.Model):
     district_id = fields.Many2one('res.district', related='township_id.district_id', store=True)
     state_id = fields.Many2one('res.country.state', related='district_id.state_id', store=True)
     country_id = fields.Many2one('res.country', related='state_id.country_id', store=True)
-    # country_id = fields.Many2one(
-    #     'res.country', string='Country', compute='_compute_country_id', store=True
-    # )
 
     _sql_constraints = [
         ('p_code_uniq', 'unique(p_code)', 'P-code must be unique!'),
     ]
-
-    # @api.depends('township_id', 'township_id.district_id.state_id', 'township_id.district_id.state_id.country_id')
-    # def _compute_country_id(self):
-    #     for rec in self:
-    #         rec.country_id = rec.township_id.district_id.state_id.country_id if rec.township_id and rec.township_id.district_id and rec.township_id.district_id.state_id else False
     
     @api.depends(
         "name",

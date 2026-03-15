@@ -7,6 +7,8 @@
         <field name="arch" type="xml">
             <field name="city" position="before">
                 <field name="l10n_mm_is_myanmar" invisible="1"/>
+                <field name="l10n_mm_ward_ids" invisible="1"/>
+                <field name="l10n_mm_township_ids" invisible="1"/>
                 <field name="l10n_mm_ward_id"
                        class="o_address_street"
                        invisible="not l10n_mm_is_myanmar" 
@@ -24,6 +26,7 @@
                        class="o_address_city"
                        invisible="not l10n_mm_is_myanmar" 
                        placeholder="Township"
+                       domain="[('id','in', l10n_mm_township_ids)]"
                        options="{'no_open': True, 'no_create': True, 'no_quick_create': True}"
                        readonly="type == 'contact' and parent_id"/>
                 <field name="l10n_mm_district_id" 
@@ -58,6 +61,8 @@
             <!-- Same for child contact addresses -->
             <xpath expr="//field[@name='child_ids']//form//field[@name='city']" position="before">
                 <field name="l10n_mm_is_myanmar" invisible="1"/>
+                <field name="l10n_mm_ward_ids" invisible="1"/>
+                <field name="l10n_mm_township_ids" invisible="1"/>
                 <field name="l10n_mm_ward_id"
                        class="o_address_street"
                        invisible="not l10n_mm_is_myanmar" 
@@ -75,6 +80,7 @@
                        class="o_address_city"
                        invisible="not l10n_mm_is_myanmar" 
                        placeholder="Township"
+                       domain="[('id','in', l10n_mm_township_ids)]"
                        options="{'no_open': True, 'no_create': True, 'no_quick_create': True}"
                        readonly="type == 'contact' and parent_id"/>
                 <field name="l10n_mm_district_id" 

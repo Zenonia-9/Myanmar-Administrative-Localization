@@ -32,6 +32,8 @@ class ResTownship(models.Model):
         string='District',
         required=True,
     )
+    state_id = fields.Many2one('res.country.state', related='district_id.state_id', store=True)
+    country_id = fields.Many2one('res.country', related='state_id.country_id', store=True)
     latitude = fields.Float(string="Latitude", digits=(10, 7))
     longitude = fields.Float(string="Longitude", digits=(10, 7))
 

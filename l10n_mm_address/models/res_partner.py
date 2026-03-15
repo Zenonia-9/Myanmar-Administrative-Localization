@@ -18,8 +18,10 @@ class ResPartner(models.Model):
         string='Township',
         compute='_compute_l10n_mm_township_id',
         readonly=False,
-        store=True,
-        domain="[('district_id', '=', l10n_mm_district_id)]"
+        store=True
+    )
+    l10n_mm_township_ids = fields.Many2many(
+        'res.township', compute='_compute_township_ids', string='Townships for Dropdown'
     )
     l10n_mm_town_id = fields.Many2one(
         'res.town',
@@ -36,7 +38,7 @@ class ResPartner(models.Model):
     l10n_mm_zip_id = fields.Many2one(
         'res.zip',
         string='Zip Code',
-        domain="[('township_id','=',l10n_mm_township_id)]"
+        domain="[('township_id','=', l10n_mm_township_id)]"
     )
     l10n_mm_ward_name = fields.Char(
         related='l10n_mm_ward_id.name',
@@ -64,7 +66,7 @@ class ResPartner(models.Model):
     )
     l10n_mm_postcode = fields.Char(
         related='l10n_mm_zip_id.postcode',
-        readonly=True
+        readonly=True,
     )
     partner_latitude = fields.Float(
         related="l10n_mm_township_id.latitude",
@@ -155,6 +157,18 @@ class ResPartner(models.Model):
                 domain = [('country_id', '=', rec.country_id.id)]
             rec.l10n_mm_ward_ids = self.env['res.ward'].search(domain)
     
+    @api.depends('l10n_mm_district_id', 'state_id', 'country_id')
+    def _compute_township_ids(self):
+        for rec in self:
+            domain = []
+            if rec.l10n_mm_district_id:
+                domain = [('district_id', '=', rec.l10n_mm_district_id.id)]
+            elif rec.state_id:
+                domain = [('state_id', '=', rec.state_id.id)]
+            elif rec.country_id:
+                domain = [('country_id', '=', rec.country_id.id)]
+            rec.l10n_mm_township_ids = self.env['res.township'].search(domain)
+
     @api.onchange('l10n_mm_pcode')
     def _onchange_l10n_mm_pcode(self):
         if self.l10n_mm_pcode:
