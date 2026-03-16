@@ -1,93 +1,109 @@
 # Myanmar HR Address Localization (l10n_mm_address_hr)
 
-Odoo module that extends HR employee records with Myanmar administrative hierarchy fields for private addresses using the official **MIMU P-code system**.
+## Overview
 
-Integrates with `l10n_mm_address` module to provide structured employee address management with State/Region → District → Township → Town → Ward → Zip Code data.
+**Myanmar HR Address Localization** is an Odoo 18 module developed by **Zenonia** that extends employee records with the complete Myanmar administrative address hierarchy for private addresses, powered by **MIMU P-code** data from `l10n_mm_address`.
+
+Myanmar address fields are added to the **Private Information** tab of employee forms with cascading dropdowns, auto-fill from P-Code, and dynamic visibility based on country selection.
+
+---
+
+## Address Hierarchy
+
+```
+State/Region (res.country.state)
+  └── District (res.district)
+      └── Township (res.township)
+          ├── Town (res.town)
+          │   └── Ward / Village Tract (res.ward)
+          └── Ward / Village Tract (res.ward)
+```
 
 ---
 
 ## Features
 
-- **HR Integration**
-  - Myanmar address fields in Private Information tab
-  - Employee private address support
-  - Country-based field visibility
-  - Seamless HR workflow integration
+* **Myanmar address fields** — Full hierarchy in the Private Information tab of employee records
+* **Cascading dropdowns** — State → District → Township → Town → Ward
+* **Auto-fill from P-Code** — Enter a MIMU P-code to populate the full private address
+* **Auto-fill from Ward** — Selecting a Ward fills Township, District, State, and Country
+* **Dynamic visibility** — Myanmar address fields appear only when Private Country is set to Myanmar
+* **Myanmar language names** — Inherits `name_mm` display from `l10n_mm_address`
 
-- **Address Fields**
-  - Ward / Village Tract
-  - Town (optional)
-  - Township
-  - District
-  - P-Code
-  - Zip Code
-  - State / Region (auto-filled)
+---
 
-- **Smart Field Behavior**
-  - Auto-fill from P-code entry
-  - Auto-fill from ward selection
-  - Cascading updates on level changes
-  - Dynamic field visibility (Myanmar only)
-  - Validation against MIMU database
+## Technical Details
 
-- **Security**
-  - Respects HR access rights
-  - Fields restricted to `hr.group_hr_user`
-  - Private information protection
+### Address Fields on `hr.employee`
+
+| Field | Description |
+| --- | --- |
+| `l10n_mm_district_id` | District, filtered by State |
+| `l10n_mm_township_id` | Township, filtered by District |
+| `l10n_mm_town_id` | Town, filtered by Township |
+| `l10n_mm_ward_id` | Ward, filtered by Town or Township |
+| `l10n_mm_pcode` | MIMU P-Code for auto-fill |
+| `l10n_mm_zip_id` | Postal code, filtered by Township |
+
+### Security
+
+| Group | Permissions |
+| --- | --- |
+| `hr.group_hr_user` | Read, Write |
 
 ---
 
 ## Installation
 
-### Prerequisites
+### 1. Copy Module
 
-1. Install `l10n_mm_address` module first (required dependency)
-2. Ensure `hr` module is installed (Odoo standard)
+```bash
+cp -r l10n_mm_address_hr /path/to/odoo/addons/
+```
 
-### Install Steps
+### 2. Update Apps List
 
-1. Place `l10n_mm_address_hr` in your Odoo addons path
-2. Update apps list: **Apps → Update Apps List**
-3. Search for **"Myanmar HR Address Localization"**
-4. Click **Install**
+In Odoo, go to **Apps → Update Apps List**.
+
+### 3. Install
+
+Search for `Myanmar HR Address Localization` and click **Install**.
+
+> **Note:** `l10n_mm_address` must be installed first as it is a required dependency.
 
 ---
 
 ## Usage
 
-### Employee Form
+After installation:
 
-1. Navigate to **Employees → Employees**
-2. Open or create an employee record
-3. Go to **Private Information** tab
-4. Set **Private Country** to "Myanmar"
-5. Myanmar address fields appear automatically
-
-### P-code Entry Method
-
-1. Enter P-code in the P-Code field (e.g., `MMR017024040`)
-2. All private address fields populate automatically
-
-### Manual Selection Method
-
-1. Select **Ward** from dropdown
-2. Upper levels auto-fill (Township, District, State)
-3. Or select **Township** first, then choose Ward
+* Navigate to **Employees → Employees** and open any employee record
+* Go to the **Private Information** tab
+* Set **Private Country** to `Myanmar` to reveal the Myanmar address fields
+* Use the **P-Code** field to auto-fill the entire address hierarchy, or select fields manually starting from Ward
 
 ---
 
-## Requirements
+# Requirements
 
-- Odoo 18.0+
-- Dependencies:
-  - `hr` (Odoo standard)
-  - `l10n_mm_address` (required)
+* Odoo 18
+* Python 3.10+
+* Docker (optional)
+* PostgreSQL
 
 ---
 
-## Author
+## Developer
 
-Zenonia
+**Author:**
+Thein Htoo Aung
+
+**Company:**
+Automated Resources Integrator Co., Ltd
+
+Repository: [https://github.com/Zenonia-9/Myanmar-Administrative-Localization](https://github.com/Zenonia-9/Myanmar-Administrative-Localization)
+
+---
 
 ## License
 

@@ -4,9 +4,10 @@ from odoo import api, fields, models
 class ResDistrict(models.Model):
     _name = 'res.district'
     _description = 'Myanmar District'
-    _order = 'code'
+    _order = 'name'
 
     name = fields.Char(required=True)
+    name_mm = fields.Char()
     code = fields.Char(
         string='District Code',
         required=True,
@@ -29,3 +30,16 @@ class ResDistrict(models.Model):
     _sql_constraints = [
         ('code_uniq', 'unique(code)', 'District code must be unique!'),
     ]
+
+    @api.depends('name', 'name_mm')
+    def _compute_display_name(self):
+        use_mm = self.env['ir.config_parameter'].sudo().get_param('l10n_mm_address.use_myanmar_language')
+        for rec in self:
+            rec.display_name = rec.name_mm if use_mm and rec.name_mm else rec.name
+
+    def _search_display_name(self, operator, value):
+        return [
+            '|',
+            ('name', operator, value),
+            ('name_mm', operator, value),
+        ]

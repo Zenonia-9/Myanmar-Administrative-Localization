@@ -19,7 +19,6 @@ class Lead(models.Model):
         compute='_compute_l10n_mm_township_id',
         readonly=False,
         store=True,
-        domain="[('district_id', '=', l10n_mm_district_id)]"
     )
     l10n_mm_town_id = fields.Many2one(
         'res.town',
@@ -35,10 +34,19 @@ class Lead(models.Model):
         compute='_compute_ward_ids',
         string='Wards for Dropdown'
     )
+    l10n_mm_township_ids = fields.Many2many(
+        'res.township',
+        compute='_compute_township_ids',
+        string='Townships for Dropdown'
+    )
     l10n_mm_zip_id = fields.Many2one(
         'res.zip',
         string='Zip Code',
-        domain="[('township_id','=',l10n_mm_township_id)]"
+    )
+    l10n_mm_zip_ids = fields.Many2many(
+        'res.zip',
+        compute='_compute_zip_ids',
+        string='Zips for Dropdown'
     )
     l10n_mm_pcode = fields.Char(
         string='P-Code',
@@ -48,9 +56,24 @@ class Lead(models.Model):
         string="Postal Code",
         help="7 digits Postal Code"
     )
+    l10n_mm_postcode = fields.Char(
+        related='l10n_mm_zip_id.postcode',
+        readonly=True,
+    )
+    l10n_mm_ward_name = fields.Char(
+        compute='_compute_l10n_mm_ward_name',
+        string='Ward Name',
+        readonly=True,
+    )
     l10n_mm_is_myanmar = fields.Boolean(
         compute='_compute_l10n_mm_is_myanmar'
     )
+
+    @api.depends('l10n_mm_ward_id')
+    def _compute_l10n_mm_ward_name(self):
+        use_mm = self.env['ir.config_parameter'].sudo().get_param('l10n_mm_address.use_myanmar_language')
+        for rec in self:
+            rec.l10n_mm_ward_name = rec.l10n_mm_ward_id.name_mm if use_mm and rec.l10n_mm_ward_id.name_mm else rec.l10n_mm_ward_id.name
 
     @api.depends('country_id')
     def _compute_l10n_mm_is_myanmar(self):
@@ -90,6 +113,32 @@ class Lead(models.Model):
                 domain = [('country_id', '=', rec.country_id.id)]
             rec.l10n_mm_ward_ids = self.env['res.ward'].search(domain)
 
+    @api.depends('l10n_mm_district_id', 'state_id', 'country_id')
+    def _compute_township_ids(self):
+        for rec in self:
+            domain = []
+            if rec.l10n_mm_district_id:
+                domain = [('district_id', '=', rec.l10n_mm_district_id.id)]
+            elif rec.state_id:
+                domain = [('state_id', '=', rec.state_id.id)]
+            elif rec.country_id:
+                domain = [('country_id', '=', rec.country_id.id)]
+            rec.l10n_mm_township_ids = self.env['res.township'].search(domain)
+
+    @api.depends('l10n_mm_zip_id', 'l10n_mm_township_id', 'l10n_mm_district_id', 'state_id', 'country_id')
+    def _compute_zip_ids(self):
+        for rec in self:
+            domain = []
+            if rec.l10n_mm_township_id:
+                domain = [('township_id', '=', rec.l10n_mm_township_id.id)]
+            elif rec.l10n_mm_district_id:
+                domain = [('district_id', '=', rec.l10n_mm_district_id.id)]
+            elif rec.state_id:
+                domain = [('state_id', '=', rec.state_id.id)]
+            elif rec.country_id:
+                domain = [('country_id', '=', rec.country_id.id)]
+            rec.l10n_mm_zip_ids = self.env['res.zip'].search(domain)
+
     @api.onchange('l10n_mm_pcode')
     def _onchange_l10n_mm_pcode(self):
         if self.l10n_mm_pcode:
@@ -115,6 +164,17 @@ class Lead(models.Model):
             if self.l10n_mm_zip_id and self.l10n_mm_zip_id.township_id != self.l10n_mm_township_id:
                 self.l10n_mm_zip_id = False
 
+    @api.onchange('l10n_mm_zip_id')
+    def _onchange_l10n_mm_zip_id(self):
+        if self.l10n_mm_zip_id:
+            self.l10n_mm_township_id = self.l10n_mm_zip_id.township_id
+            self.l10n_mm_district_id = self.l10n_mm_zip_id.district_id
+            self.state_id = self.l10n_mm_zip_id.state_id
+            if self.l10n_mm_township_id and self.l10n_mm_zip_id.township_id != self.l10n_mm_township_id:
+                self.l10n_mm_township_id = False
+                self.l10n_mm_district_id = False
+                self.state_id = False
+
     @api.onchange('l10n_mm_town_id')
     def _onchange_l10n_mm_town_id(self):
         if self.l10n_mm_town_id:
@@ -134,9 +194,10 @@ class Lead(models.Model):
                 self.l10n_mm_ward_id = False
                 self.l10n_mm_postalcode = False
                 self.l10n_mm_pcode = False
-                self.l10n_mm_zip_id = False
             if self.l10n_mm_town_id and self.l10n_mm_town_id.township_id != self.l10n_mm_township_id:
                 self.l10n_mm_town_id = False
+            if self.l10n_mm_zip_id and self.l10n_mm_zip_id.township_id != self.l10n_mm_township_id:
+                self.l10n_mm_zip_id = False
 
     @api.onchange('l10n_mm_district_id')
     def _onchange_l10n_mm_district_id(self):
