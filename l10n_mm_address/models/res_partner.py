@@ -181,7 +181,7 @@ class ResPartner(models.Model):
                 domain = [('country_id', '=', rec.country_id.id)]
             rec.l10n_mm_township_ids = self.env['res.township'].search(domain)
     
-    @api.depends('l10n_mm_zip_id')
+    @api.depends('l10n_mm_ward_id', 'l10n_mm_township_id', 'l10n_mm_district_id', 'state_id', 'country_id')
     def _compute_zip_ids(self):
         for rec in self:
             domain = []
