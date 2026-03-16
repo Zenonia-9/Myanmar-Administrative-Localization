@@ -21,7 +21,6 @@ class HrEmployee(models.Model):
         readonly=False,
         store=True,
         groups="hr.group_hr_user",
-        domain="[('district_id', '=', private_l10n_mm_district_id)]"
     )
     private_l10n_mm_town_id = fields.Many2one(
         'res.town',
@@ -39,11 +38,20 @@ class HrEmployee(models.Model):
         compute='_compute_private_ward_ids',
         string='Private Wards for Dropdown'
     )
+    private_l10n_mm_township_ids = fields.Many2many(
+        'res.township',
+        compute='_compute_private_township_ids',
+        string='Private Townships for Dropdown'
+    )
     private_l10n_mm_zip_id = fields.Many2one(
         'res.zip',
         string='Private Zip Code',
         groups="hr.group_hr_user",
-        domain="[('township_id','=',private_l10n_mm_township_id)]"
+    )
+    private_l10n_mm_zip_ids = fields.Many2many(
+        'res.zip',
+        compute='_compute_private_zip_ids',
+        string='Private Zips for Dropdown'
     )
     private_l10n_mm_pcode = fields.Char(
         string='Private P-Code',
@@ -81,7 +89,7 @@ class HrEmployee(models.Model):
             elif not emp.private_l10n_mm_township_id:
                 emp.private_l10n_mm_township_id = False
 
-    @api.depends('private_l10n_mm_ward_id', 'private_l10n_mm_township_id', 'private_l10n_mm_district_id', 'private_state_id', 'private_country_id')
+    @api.depends('private_l10n_mm_town_id', 'private_l10n_mm_township_id', 'private_l10n_mm_district_id', 'private_state_id', 'private_country_id')
     def _compute_private_ward_ids(self):
         for emp in self:
             domain = []
@@ -96,6 +104,32 @@ class HrEmployee(models.Model):
             elif emp.private_country_id:
                 domain = [('country_id', '=', emp.private_country_id.id)]
             emp.private_l10n_mm_ward_ids = self.env['res.ward'].search(domain)
+
+    @api.depends('private_l10n_mm_district_id', 'private_state_id', 'private_country_id')
+    def _compute_private_township_ids(self):
+        for emp in self:
+            domain = []
+            if emp.private_l10n_mm_district_id:
+                domain = [('district_id', '=', emp.private_l10n_mm_district_id.id)]
+            elif emp.private_state_id:
+                domain = [('state_id', '=', emp.private_state_id.id)]
+            elif emp.private_country_id:
+                domain = [('country_id', '=', emp.private_country_id.id)]
+            emp.private_l10n_mm_township_ids = self.env['res.township'].search(domain)
+
+    @api.depends('private_l10n_mm_zip_id', 'private_l10n_mm_township_id', 'private_l10n_mm_district_id', 'private_state_id', 'private_country_id')
+    def _compute_private_zip_ids(self):
+        for emp in self:
+            domain = []
+            if emp.private_l10n_mm_township_id:
+                domain = [('township_id', '=', emp.private_l10n_mm_township_id.id)]
+            elif emp.private_l10n_mm_district_id:
+                domain = [('district_id', '=', emp.private_l10n_mm_district_id.id)]
+            elif emp.private_state_id:
+                domain = [('state_id', '=', emp.private_state_id.id)]
+            elif emp.private_country_id:
+                domain = [('country_id', '=', emp.private_country_id.id)]
+            emp.private_l10n_mm_zip_ids = self.env['res.zip'].search(domain)
 
     @api.onchange('private_l10n_mm_pcode')
     def _onchange_private_l10n_mm_pcode(self):
@@ -122,6 +156,17 @@ class HrEmployee(models.Model):
             if self.private_l10n_mm_zip_id and self.private_l10n_mm_zip_id.township_id != self.private_l10n_mm_township_id:
                 self.private_l10n_mm_zip_id = False
 
+    @api.onchange('private_l10n_mm_zip_id')
+    def _onchange_private_l10n_mm_zip_id(self):
+        if self.private_l10n_mm_zip_id:
+            self.private_l10n_mm_township_id = self.private_l10n_mm_zip_id.township_id
+            self.private_l10n_mm_district_id = self.private_l10n_mm_zip_id.district_id
+            self.private_state_id = self.private_l10n_mm_zip_id.state_id
+            if self.private_l10n_mm_township_id and self.private_l10n_mm_zip_id.township_id != self.private_l10n_mm_township_id:
+                self.private_l10n_mm_township_id = False
+                self.private_l10n_mm_district_id = False
+                self.private_state_id = False
+
     @api.onchange('private_l10n_mm_town_id')
     def _onchange_private_l10n_mm_town_id(self):
         if self.private_l10n_mm_town_id:
@@ -137,13 +182,15 @@ class HrEmployee(models.Model):
         if self.private_l10n_mm_township_id:
             self.private_state_id = self.private_l10n_mm_township_id.district_id.state_id
             self.private_country_id = self.private_state_id.country_id
+            
             if self.private_l10n_mm_ward_id and self.private_l10n_mm_ward_id.township_id != self.private_l10n_mm_township_id:
                 self.private_l10n_mm_ward_id = False
                 self.private_l10n_mm_postalcode = False
                 self.private_l10n_mm_pcode = False
-                self.private_l10n_mm_zip_id = False
             if self.private_l10n_mm_town_id and self.private_l10n_mm_town_id.township_id != self.private_l10n_mm_township_id:
                 self.private_l10n_mm_town_id = False
+            if self.private_l10n_mm_zip_id and self.private_l10n_mm_zip_id.township_id != self.private_l10n_mm_township_id:
+                self.private_l10n_mm_zip_id = False
 
     @api.onchange('private_l10n_mm_district_id')
     def _onchange_private_l10n_mm_district_id(self):

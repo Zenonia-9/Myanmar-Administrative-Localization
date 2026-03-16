@@ -15,6 +15,9 @@ class ResZip(models.Model):
         string='Township',
         required=True,
     )
+    district_id = fields.Many2one('res.district', related='township_id.district_id', store=True)
+    state_id = fields.Many2one('res.country.state', related='district_id.state_id', store=True)
+    country_id = fields.Many2one('res.country', related='state_id.country_id', store=True)
 
     @api.depends(
         "name",
@@ -27,3 +30,10 @@ class ResZip(models.Model):
             if rec.name:
                 parts.append(rec.name)
             rec.display_name = ", ".join(p for p in parts if p)
+
+    def _search_display_name(self, operator, value):
+        return [
+            '|',
+            ('name', operator, value),
+            ('postcode', operator, value),
+        ]

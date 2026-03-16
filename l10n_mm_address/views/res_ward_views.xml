@@ -7,6 +7,7 @@
         <field name="arch" type="xml">
             <list>
                 <field name="name"/>
+                <field name="name_mm" />
                 <field name="p_code"/>
                 <field name="postal_code" />
                 <field name="township_id"/>
@@ -22,6 +23,7 @@
         <field name="arch" type="xml">
             <search>
                 <field name="name"/>
+                <field name="name_mm" />
                 <field name="p_code"/>
                 <field name="postal_code" />
                 <field name="township_id"/>
@@ -45,6 +47,7 @@
                     <group>
                         <group>
                             <field name="name"/>
+                            <field name="name_mm" />
                             <field name="p_code"/>
                             <field name="postal_code" />
                             <field name="ward_type"/>

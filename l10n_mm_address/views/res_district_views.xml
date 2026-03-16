@@ -7,6 +7,7 @@
         <field name="arch" type="xml">
             <list>
                 <field name="name"/>
+                <field name="name_mm" />
                 <field name="code"/>
                 <field name="state_id"/>
                 <field name="district_type"/>
@@ -20,6 +21,7 @@
         <field name="arch" type="xml">
             <search>
                 <field name="name"/>
+                <field name="name_mm" />
                 <field name="code"/>
                 <field name="state_id"/>
                 <field name="district_type"/>
@@ -40,6 +42,7 @@
                     <group>
                         <group>
                             <field name="name"/>
+                            <field name="name_mm" />
                             <field name="code"/>
                         </group>
                         <group>

@@ -5,9 +5,10 @@ class ResWard(models.Model):
     _name = 'res.ward'
     _description = 'Myanmar Ward / Village Tract'
     _rec_name = 'name'
-    _order = 'p_code'
+    _order = 'name'
 
     name = fields.Char(required=True)
+    name_mm = fields.Char()
     p_code = fields.Char(
         string='Ward P-Code',
         required=True,
@@ -51,15 +52,30 @@ class ResWard(models.Model):
     
     @api.depends(
         "name",
+        "name_mm",
         "township_id.name",
-        "township_id.district_id.name",
+        "township_id.name_mm",
+        "state_id.name",
+        "state_id.name_mm",
     )
     def _compute_display_name(self):
         # Compute display name with hierarchical structure: Ward, Township, District
+        use_mm = self.env['ir.config_parameter'].sudo().get_param('l10n_mm_address.use_myanmar_language')
         for rec in self:
-            parts = [rec.name or ""]
+            parts = [rec.name_mm if use_mm and rec.name_mm else rec.name]
             if rec.township_id:
-                parts.append(rec.township_id.name)
-            if rec.township_id.district_id:
-                parts.append(rec.township_id.district_id.name)
+                parts.append(rec.township_id.name_mm if use_mm and rec.township_id.name_mm else rec.township_id.name)
+            if rec.state_id:
+                parts.append(rec.state_id.name_mm if use_mm and rec.state_id.name_mm else rec.state_id.name)
             rec.display_name = ", ".join(p for p in parts if p)
+    
+    def _search_display_name(self, operator, value):
+        return [
+            '|', '|', '|', '|', '|',
+            ('name', operator, value),
+            ('name_mm', operator, value),
+            ('township_id.name', operator, value),
+            ('township_id.name_mm', operator, value),
+            ('state_id.name', operator, value),
+            ('state_id.name_mm', operator, value),
+        ]

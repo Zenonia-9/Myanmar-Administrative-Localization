@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- List View -->
+    <record id="view_country_state_tree_inherit_mm" model="ir.ui.view">
+        <field name="name">res.country.state.tree.inherit.mm</field>
+        <field name="model">res.country.state</field>
+        <field name="inherit_id" ref="base.view_country_state_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='name']" position="after">
+                <field name="name_mm"/>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="view_country_state_form_inherit_mm" model="ir.ui.view">
+        <field name="name">res.country.state.form.inherit.mm</field>
+        <field name="model">res.country.state</field>
+        <field name="inherit_id" ref="base.view_country_state_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='name']" position="after">
+                <field name="name_mm"/>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Search View -->
+    <record id="view_country_state_search_inherit_mm" model="ir.ui.view">
+        <field name="name">res.country.state.search.inherit.mm</field>
+        <field name="model">res.country.state</field>
+        <field name="inherit_id" ref="base.view_country_state_search"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='name']" position="after">
+                <field name="name_mm"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

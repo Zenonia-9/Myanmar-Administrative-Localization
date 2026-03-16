@@ -38,24 +38,26 @@ class ResPartner(models.Model):
     l10n_mm_zip_id = fields.Many2one(
         'res.zip',
         string='Zip Code',
-        domain="[('township_id','=', l10n_mm_township_id)]"
+    )
+    l10n_mm_zip_ids = fields.Many2many(
+        'res.zip', compute='_compute_zip_ids', string='Zips for Dropdown'
     )
     l10n_mm_ward_name = fields.Char(
-        related='l10n_mm_ward_id.name',
+        compute='_compute_l10n_mm_ward_name', string='Ward Name',
         readonly=True
     )
-    l10n_mm_town_name = fields.Char(
-        related='l10n_mm_town_id.name',
-        readonly=True
-    )
-    l10n_mm_township_name = fields.Char(
-        related='l10n_mm_township_id.name',
-        readonly=True
-    )
-    l10n_mm_district_name = fields.Char(
-        related='l10n_mm_district_id.name',
-        readonly=True
-    )
+    # l10n_mm_town_name = fields.Char(
+    #     related='l10n_mm_town_id.name',
+    #     readonly=True
+    # )
+    # l10n_mm_township_name = fields.Char(
+    #     related='l10n_mm_township_id.name',
+    #     readonly=True
+    # )
+    # l10n_mm_district_name = fields.Char(
+    #     related='l10n_mm_district_id.name',
+    #     readonly=True
+    # )
     l10n_mm_pcode = fields.Char(
         string='P-Code',
         help='Myanmar MIMU P-code for auto-filling address'
@@ -79,45 +81,55 @@ class ResPartner(models.Model):
     l10n_mm_is_myanmar = fields.Boolean(
         compute='_compute_l10n_mm_is_myanmar'
     )
+    # l10n_mm_use_mm_name = fields.Boolean(
+    #     compute='_compute_l10n_mm_is_myanmar'
+    # )
     l10n_mm_full_address = fields.Text(string="Myanmar Address", compute="_compute_mm_address")
 
-    @api.depends('street', 'street2', 'l10n_mm_ward_name', 'l10n_mm_town_name', 'l10n_mm_township_name', 'l10n_mm_district_name', 'state_id', 'l10n_mm_postcode', 'country_id')
+    @api.depends('street', 'street2', 'l10n_mm_ward_id', 'l10n_mm_town_id', 'l10n_mm_township_id', 'l10n_mm_district_id', 'state_id', 'l10n_mm_postcode', 'country_id')
     def _compute_mm_address(self):
+        use_mm = self.env['ir.config_parameter'].sudo().get_param('l10n_mm_address.use_myanmar_language')
         for rec in self:
             lines = []
             if rec.street:
                 lines.append(rec.street)
             if rec.street2:
                 lines.append(rec.street2)
-            if rec.l10n_mm_ward_name:
-                lines.append(rec.l10n_mm_ward_name)
+            if rec.l10n_mm_ward_id:
+                lines.append(rec.l10n_mm_ward_id.name_mm if use_mm and rec.l10n_mm_ward_id.name_mm else rec.l10n_mm_ward_id.name)
             # Handle town + township with conditional comma
-            town_line = ''
-            if rec.l10n_mm_town_name:
-                town_line += rec.l10n_mm_town_name
-                if rec.l10n_mm_township_name:
-                    town_line += ', ' + rec.l10n_mm_township_name
-            elif rec.l10n_mm_township_name:
-                town_line += rec.l10n_mm_township_name
+            town_line = []
+            if rec.l10n_mm_town_id:
+                town_line.append(rec.l10n_mm_town_id.name_mm if use_mm and rec.l10n_mm_town_id.name_mm else rec.l10n_mm_town_id.name)
+            if rec.l10n_mm_township_id:
+                town_line.append(rec.l10n_mm_township_id.name_mm if use_mm and rec.l10n_mm_township_id.name_mm else rec.l10n_mm_township_id.name)
             if town_line:
-                lines.append(town_line)
+                lines.append(', '.join(town_line))
             # district + state
-            district_line = ''
-            if rec.l10n_mm_district_name:
-                district_line += rec.l10n_mm_district_name
-                if rec.state_id:
-                    district_line += ', ' + rec.state_id.name
-            elif rec.state_id:
-                district_line += rec.state_id.name
+            district_line = []
+            if rec.l10n_mm_district_id:
+                district_line.append(rec.l10n_mm_district_id.name_mm if use_mm and rec.l10n_mm_district_id.name_mm else rec.l10n_mm_district_id.name)
+            if rec.state_id:
+                district_line.append(rec.state_id.name_mm if use_mm and rec.state_id.name_mm else rec.state_id.name)
             if district_line:
-                lines.append(district_line)
+                lines.append(', '.join(district_line))
             # postcode
             if rec.l10n_mm_postcode:
                 lines.append(rec.l10n_mm_postcode)
             # country
             if rec.country_id:
-                lines.append(rec.country_id.name)
+                if use_mm:
+                    lines.append("မြန်မာ")
+                else:
+                    lines.append(rec.country_id.name)
+                    
             rec.l10n_mm_full_address = '\n'.join(lines)
+    
+    @api.depends('l10n_mm_ward_id')
+    def _compute_l10n_mm_ward_name(self):
+        use_mm = self.env['ir.config_parameter'].sudo().get_param('l10n_mm_address.use_myanmar_language')
+        for rec in self:
+            rec.l10n_mm_ward_name = rec.l10n_mm_ward_id.name_mm if use_mm and rec.l10n_mm_ward_id.name_mm else rec.l10n_mm_ward_id.name
 
     @api.depends('country_id')
     def _compute_l10n_mm_is_myanmar(self):
@@ -168,6 +180,20 @@ class ResPartner(models.Model):
             elif rec.country_id:
                 domain = [('country_id', '=', rec.country_id.id)]
             rec.l10n_mm_township_ids = self.env['res.township'].search(domain)
+    
+    @api.depends('l10n_mm_zip_id')
+    def _compute_zip_ids(self):
+        for rec in self:
+            domain = []
+            if rec.l10n_mm_township_id:
+                domain = [('township_id', '=', rec.l10n_mm_township_id.id)]
+            elif rec.l10n_mm_district_id:
+                domain = [('district_id', '=', rec.l10n_mm_district_id.id)]
+            elif rec.state_id:
+                domain = [('state_id', '=', rec.state_id.id)]
+            elif rec.country_id:
+                domain = [('country_id', '=', rec.country_id.id)]
+            rec.l10n_mm_zip_ids = self.env['res.zip'].search(domain) 
 
     @api.onchange('l10n_mm_pcode')
     def _onchange_l10n_mm_pcode(self):
@@ -184,6 +210,18 @@ class ResPartner(models.Model):
                 self.country_id = self.state_id.country_id
             else:
                 raise UserError(f'Invalid P-Code: {self.l10n_mm_pcode}. Please enter a valid Myanmar MIMU P-code.')
+    
+    @api.onchange('l10n_mm_zip_id')
+    def _onchange_l10n_mm_zip_id(self):
+        if self.l10n_mm_zip_id:
+            self.l10n_mm_township_id = self.l10n_mm_zip_id.township_id
+            self.l10n_mm_district_id = self.l10n_mm_zip_id.district_id
+            self.state_id = self.l10n_mm_zip_id.state_id
+            if self.l10n_mm_township_id and self.l10n_mm_zip_id.township_id != self.l10n_mm_township_id:
+                self.l10n_mm_township_id = False
+                self.l10n_mm_district_id = False
+                self.state_id = False
+
 
     @api.onchange('l10n_mm_ward_id')
     def _onchange_l10n_mm_ward_id(self):
@@ -211,7 +249,6 @@ class ResPartner(models.Model):
             # Set state & country
             self.state_id = self.l10n_mm_township_id.district_id.state_id
             self.country_id = self.state_id.country_id
-            self.l10n_mm_zip_id = False
 
             # Reset ward if it doesn't belong to this township
             if self.l10n_mm_ward_id and self.l10n_mm_ward_id.township_id != self.l10n_mm_township_id:
@@ -222,6 +259,9 @@ class ResPartner(models.Model):
             # Reset town if it doesn't belong to township
             if self.l10n_mm_town_id and self.l10n_mm_town_id.township_id != self.l10n_mm_township_id:
                 self.l10n_mm_town_id = False
+
+            if self.l10n_mm_zip_id and self.l10n_mm_zip_id.township_id != self.l10n_mm_township_id:
+                self.l10n_mm_zip_id = False
 
     @api.onchange('l10n_mm_district_id')
     def _onchange_l10n_mm_district_id(self):

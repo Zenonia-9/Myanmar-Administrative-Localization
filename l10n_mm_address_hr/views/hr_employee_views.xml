@@ -7,6 +7,8 @@
         <field name="arch" type="xml">
             <field name="private_city" position="before">
                 <field name="private_l10n_mm_is_myanmar" invisible="1"/>
+                <field name="private_l10n_mm_ward_ids" invisible="1"/>
+                <field name="private_l10n_mm_township_ids" invisible="1"/>
                 <field name="private_l10n_mm_ward_id"
                        class="o_address_street"
                        invisible="not private_l10n_mm_is_myanmar"
@@ -22,6 +24,7 @@
                        class="o_address_city"
                        invisible="not private_l10n_mm_is_myanmar"
                        placeholder="Township"
+                       domain="[('id','in', private_l10n_mm_township_ids)]"
                        options="{'no_open': True, 'no_create': True, 'no_quick_create': True}"/>
                 <field name="private_l10n_mm_district_id"
                        class="o_address_state"
@@ -40,10 +43,12 @@
                 <attribute name="invisible">private_l10n_mm_is_myanmar</attribute>
             </field>
             <field name="private_state_id" position="after">
+                <field name="private_l10n_mm_zip_ids" invisible="1"/>
                 <field name="private_l10n_mm_zip_id"
                        class="o_address_city"
                        invisible="not private_l10n_mm_is_myanmar"
                        placeholder="Postcode"
+                       domain="[('id','in', private_l10n_mm_zip_ids)]"
                        options="{'no_open': True, 'no_create': True, 'no_quick_create': True}"/>
             </field>
         </field>
