@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'Myanmar CRM Address Localization',
-    'version': '18.0.7.0',
+    'version': '18.0.7.1',
     'category': 'Sales/CRM/Localization',
     'summary': 'Myanmar address hierarchy fields for CRM leads and opportunities with MIMU P-code integration.',
     'description': """
