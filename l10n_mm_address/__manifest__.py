@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'Myanmar Address Localization',
-    'version': '18.0.7.1',
+    'version': '18.0.7.2',
     'category': 'Localization/Contacts',
     'summary': 'Complete Myanmar address hierarchy with MIMU P-code integration for States, Districts, Townships, Towns, Wards and Village Tracts.',
     'description': """

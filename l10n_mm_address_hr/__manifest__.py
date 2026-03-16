@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'Myanmar HR Address Localization',
-    'version': '18.0.7.1',
+    'version': '18.0.7.2',
     'category': 'Human Resources/Localization',
     'summary': 'Myanmar address hierarchy fields for employee private addresses with MIMU P-code integration.',
     'description': """
