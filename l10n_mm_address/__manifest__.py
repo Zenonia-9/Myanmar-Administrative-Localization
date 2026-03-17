@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'Myanmar Address Localization',
-    'version': '19.0.0.2',
+    'version': '19.0.1.0',
     'category': 'Localization/Contacts',
     'summary': 'Complete Myanmar address hierarchy with MIMU P-code integration for States, Districts, Townships, Towns, Wards and Village Tracts.',
     'description': """
@@ -78,6 +78,7 @@ Repository: https://github.com/Zenonia-9/Myanmar-Administrative-Localization
         'views/res_ward_views.xml',
         'views/res_zip_views.xml',
         'views/res_partner_views.xml',
+        'views/res_partner_map_views.xml',
         'views/res_config_settings_views.xml',
         'views/menu.xml',
     ],

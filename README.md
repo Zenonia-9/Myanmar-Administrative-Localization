@@ -1,6 +1,6 @@
 # Myanmar Administrative Localization Addons
 
-Complete suite of Odoo 18 modules for Myanmar administrative address hierarchy integration using the official **MIMU P-code system**.
+Complete suite of Odoo 19 modules for Myanmar administrative address hierarchy integration using the official **MIMU P-code system**.
 
 ---
 
@@ -20,7 +20,7 @@ Core module providing the complete Myanmar administrative address hierarchy for 
 * Cascading dropdowns — State → District → Township → Town → Ward
 * Auto-fill from P-Code or Ward selection
 * Myanmar language names (`name_mm` fields)
-* Map view using township-level coordinates
+* Map view using township-level coordinates (only on Enterprise)
 * Computed full address field on `res.partner`
 
 ---
@@ -93,7 +93,7 @@ State/Region (res.country.state)
 
 ## Requirements
 
-* Odoo 18.0 Community or Enterprise
+* Odoo 19.0 Community or Enterprise
 * Python 3.10+
 
 ---

@@ -2,7 +2,7 @@
 
 ## Overview
 
-**Myanmar CRM Address Localization** is an Odoo 18 module developed by **Zenonia** that extends CRM leads and opportunities with the complete Myanmar administrative address hierarchy, powered by **MIMU P-code** data from `l10n_mm_address`.
+**Myanmar CRM Address Localization** is an Odoo 19 module developed by **Zenonia** that extends CRM leads and opportunities with the complete Myanmar administrative address hierarchy, powered by **MIMU P-code** data from `l10n_mm_address`.
 
 Myanmar address fields are added to the **Extra Information** tab of lead and opportunity forms with cascading dropdowns, auto-fill from P-Code, and dynamic visibility based on country selection.
 
@@ -87,7 +87,7 @@ After installation:
 
 # Requirements
 
-* Odoo 18
+* Odoo 19
 * Python 3.10+
 * Docker (optional)
 * PostgreSQL

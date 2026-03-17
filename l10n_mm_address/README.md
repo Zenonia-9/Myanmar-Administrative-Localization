@@ -2,7 +2,7 @@
 
 ## Overview
 
-**Myanmar Address Localization** is an Odoo 18 module developed by **Zenonia** that provides the complete Myanmar administrative address hierarchy with full **MIMU P-code** integration for precise address management.
+**Myanmar Address Localization** is an Odoo 19 module developed by **Zenonia** that provides the complete Myanmar administrative address hierarchy with full **MIMU P-code** integration for precise address management.
 
 The module ships with pre-loaded official MIMU data covering all administrative levels from State/Region down to Ward and Village Tract, and integrates seamlessly into Odoo's contact forms with cascading dropdowns, auto-fill from P-Code, and map view support.
 
@@ -164,7 +164,7 @@ Go to **Settings → Contacts → Use Myanmar Language** to toggle Myanmar scrip
 
 ---
 
-## Map View
+## Map View (Enterprise)
 
 Partner locations are displayed on the map using **township-level accuracy**. Latitude and longitude are stored at the township level and represent the centroid of the township area. This provides accurate regional positioning while keeping data simple and maintainable.
 
@@ -180,7 +180,7 @@ Partner locations are displayed on the map using **township-level accuracy**. La
 
 # Requirements
 
-* Odoo 18
+* Odoo 19
 * Python 3.10+
 * Docker (optional)
 * PostgreSQL

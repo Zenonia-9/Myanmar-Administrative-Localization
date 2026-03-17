@@ -2,7 +2,7 @@
 
 ## Overview
 
-**Myanmar HR Address Localization** is an Odoo 18 module developed by **Zenonia** that extends employee records with the complete Myanmar administrative address hierarchy for private addresses, powered by **MIMU P-code** data from `l10n_mm_address`.
+**Myanmar HR Address Localization** is an Odoo 19 module developed by **Zenonia** that extends employee records with the complete Myanmar administrative address hierarchy for private addresses, powered by **MIMU P-code** data from `l10n_mm_address`.
 
 Myanmar address fields are added to the **Private Information** tab of employee forms with cascading dropdowns, auto-fill from P-Code, and dynamic visibility based on country selection.
 
@@ -86,7 +86,7 @@ After installation:
 
 # Requirements
 
-* Odoo 18
+* Odoo 19
 * Python 3.10+
 * Docker (optional)
 * PostgreSQL

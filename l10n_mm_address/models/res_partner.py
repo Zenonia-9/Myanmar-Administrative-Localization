@@ -46,18 +46,6 @@ class ResPartner(models.Model):
         compute='_compute_l10n_mm_ward_name', string='Ward Name',
         readonly=True
     )
-    # l10n_mm_town_name = fields.Char(
-    #     related='l10n_mm_town_id.name',
-    #     readonly=True
-    # )
-    # l10n_mm_township_name = fields.Char(
-    #     related='l10n_mm_township_id.name',
-    #     readonly=True
-    # )
-    # l10n_mm_district_name = fields.Char(
-    #     related='l10n_mm_district_id.name',
-    #     readonly=True
-    # )
     l10n_mm_pcode = fields.Char(
         string='P-Code',
         help='Myanmar MIMU P-code for auto-filling address'
@@ -92,9 +80,6 @@ class ResPartner(models.Model):
     l10n_mm_is_myanmar = fields.Boolean(
         compute='_compute_l10n_mm_is_myanmar'
     )
-    # l10n_mm_use_mm_name = fields.Boolean(
-    #     compute='_compute_l10n_mm_is_myanmar'
-    # )
     l10n_mm_full_address = fields.Text(string="Myanmar Address", compute="_compute_mm_address")
 
     @api.depends('street', 'street2', 'l10n_mm_ward_id', 'l10n_mm_town_id', 'l10n_mm_township_id', 'l10n_mm_district_id', 'state_id', 'l10n_mm_postcode', 'country_id')
@@ -313,23 +298,9 @@ class ResPartner(models.Model):
             self.l10n_mm_postalcode = False
             self.l10n_mm_pcode = False
             self.l10n_mm_zip_id = False
-            
-
-    # def _address_fields(self):
-    #     fields_list = super()._address_fields()
-    #     return fields_list + ['l10n_mm_district_id', 'l10n_mm_township_id', 'l10n_mm_town_id', 'l10n_mm_ward_id']
-
+    
     @api.model
     def _formatting_address_fields(self):
         return super()._formatting_address_fields() + [
             'l10n_mm_full_address',
         ]
-
-    # def _display_address_depends(self):
-    #     return super()._display_address_depends() + [
-    #         'l10n_mm_district_id',
-    #         'l10n_mm_township_id',
-    #         'l10n_mm_town_id',
-    #         'l10n_mm_ward_id',
-    #         'l10n_mm_postcode',
-    #     ]

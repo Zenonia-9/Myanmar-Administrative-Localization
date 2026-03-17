@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Adds map to the contacts action view_mode for Enterprise (web_map module).
+         This file is only loaded when web_map is installed — see __manifest__.py. -->
+
+    <record id="contacts.action_contacts" model="ir.actions.act_window">
+        <field name="view_mode">list,kanban,map,form,activity</field>
+    </record>
+
+</odoo>
