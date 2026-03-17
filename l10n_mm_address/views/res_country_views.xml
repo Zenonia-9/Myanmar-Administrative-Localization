@@ -2,8 +2,8 @@
 <odoo>
 
     <!-- List View -->
-    <record id="view_country_state_tree_inherit_mm" model="ir.ui.view">
-        <field name="name">res.country.state.tree.inherit.mm</field>
+    <record id="view_country_state_list_inherit_mm" model="ir.ui.view">
+        <field name="name">res.country.state.list.inherit.mm</field>
         <field name="model">res.country.state</field>
         <field name="inherit_id" ref="base.view_country_state_tree"/>
         <field name="arch" type="xml">

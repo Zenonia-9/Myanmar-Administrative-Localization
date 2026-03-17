@@ -127,7 +127,7 @@
         <field name="model">res.partner</field>
         <field name="inherit_id" ref="base.res_partner_kanban_view"/>
         <field name="arch" type="xml">
-            <xpath expr="//t[@t-name='card']//div[@t-if]" position="replace">
+            <xpath expr="//t[@t-name='card']//div[@t-if='record.city.raw_value or record.country_id.raw_value']" position="replace">
                 <div t-if="record.city.raw_value or record.l10n_mm_ward_name.raw_value or record.l10n_mm_township_id.raw_value or record.state_id.raw_value or record.country_id.raw_value">
                     <i class="fa fa-fw me-1 fa-map-marker text-primary" title="Location"/>
                     <t t-if="record.l10n_mm_ward_name.raw_value">
