@@ -1,4 +1,5 @@
-from odoo import _, api, fields, models
+from odoo import api, fields, models
+from odoo.fields import Domain
 
 
 class ResWard(models.Model):
@@ -6,6 +7,7 @@ class ResWard(models.Model):
     _description = 'Myanmar Ward / Village Tract'
     _rec_name = 'name'
     _order = 'name'
+    _rec_names_search = ['name', 'name_mm', 'township_id.name', 'township_id.name_mm', 'state_id.name', 'state_id.name_mm']
 
     name = fields.Char(required=True)
     name_mm = fields.Char()
@@ -49,17 +51,13 @@ class ResWard(models.Model):
     _sql_constraints = [
         ('p_code_uniq', 'unique(p_code)', 'P-code must be unique!'),
     ]
-    
+
     @api.depends(
-        "name",
-        "name_mm",
-        "township_id.name",
-        "township_id.name_mm",
-        "state_id.name",
-        "state_id.name_mm",
+        'name', 'name_mm',
+        'township_id.name', 'township_id.name_mm',
+        'state_id.name', 'state_id.name_mm',
     )
     def _compute_display_name(self):
-        # Compute display name with hierarchical structure: Ward, Township, District
         use_mm = self.env['ir.config_parameter'].sudo().get_param('l10n_mm_address.use_myanmar_language')
         for rec in self:
             parts = [rec.name_mm if use_mm and rec.name_mm else rec.name]
@@ -67,15 +65,15 @@ class ResWard(models.Model):
                 parts.append(rec.township_id.name_mm if use_mm and rec.township_id.name_mm else rec.township_id.name)
             if rec.state_id:
                 parts.append(rec.state_id.name_mm if use_mm and rec.state_id.name_mm else rec.state_id.name)
-            rec.display_name = ", ".join(p for p in parts if p)
-    
+            rec.display_name = ', '.join(p for p in parts if p)
+
+    @api.model
     def _search_display_name(self, operator, value):
-        return [
-            '|', '|', '|', '|', '|',
-            ('name', operator, value),
-            ('name_mm', operator, value),
-            ('township_id.name', operator, value),
-            ('township_id.name_mm', operator, value),
-            ('state_id.name', operator, value),
-            ('state_id.name_mm', operator, value),
-        ]
+        return Domain(
+            '|', ('name', operator, value),
+            '|', ('name_mm', operator, value),
+            '|', ('township_id.name', operator, value),
+            '|', ('township_id.name_mm', operator, value),
+            '|', ('state_id.name', operator, value),
+                 ('state_id.name_mm', operator, value),
+        )

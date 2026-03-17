@@ -71,13 +71,24 @@ class ResPartner(models.Model):
         readonly=True,
     )
     partner_latitude = fields.Float(
-        related="l10n_mm_township_id.latitude",
-        store=True
+        string='Geo Latitude', digits=(10, 7),
+        compute='_compute_partner_geo', store=True, readonly=False
     )
     partner_longitude = fields.Float(
-        related="l10n_mm_township_id.longitude",
-        store=True
+        string='Geo Longitude', digits=(10, 7),
+        compute='_compute_partner_geo', store=True, readonly=False
     )
+
+    @api.depends('l10n_mm_township_id')
+    def _compute_partner_geo(self):
+        for rec in self:
+            if rec.l10n_mm_township_id:
+                rec.partner_latitude = rec.l10n_mm_township_id.latitude
+                rec.partner_longitude = rec.l10n_mm_township_id.longitude
+            else:
+                rec.partner_latitude = 0.0
+                rec.partner_longitude = 0.0
+
     l10n_mm_is_myanmar = fields.Boolean(
         compute='_compute_l10n_mm_is_myanmar'
     )

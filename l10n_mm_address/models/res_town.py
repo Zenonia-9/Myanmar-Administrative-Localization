@@ -1,10 +1,12 @@
-from odoo import _, api, fields, models
+from odoo import api, fields, models
+from odoo.fields import Domain
 
 
 class ResTown(models.Model):
     _name = 'res.town'
     _description = 'Myanmar Town'
     _order = 'name'
+    _rec_names_search = ['name', 'name_mm']
 
     name = fields.Char(required=True)
     name_mm = fields.Char()
@@ -32,10 +34,6 @@ class ResTown(models.Model):
         for rec in self:
             rec.display_name = rec.name_mm if use_mm and rec.name_mm else rec.name
 
+    @api.model
     def _search_display_name(self, operator, value):
-        return [
-            '|',
-            ('name', operator, value),
-            ('name_mm', operator, value),
-        ]
-    
+        return Domain('|', ('name', operator, value), ('name_mm', operator, value))

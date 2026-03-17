@@ -1,8 +1,11 @@
 from odoo import api, models, fields
+from odoo.fields import Domain
+
 
 class ResZip(models.Model):
     _name = 'res.zip'
     _description = "Myanmar Post Code"
+    _rec_names_search = ['name', 'postcode']
 
     name = fields.Char(required=True)
     postcode = fields.Char(
@@ -19,21 +22,14 @@ class ResZip(models.Model):
     state_id = fields.Many2one('res.country.state', related='district_id.state_id', store=True)
     country_id = fields.Many2one('res.country', related='state_id.country_id', store=True)
 
-    @api.depends(
-        "name",
-        "postcode",
-    )
+    @api.depends('name', 'postcode')
     def _compute_display_name(self):
-        # Compute display name with hierarchical structure: Ward, Township, District
         for rec in self:
-            parts = [rec.postcode or ""]
+            parts = [rec.postcode or '']
             if rec.name:
                 parts.append(rec.name)
-            rec.display_name = ", ".join(p for p in parts if p)
+            rec.display_name = ', '.join(p for p in parts if p)
 
+    @api.model
     def _search_display_name(self, operator, value):
-        return [
-            '|',
-            ('name', operator, value),
-            ('postcode', operator, value),
-        ]
+        return Domain('|', ('name', operator, value), ('postcode', operator, value))
