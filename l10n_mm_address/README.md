@@ -2,7 +2,7 @@
 
 ## Overview
 
-**Myanmar Address Localization** is an Odoo 19 module developed by **Zenonia** that provides the complete Myanmar administrative address hierarchy with full **MIMU P-code** integration for precise address management.
+**Myanmar Address Localization** is an Odoo 19 module developed by **Thein Htoo Aung** that provides the complete Myanmar administrative address hierarchy with full **MIMU P-code** integration for precise address management.
 
 The module ships with pre-loaded official MIMU data covering all administrative levels from State/Region down to Ward and Village Tract, and integrates seamlessly into Odoo's contact forms with cascading dropdowns, auto-fill from P-Code, and map view support.
 
