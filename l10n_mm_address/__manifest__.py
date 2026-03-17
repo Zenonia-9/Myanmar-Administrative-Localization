@@ -82,6 +82,6 @@ Repository: https://github.com/Zenonia-9/Myanmar-Administrative-Localization
         'views/menu.xml',
     ],
     'installable': True,
-    'application': True,
+    'application': False,
     'auto_install': False,
 } # type: ignore
