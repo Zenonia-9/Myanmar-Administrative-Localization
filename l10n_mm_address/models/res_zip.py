@@ -32,4 +32,4 @@ class ResZip(models.Model):
 
     @api.model
     def _search_display_name(self, operator, value):
-        return Domain('|', ('name', operator, value), ('postcode', operator, value))
+        return Domain('name', operator, value) | Domain('postcode', operator, value)

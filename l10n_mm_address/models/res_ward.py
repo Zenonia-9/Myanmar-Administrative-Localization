@@ -67,11 +67,11 @@ class ResWard(models.Model):
 
     @api.model
     def _search_display_name(self, operator, value):
-        return Domain(
-            '|', ('name', operator, value),
-            '|', ('name_mm', operator, value),
-            '|', ('township_id.name', operator, value),
-            '|', ('township_id.name_mm', operator, value),
-            '|', ('state_id.name', operator, value),
-                 ('state_id.name_mm', operator, value),
+        return (
+            Domain('name', operator, value)
+            | Domain('name_mm', operator, value)
+            | Domain('township_id.name', operator, value)
+            | Domain('township_id.name_mm', operator, value)
+            | Domain('state_id.name', operator, value)
+            | Domain('state_id.name_mm', operator, value)
         )

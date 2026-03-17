@@ -34,4 +34,4 @@ class ResTown(models.Model):
 
     @api.model
     def _search_display_name(self, operator, value):
-        return Domain('|', ('name', operator, value), ('name_mm', operator, value))
+        return Domain('name', operator, value) | Domain('name_mm', operator, value)
