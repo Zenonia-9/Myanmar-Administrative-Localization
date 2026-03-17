@@ -78,7 +78,6 @@ Repository: https://github.com/Zenonia-9/Myanmar-Administrative-Localization
         'views/res_ward_views.xml',
         'views/res_zip_views.xml',
         'views/res_partner_views.xml',
-        'views/res_partner_map_views.xml',
         'views/res_config_settings_views.xml',
         'views/menu.xml',
     ],
