@@ -48,9 +48,7 @@ class ResWard(models.Model):
     state_id = fields.Many2one('res.country.state', related='district_id.state_id', store=True)
     country_id = fields.Many2one('res.country', related='state_id.country_id', store=True)
 
-    _sql_constraints = [
-        ('p_code_uniq', 'unique(p_code)', 'P-code must be unique!'),
-    ]
+    _p_code_uniq = models.Constraint('UNIQUE (p_code)', 'P-code must be unique!')
 
     @api.depends(
         'name', 'name_mm',

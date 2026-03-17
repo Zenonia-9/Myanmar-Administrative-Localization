@@ -25,7 +25,7 @@
                 <field name="name_mm" />
                 <field name="code"/>
                 <field name="district_id"/>
-                <group expand="0" string="Group By">
+                <group name="group_by">
                     <filter name="group_district" string="District" context="{'group_by': 'district_id'}"/>
                 </group>
             </search>

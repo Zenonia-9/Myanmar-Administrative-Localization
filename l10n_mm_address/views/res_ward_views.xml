@@ -29,7 +29,7 @@
                 <field name="township_id"/>
                 <field name="town_id"/>
                 <field name="ward_type"/>
-                <group expand="0" string="Group By">
+                <group name="group_by">
                     <filter name="group_township" string="Township" context="{'group_by': 'township_id'}"/>
                     <filter name="group_town" string="Town" context="{'group_by': 'town_id'}"/>
                     <filter name="group_type" string="Type" context="{'group_by': 'ward_type'}"/>

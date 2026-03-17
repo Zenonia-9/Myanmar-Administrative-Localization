@@ -25,7 +25,7 @@
                 <field name="code"/>
                 <field name="state_id"/>
                 <field name="district_type"/>
-                <group expand="0" string="Group By">
+                <group name="group_by">
                     <filter name="group_state" string="State/Region" context="{'group_by': 'state_id'}"/>
                     <filter name="group_type" string="Type" context="{'group_by': 'district_type'}"/>
                 </group>

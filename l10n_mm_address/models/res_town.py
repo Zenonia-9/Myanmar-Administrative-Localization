@@ -24,9 +24,7 @@ class ResTown(models.Model):
         required=True,
     )
 
-    _sql_constraints = [
-        ('code_uniq', 'unique(code)', 'Town code must be unique!'),
-    ]
+    _code_uniq = models.Constraint('UNIQUE (code)', 'Town code must be unique!')
 
     @api.depends('name', 'name_mm')
     def _compute_display_name(self):

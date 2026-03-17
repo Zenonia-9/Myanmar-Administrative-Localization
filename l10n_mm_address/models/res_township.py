@@ -40,9 +40,7 @@ class ResTownship(models.Model):
     latitude = fields.Float(string="Latitude", digits=(10, 7))
     longitude = fields.Float(string="Longitude", digits=(10, 7))
 
-    _sql_constraints = [
-        ('code_uniq', 'unique(code)', 'Township code must be unique!'),
-    ]
+    _code_uniq = models.Constraint('UNIQUE (code)', 'Township code must be unique!')
 
     @api.depends('name', 'name_mm')
     def _compute_display_name(self):

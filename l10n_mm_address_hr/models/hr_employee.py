@@ -207,6 +207,7 @@ class HrEmployee(models.Model):
 
     @api.onchange('private_state_id')
     def _onchange_private_state_id(self):
+        super()._onchange_private_state_id()
         if self.private_l10n_mm_is_myanmar and self.private_state_id:
             if self.private_l10n_mm_district_id and self.private_l10n_mm_district_id.state_id != self.private_state_id:
                 self.private_l10n_mm_district_id = False

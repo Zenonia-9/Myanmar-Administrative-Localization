@@ -29,9 +29,7 @@ class ResDistrict(models.Model):
         ('sad', 'Self-Administered Division'),
     ],  default='district')
 
-    _sql_constraints = [
-        ('code_uniq', 'unique(code)', 'District code must be unique!'),
-    ]
+    _code_uniq = models.Constraint('UNIQUE (code)', 'District code must be unique!')
 
     @api.depends('name', 'name_mm')
     def _compute_display_name(self):

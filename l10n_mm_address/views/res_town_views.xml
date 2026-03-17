@@ -23,7 +23,7 @@
                 <field name="name_mm" />
                 <field name="code"/>
                 <field name="township_id"/>
-                <group expand="0" string="Group By">
+                <group name="group_by">
                     <filter name="group_township" string="Township" context="{'group_by': 'township_id'}"/>
                 </group>
             </search>
