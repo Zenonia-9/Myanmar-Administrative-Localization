@@ -10,24 +10,29 @@
                 <field name="l10n_mm_ward_ids" invisible="1"/>
                 <field name="l10n_mm_township_ids" invisible="1"/>
                 <field name="l10n_mm_ward_id"
+                       class="o_address_street"
                        invisible="not l10n_mm_is_myanmar"
                        placeholder="Ward"
                        domain="[('id','in', l10n_mm_ward_ids)]"
                        options="{'no_open': True, 'no_create': True, 'no_quick_create': True}"/>
                 <field name="l10n_mm_town_id"
+                       class="o_address_city"
                        invisible="not l10n_mm_is_myanmar"
                        placeholder="Town"
                        options="{'no_open': True, 'no_create': True, 'no_quick_create': True}"/>
                 <field name="l10n_mm_township_id"
+                       class="o_address_city"
                        invisible="not l10n_mm_is_myanmar"
                        placeholder="Township"
                        domain="[('id','in', l10n_mm_township_ids)]"
                        options="{'no_open': True, 'no_create': True, 'no_quick_create': True}"/>
                 <field name="l10n_mm_district_id"
+                       class="o_address_city"
                        invisible="not l10n_mm_is_myanmar"
                        placeholder="District"
                        options="{'no_open': True, 'no_create': True, 'no_quick_create': True}"/>
                 <field name="l10n_mm_pcode"
+                       class="o_address_city"
                        invisible="not l10n_mm_is_myanmar"
                        placeholder="P-Code"/>
             </field>
@@ -43,6 +48,7 @@
             <field name="state_id" position="after">
                 <field name="l10n_mm_zip_ids" invisible="1"/>
                 <field name="l10n_mm_zip_id"
+                       class="o_address_city"
                        invisible="not l10n_mm_is_myanmar"
                        placeholder="Postcode"
                        domain="[('id','in', l10n_mm_zip_ids)]"
