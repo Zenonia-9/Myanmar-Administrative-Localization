@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_company_form_inherit_mm_address" model="ir.ui.view">
+        <field name="name">res.company.form.inherit.mm.address</field>
+        <field name="model">res.company</field>
+        <field name="inherit_id" ref="base.view_company_form"/>
+        <field name="arch" type="xml">
+            <field name="city" position="before">
+                <field name="l10n_mm_is_myanmar" invisible="1"/>
+                <field name="l10n_mm_ward_ids" invisible="1"/>
+                <field name="l10n_mm_township_ids" invisible="1"/>
+                <field name="l10n_mm_ward_id"
+                       invisible="not l10n_mm_is_myanmar"
+                       placeholder="Ward"
+                       domain="[('id','in', l10n_mm_ward_ids)]"
+                       options="{'no_open': True, 'no_create': True, 'no_quick_create': True}"/>
+                <field name="l10n_mm_town_id"
+                       invisible="not l10n_mm_is_myanmar"
+                       placeholder="Town"
+                       options="{'no_open': True, 'no_create': True, 'no_quick_create': True}"/>
+                <field name="l10n_mm_township_id"
+                       invisible="not l10n_mm_is_myanmar"
+                       placeholder="Township"
+                       domain="[('id','in', l10n_mm_township_ids)]"
+                       options="{'no_open': True, 'no_create': True, 'no_quick_create': True}"/>
+                <field name="l10n_mm_district_id"
+                       invisible="not l10n_mm_is_myanmar"
+                       placeholder="District"
+                       options="{'no_open': True, 'no_create': True, 'no_quick_create': True}"/>
+                <field name="l10n_mm_pcode"
+                       invisible="not l10n_mm_is_myanmar"
+                       placeholder="P-Code"/>
+            </field>
+
+            <field name="city" position="attributes">
+                <attribute name="invisible">l10n_mm_is_myanmar</attribute>
+            </field>
+
+            <field name="zip" position="attributes">
+                <attribute name="invisible">l10n_mm_is_myanmar</attribute>
+            </field>
+
+            <field name="state_id" position="after">
+                <field name="l10n_mm_zip_ids" invisible="1"/>
+                <field name="l10n_mm_zip_id"
+                       invisible="not l10n_mm_is_myanmar"
+                       placeholder="Postcode"
+                       domain="[('id','in', l10n_mm_zip_ids)]"
+                       options="{'no_open': True, 'no_create': True, 'no_quick_create': True}"/>
+            </field>
+        </field>
+    </record>
+</odoo>
