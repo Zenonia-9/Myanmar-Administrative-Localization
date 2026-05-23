@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Myanmar Address Localization for Odoo 19</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.6;
+    color: #333840;
+    background: #ffffff;
+  }
+  .container { max-width: 1100px; margin: 0 auto; padding: 48px 32px; }
+
+  /* Hero */
+  .hero { padding: 48px; border-radius: 12px; background: #f8fafc; border: 1px solid #dddddd; margin-bottom: 48px; }
+  .hero h1 { font-size: 40px; font-weight: 400; line-height: 1.2; color: #181d26; margin-bottom: 16px; }
+  .hero p { font-size: 16px; color: #333840; max-width: 680px; margin-bottom: 24px; }
+  .badge {
+    display: inline-block; padding: 4px 12px; border-radius: 9999px;
+    background: #f3eef6; color: #714B67;
+    font-size: 13px; font-weight: 500;
+    margin-right: 6px; margin-bottom: 6px;
+    border: 1px solid #d9c8e0;
+  }
+
+  /* Section headings */
+  h2 { font-size: 32px; font-weight: 400; line-height: 1.2; color: #181d26; margin-bottom: 20px; }
+  h3 { font-size: 18px; font-weight: 500; line-height: 1.4; color: #181d26; margin-bottom: 12px; }
+
+  /* Feature cards grid */
+  .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin-bottom: 48px; }
+  .feature-card {
+    background: #f8fafc; border: 1px solid #dddddd; border-radius: 10px;
+    padding: 24px;
+  }
+  .feature-card .icon {
+    width: 36px; height: 36px; border-radius: 8px;
+    background: #714B67; margin-bottom: 12px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .feature-card .icon svg { width: 18px; height: 18px; fill: #ffffff; }
+  .feature-card h3 { font-size: 16px; margin-bottom: 6px; }
+  .feature-card p { font-size: 13px; color: #41454d; line-height: 1.5; }
+
+  /* Data stats — signature purple card */
+  .signature-purple {
+    background: #714B67; color: #ffffff; border-radius: 12px;
+    padding: 48px; margin-bottom: 48px;
+  }
+  .signature-purple h2 { color: #ffffff; margin-bottom: 24px; }
+  .data-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 16px; }
+  .data-item { background: rgba(255,255,255,0.12); border-radius: 10px; padding: 20px; }
+  .data-item strong { display: block; font-size: 28px; font-weight: 500; color: #ffffff; line-height: 1.1; margin-bottom: 4px; }
+  .data-item span { font-size: 13px; color: rgba(255,255,255,0.8); }
+
+  /* Workflow steps */
+  .steps { margin-bottom: 48px; }
+  .step { display: flex; gap: 20px; margin-bottom: 20px; align-items: flex-start; }
+  .step-num {
+    flex-shrink: 0; width: 36px; height: 36px; border-radius: 50%;
+    background: #714B67; color: #ffffff;
+    font-size: 15px; font-weight: 500;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .step-body h3 { font-size: 16px; margin-bottom: 4px; }
+  .step-body p { font-size: 13px; color: #41454d; }
+
+  /* Demo / screenshot cards */
+  .media-section { margin-bottom: 48px; }
+  .media-card {
+    margin-bottom: 20px; padding: 20px;
+    border: 1px solid #dddddd; border-radius: 10px;
+    background: #ffffff;
+  }
+  .media-card h3 { font-size: 15px; margin-bottom: 12px; color: #181d26; }
+  .media-card img {
+    width: 100%; height: auto; border-radius: 8px;
+    border: 1px solid #dddddd; display: block;
+  }
+
+  /* Screenshot gallery grid */
+  .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; margin-bottom: 20px; }
+
+  /* Technical highlights */
+  .tech-section { margin-bottom: 48px; }
+  .tech-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; }
+  .tech-item {
+    border: 1px solid #dddddd; border-radius: 10px;
+    padding: 16px; background: #f8fafc;
+  }
+  .tech-item .label { font-size: 11px; font-weight: 500; color: #714B67; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; }
+  .tech-item .value { font-size: 14px; color: #181d26; font-weight: 500; }
+
+  /* CTA band */
+  .cta-band {
+    background: #f3eef6; border-radius: 12px;
+    padding: 48px; text-align: center; border: 1px solid #d9c8e0;
+  }
+  .cta-band h2 { font-size: 28px; margin-bottom: 12px; }
+  .cta-band p { color: #41454d; }
+
+  /* Divider */
+  .divider { border: none; border-top: 1px solid #dddddd; margin: 48px 0; }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- Hero -->
+  <section class="hero">
+    <h1>Myanmar Address Localization for Odoo 19</h1>
+    <p>
+      Complete Myanmar administrative address hierarchy with MIMU P-code integration —
+      State/Region, District, Township, Town, Ward/Village Tract, and Postal Code
+      built into Odoo contacts with cascading dropdowns and auto-fill.
+    </p>
+    <div>
+      <span class="badge">Odoo 19</span>
+      <span class="badge">Localization</span>
+      <span class="badge">Contacts</span>
+      <span class="badge">CRM Ready</span>
+      <span class="badge">HR Ready</span>
+      <span class="badge">Myanmar Address Data</span>
+    </div>
+  </section>
+
+  <!-- Feature cards -->
+  <section style="margin-bottom:48px;">
+    <h2>Main Features</h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="icon"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg></div>
+        <h3>Full Address Hierarchy</h3>
+        <p>State/Region → District → Township → Town → Ward/Village Tract with cascading dropdowns on every contact form.</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon"><svg viewBox="0 0 24 24"><path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/></svg></div>
+        <h3>P-Code Auto-fill</h3>
+        <p>Enter a MIMU P-code to instantly populate the full address hierarchy — State, District, Township, Town, and Ward.</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon"><svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg></div>
+        <h3>Myanmar Language Names</h3>
+        <p>All records carry a <code>name_mm</code> field. Toggle Myanmar script display from Settings → Contacts.</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon"><svg viewBox="0 0 24 24"><path d="M20.5 3l-.16.03L15 5.1 9 3 3.36 4.9c-.21.07-.36.25-.36.48V20.5c0 .28.22.5.5.5l.16-.03L9 18.9l6 2.1 5.64-1.9c.21-.07.36-.25.36-.48V3.5c0-.28-.22-.5-.5-.5zM15 19l-6-2.11V5l6 2.11V19z"/></svg></div>
+        <h3>Computed Full Address</h3>
+        <p>The <code>l10n_mm_full_address</code> computed field assembles the complete Myanmar address string for display and reporting.</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg></div>
+        <h3>Map View Support</h3>
+        <p>Partner locations displayed on the map using township-level latitude/longitude coordinates (Enterprise).</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon"><svg viewBox="0 0 24 24"><path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-1 9H9V9h10v2zm-4 4H9v-2h6v2zm4-8H9V5h10v2z"/></svg></div>
+        <h3>Optional Extensions</h3>
+        <p>Companion modules <code>l10n_mm_address_crm</code> and <code>l10n_mm_address_hr</code> extend Myanmar address fields to CRM and HR.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Data stats — signature purple card -->
+  <section class="signature-purple">
+    <h2>Data Included</h2>
+    <div class="data-grid">
+      <div class="data-item"><strong>18</strong><span>States / Regions</span></div>
+      <div class="data-item"><strong>86</strong><span>Districts</span></div>
+      <div class="data-item"><strong>358</strong><span>Townships</span></div>
+      <div class="data-item"><strong>536</strong><span>Towns</span></div>
+      <div class="data-item"><strong>17,531</strong><span>Wards / Village Tracts</span></div>
+      <div class="data-item"><strong>943</strong><span>Postal Codes</span></div>
+    </div>
+  </section>
+
+  <!-- Workflow demo -->
+  <section class="media-section">
+    <h2>Workflow Demo</h2>
+    <div class="media-card">
+      <h3>Myanmar address auto-fill flow</h3>
+      <img src="demo/01_address_autofill_flow.gif" alt="Myanmar address auto-fill flow">
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- Configuration steps -->
+  <section class="steps">
+    <h2>Configuration Steps</h2>
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <h3>Install the module</h3>
+        <p>Place <code>l10n_mm_address</code> in your custom addons path, restart Odoo, update the Apps list, and install.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <h3>Open a contact form</h3>
+        <p>Set <strong>Country</strong> to <em>Myanmar</em> to reveal the Myanmar address fields on the contact form.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <h3>Use cascading dropdowns or P-Code</h3>
+        <p>Select State → District → Township → Town → Ward in sequence, or enter a MIMU P-code to auto-fill the entire hierarchy.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-body">
+        <h3>Enable Myanmar language display (optional)</h3>
+        <p>Go to <strong>Settings → Contacts → Use Myanmar Language</strong> to toggle Myanmar script names across all address fields.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">5</div>
+      <div class="step-body">
+        <h3>Browse master data</h3>
+        <p>Access all address records via <strong>Contacts → Configuration → Myanmar Localization</strong>.</p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- Screenshots -->
+  <section class="media-section">
+    <h2>Screenshots</h2>
+
+    <div class="media-card">
+      <h3>1. Myanmar address menus</h3>
+      <img src="screenshots/01_myanmar_address_menus.jpg" alt="Myanmar address menus">
+    </div>
+
+    <div class="gallery">
+      <div class="media-card">
+        <h3>2. District master data</h3>
+        <img src="screenshots/02_district_list.jpg" alt="District master data">
+      </div>
+      <div class="media-card">
+        <h3>3. Township master data</h3>
+        <img src="screenshots/03_township_list.jpg" alt="Township master data">
+      </div>
+    </div>
+
+    <div class="gallery">
+      <div class="media-card">
+        <h3>4. Town master data</h3>
+        <img src="screenshots/04_town_list.jpg" alt="Town master data">
+      </div>
+      <div class="media-card">
+        <h3>5. Ward / Village Tract master data</h3>
+        <img src="screenshots/05_ward_village_tract_list.jpg" alt="Ward and Village Tract master data">
+      </div>
+    </div>
+
+    <div class="media-card">
+      <h3>6. Postal code master data</h3>
+      <img src="screenshots/06_postal_code_list.jpg" alt="Postal code master data">
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- Technical highlights -->
+  <section class="tech-section">
+    <h2>Technical Highlights</h2>
+    <div class="tech-grid">
+      <div class="tech-item"><div class="label">Odoo Version</div><div class="value">19.0</div></div>
+      <div class="tech-item"><div class="label">Category</div><div class="value">Localization</div></div>
+      <div class="tech-item"><div class="label">License</div><div class="value">LGPL-3</div></div>
+      <div class="tech-item"><div class="label">P-Code Standard</div><div class="value">MIMU (15-char)</div></div>
+      <div class="tech-item"><div class="label">Postal Code Format</div><div class="value">5-digit</div></div>
+      <div class="tech-item"><div class="label">Author</div><div class="value">Thein Htoo Aung</div></div>
+    </div>
+  </section>
+
+  <!-- CTA band -->
+  <section class="cta-band">
+    <h2>Myanmar address data, ready for Odoo 19</h2>
+    <p>Install l10n_mm_address and get the full administrative hierarchy with MIMU P-code support out of the box.</p>
+  </section>
+
+</div>
+</body>
+</html>

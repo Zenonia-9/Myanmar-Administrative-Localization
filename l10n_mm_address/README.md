@@ -170,6 +170,49 @@ Partner locations are displayed on the map using **township-level accuracy**. La
 
 ---
 
+## Demo
+
+### Myanmar address auto-fill flow
+
+![Myanmar address auto-fill flow](static/description/demo/01_address_autofill_flow.gif)
+
+This demo shows the Myanmar address workflow using the module's administrative address hierarchy and auto-fill behavior.
+
+## Screenshots
+
+### 1. Myanmar address menus
+
+![Myanmar address menus](static/description/screenshots/01_myanmar_address_menus.jpg)
+
+### 2. District master data
+
+![District master data](static/description/screenshots/02_district_list.jpg)
+
+### 3. Township master data
+
+![Township master data](static/description/screenshots/03_township_list.jpg)
+
+### 4. Town master data
+
+![Town master data](static/description/screenshots/04_town_list.jpg)
+
+### 5. Ward / Village Tract master data
+
+![Ward and Village Tract master data](static/description/screenshots/05_ward_village_tract_list.jpg)
+
+### 6. Postal code master data
+
+![Postal code master data](static/description/screenshots/06_postal_code_list.jpg)
+
+## Data Included
+
+- 18 States / Regions
+- 86 Districts
+- 358 Townships
+- 536 Towns
+- 17,531 Wards / Village Tracts
+- 943 Postal Codes
+
 ## Future Enhancements
 
 * Village-level coordinate precision
