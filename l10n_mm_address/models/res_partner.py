@@ -5,13 +5,25 @@ from odoo.exceptions import UserError
 class ResPartner(models.Model):
     _inherit = 'res.partner'
 
+    l10n_mm_region = fields.Selection(
+        [
+            ('upper', 'Upper'),
+            ('lower', 'Lower'),
+        ],
+        string='Region',
+        compute='_compute_l10n_mm_region',
+        readonly=False,
+        store=True,
+    )
     l10n_mm_district_id = fields.Many2one(
         'res.district', 
         string='District', 
         compute='_compute_l10n_mm_district_id', 
         readonly=False, 
         store=True, 
-        domain="[('state_id', '=', state_id)]"
+        domain="[('state_id', '=', state_id)] if state_id else "
+               "[('state_id.l10n_mm_region', '=', l10n_mm_region)] "
+               "if l10n_mm_region else [('state_id.country_id', '=', country_id)]"
     )
     l10n_mm_township_id = fields.Many2one(
         'res.township',
@@ -133,6 +145,29 @@ class ResPartner(models.Model):
         for rec in self:
             rec.l10n_mm_is_myanmar = mm and rec.country_id == mm
 
+    @api.depends(
+        'state_id',
+        'l10n_mm_district_id',
+        'l10n_mm_township_id',
+        'l10n_mm_town_id',
+        'l10n_mm_ward_id',
+        'l10n_mm_zip_id',
+    )
+    def _compute_l10n_mm_region(self):
+        for rec in self:
+            state = (
+                rec.l10n_mm_ward_id.state_id
+                or rec.l10n_mm_zip_id.state_id
+                or rec.l10n_mm_town_id.township_id.state_id
+                or rec.l10n_mm_township_id.state_id
+                or rec.l10n_mm_district_id.state_id
+                or rec.state_id
+            )
+            if state:
+                rec.l10n_mm_region = state.l10n_mm_region
+            elif not rec.l10n_mm_region:
+                rec.l10n_mm_region = False
+
     @api.depends('l10n_mm_township_id')
     def _compute_l10n_mm_district_id(self):
         for rec in self:
@@ -149,7 +184,7 @@ class ResPartner(models.Model):
             elif not rec.l10n_mm_township_id:
                 rec.l10n_mm_township_id = False
 
-    @api.depends('l10n_mm_town_id', 'l10n_mm_township_id', 'l10n_mm_district_id', 'state_id', 'country_id')
+    @api.depends('l10n_mm_town_id', 'l10n_mm_township_id', 'l10n_mm_district_id', 'state_id', 'country_id', 'l10n_mm_region')
     def _compute_ward_ids(self):
         for rec in self:
             domain = []
@@ -161,11 +196,13 @@ class ResPartner(models.Model):
                 domain = [('district_id', '=', rec.l10n_mm_district_id.id)]
             elif rec.state_id:
                 domain = [('state_id', '=', rec.state_id.id)]
+            elif rec.l10n_mm_region:
+                domain = [('state_id.l10n_mm_region', '=', rec.l10n_mm_region)]
             elif rec.country_id:
                 domain = [('country_id', '=', rec.country_id.id)]
             rec.l10n_mm_ward_ids = self.env['res.ward'].search(domain)
     
-    @api.depends('l10n_mm_district_id', 'state_id', 'country_id')
+    @api.depends('l10n_mm_district_id', 'state_id', 'country_id', 'l10n_mm_region')
     def _compute_township_ids(self):
         for rec in self:
             domain = []
@@ -173,11 +210,13 @@ class ResPartner(models.Model):
                 domain = [('district_id', '=', rec.l10n_mm_district_id.id)]
             elif rec.state_id:
                 domain = [('state_id', '=', rec.state_id.id)]
+            elif rec.l10n_mm_region:
+                domain = [('state_id.l10n_mm_region', '=', rec.l10n_mm_region)]
             elif rec.country_id:
                 domain = [('country_id', '=', rec.country_id.id)]
             rec.l10n_mm_township_ids = self.env['res.township'].search(domain)
     
-    @api.depends('l10n_mm_ward_id', 'l10n_mm_township_id', 'l10n_mm_district_id', 'state_id', 'country_id')
+    @api.depends('l10n_mm_ward_id', 'l10n_mm_township_id', 'l10n_mm_district_id', 'state_id', 'country_id', 'l10n_mm_region')
     def _compute_zip_ids(self):
         for rec in self:
             domain = []
@@ -187,6 +226,8 @@ class ResPartner(models.Model):
                 domain = [('district_id', '=', rec.l10n_mm_district_id.id)]
             elif rec.state_id:
                 domain = [('state_id', '=', rec.state_id.id)]
+            elif rec.l10n_mm_region:
+                domain = [('state_id.l10n_mm_region', '=', rec.l10n_mm_region)]
             elif rec.country_id:
                 domain = [('country_id', '=', rec.country_id.id)]
             rec.l10n_mm_zip_ids = self.env['res.zip'].search(domain) 
@@ -284,6 +325,22 @@ class ResPartner(models.Model):
                 self.l10n_mm_postalcode = False
                 self.l10n_mm_pcode = False
                 self.l10n_mm_zip_id = False
+
+    @api.onchange('l10n_mm_region')
+    def _onchange_l10n_mm_region(self):
+        if (
+            self.l10n_mm_region
+            and self.state_id
+            and self.state_id.l10n_mm_region != self.l10n_mm_region
+        ):
+            self.state_id = False
+            self.l10n_mm_district_id = False
+            self.l10n_mm_township_id = False
+            self.l10n_mm_town_id = False
+            self.l10n_mm_ward_id = False
+            self.l10n_mm_postalcode = False
+            self.l10n_mm_pcode = False
+            self.l10n_mm_zip_id = False
                 
 
     @api.onchange('country_id')
@@ -291,6 +348,7 @@ class ResPartner(models.Model):
         mm = self.env.ref('base.mm', raise_if_not_found=False)
         if mm and self.country_id != mm:
             self.state_id = False
+            self.l10n_mm_region = False
             self.l10n_mm_district_id = False
             self.l10n_mm_township_id = False
             self.l10n_mm_town_id = False

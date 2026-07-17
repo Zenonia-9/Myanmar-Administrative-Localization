@@ -7,6 +7,13 @@ class ResCountryState(models.Model):
     _rec_names_search = ['name', 'name_mm']
 
     name_mm = fields.Char(string='Myanmar Name')
+    l10n_mm_region = fields.Selection(
+        [
+            ('upper', 'Upper'),
+            ('lower', 'Lower'),
+        ],
+        string='Region',
+    )
 
     @api.depends('name', 'name_mm')
     @api.depends_context('l10n_mm_use_myanmar')
