@@ -123,6 +123,7 @@ the record name or its code:
 | --- | --- | --- |
 | `l10n_mm_township_id` | Township name or code (for example `Myitkyina` or `MMR001001`) | District, State, Region, Country |
 | `l10n_mm_ward_id` | Ward name or P-Code (for example `Alam` or `MMR001001001`) | Town, Township, District, State, Region, Country, P-Code, Postal Code |
+| `l10n_mm_pcode` | Ward P-Code (for example `MMR001001001`) | Ward, Town, Township, District, State, Region, Country, Postal Code |
 
 Use the code/P-Code when a name is not unique. Rows containing both township and
 ward values must reference the same township.

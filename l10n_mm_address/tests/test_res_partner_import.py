@@ -52,6 +52,18 @@ class TestResPartnerAddressImport(TransactionCase):
             self.assertEqual(partner.l10n_mm_pcode, self.unique_ward.p_code)
             self.assertEqual(partner.l10n_mm_postalcode, self.unique_ward.postal_code)
 
+    def test_import_pcode_fills_ward(self):
+        result = self._load(
+            ['name', 'l10n_mm_pcode'],
+            [['Import P-Code', self.unique_ward.p_code]],
+        )
+        self.assertFalse(result['messages'])
+        partner = self.Partner.browse(result['ids'])
+        self.assertEqual(partner.l10n_mm_pcode, self.unique_ward.p_code)
+        self.assertEqual(partner.l10n_mm_ward_id, self.unique_ward)
+        self.assertEqual(partner.l10n_mm_township_id, self.unique_ward.township_id)
+        self.assertEqual(partner.state_id, self.unique_ward.state_id)
+
     def test_import_rejects_conflicting_township_and_ward(self):
         other_ward = self.Ward.search(
             [('township_id', '!=', self.ward.township_id.id)], limit=1

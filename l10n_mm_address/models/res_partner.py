@@ -8,6 +8,7 @@ class ResPartner(models.Model):
     _hierarchy_input_fields = {
         'l10n_mm_township_id',
         'l10n_mm_ward_id',
+        'l10n_mm_pcode',
     }
 
     l10n_mm_region = fields.Selection(
@@ -184,6 +185,14 @@ class ResPartner(models.Model):
         current = current or self.env['res.partner']
         township = self.env['res.township'].browse(vals.get('l10n_mm_township_id')).exists()
         ward = self.env['res.ward'].browse(vals.get('l10n_mm_ward_id')).exists()
+        if not ward and vals.get('l10n_mm_pcode'):
+            ward = self.env['res.ward'].search(
+                [('p_code', '=', vals['l10n_mm_pcode'])], limit=1
+            )
+            if not ward:
+                raise ValidationError(self.env._(
+                    "No ward was found for P-Code '%s'.", vals['l10n_mm_pcode']
+                ))
 
         if ward and township and ward.township_id != township:
             raise ValidationError(self.env._(
@@ -192,6 +201,7 @@ class ResPartner(models.Model):
         if ward:
             township = ward.township_id
             vals.update({
+                'l10n_mm_ward_id': ward.id,
                 'l10n_mm_town_id': ward.town_id.id or False,
                 'l10n_mm_pcode': ward.p_code,
                 'l10n_mm_postalcode': ward.postal_code,
