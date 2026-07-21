@@ -1,4 +1,5 @@
 from odoo import api, fields, models
+from odoo.exceptions import ValidationError
 from odoo.fields import Domain
 
 
@@ -7,7 +8,11 @@ class ResWard(models.Model):
     _description = 'Myanmar Ward / Village Tract'
     _rec_name = 'name'
     _order = 'name'
-    _rec_names_search = ['name', 'name_mm', 'township_id.name', 'township_id.name_mm', 'state_id.name', 'state_id.name_mm']
+    _rec_names_search = [
+        'name', 'name_mm', 'p_code',
+        'township_id.name', 'township_id.name_mm',
+        'state_id.name', 'state_id.name_mm',
+    ]
 
     name = fields.Char(required=True)
     name_mm = fields.Char()
@@ -70,8 +75,18 @@ class ResWard(models.Model):
         return (
             Domain('name', operator, value)
             | Domain('name_mm', operator, value)
+            | Domain('p_code', operator, value)
             | Domain('township_id.name', operator, value)
             | Domain('township_id.name_mm', operator, value)
             | Domain('state_id.name', operator, value)
             | Domain('state_id.name_mm', operator, value)
         )
+
+    @api.model
+    def name_search(self, name='', domain=None, operator='ilike', limit=100):
+        result = super().name_search(name=name, domain=domain, operator=operator, limit=limit)
+        if self.env.context.get('import_file') and name and len(result) > 1:
+            raise ValidationError(
+                self.env._("Ward value '%s' is ambiguous. Import the ward P-Code instead.", name)
+            )
+        return result

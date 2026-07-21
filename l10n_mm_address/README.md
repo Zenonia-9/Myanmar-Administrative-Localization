@@ -113,6 +113,20 @@ Example: `MMR017024040` = Myanmar → Ayeyarwady (017) → Pyapon District → W
 | `partner_latitude` | Related from Township latitude |
 | `partner_longitude` | Related from Township longitude |
 
+### Spreadsheet Import
+
+The address hierarchy is also completed during `res.partner` imports; form
+onchange methods are not required. Import either of these existing fields using
+the record name or its code:
+
+| Import field | Accepted value | Values filled automatically |
+| --- | --- | --- |
+| `l10n_mm_township_id` | Township name or code (for example `Myitkyina` or `MMR001001`) | District, State, Region, Country |
+| `l10n_mm_ward_id` | Ward name or P-Code (for example `Alam` or `MMR001001001`) | Town, Township, District, State, Region, Country, P-Code, Postal Code |
+
+Use the code/P-Code when a name is not unique. Rows containing both township and
+ward values must reference the same township.
+
 ### Security
 
 | Group | Permissions |

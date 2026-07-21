@@ -1,9 +1,14 @@
 from odoo import api, fields, models
-from odoo.exceptions import UserError
+from odoo.exceptions import UserError, ValidationError
 
 
 class ResPartner(models.Model):
     _inherit = 'res.partner'
+
+    _hierarchy_input_fields = {
+        'l10n_mm_township_id',
+        'l10n_mm_ward_id',
+    }
 
     l10n_mm_region = fields.Selection(
         [
@@ -167,6 +172,67 @@ class ResPartner(models.Model):
                 rec.l10n_mm_region = state.l10n_mm_region
             elif not rec.l10n_mm_region:
                 rec.l10n_mm_region = False
+
+    @api.model
+    def _normalize_address_hierarchy(self, vals, current=None):
+        """Apply the address hierarchy when values arrive without onchanges.
+
+        Spreadsheet imports call create/write directly, so the relational values
+        must be expanded to their canonical parent values here.
+        """
+        vals = dict(vals)
+        current = current or self.env['res.partner']
+        township = self.env['res.township'].browse(vals.get('l10n_mm_township_id')).exists()
+        ward = self.env['res.ward'].browse(vals.get('l10n_mm_ward_id')).exists()
+
+        if ward and township and ward.township_id != township:
+            raise ValidationError(self.env._(
+                "The imported ward and township belong to different townships."
+            ))
+        if ward:
+            township = ward.township_id
+            vals.update({
+                'l10n_mm_town_id': ward.town_id.id or False,
+                'l10n_mm_pcode': ward.p_code,
+                'l10n_mm_postalcode': ward.postal_code,
+            })
+        if township:
+            state = township.state_id
+            vals.update({
+                'l10n_mm_township_id': township.id,
+                'l10n_mm_district_id': township.district_id.id,
+                'state_id': state.id,
+                'country_id': township.country_id.id,
+                'l10n_mm_region': state.l10n_mm_region,
+            })
+            if (
+                not ward
+                and current
+                and current.l10n_mm_ward_id
+                and current.l10n_mm_ward_id.township_id != township
+            ):
+                vals.update({
+                    'l10n_mm_town_id': False,
+                    'l10n_mm_ward_id': False,
+                    'l10n_mm_zip_id': False,
+                    'l10n_mm_pcode': False,
+                    'l10n_mm_postalcode': False,
+                })
+        return vals
+
+    @api.model_create_multi
+    def create(self, vals_list):
+        vals_list = [self._normalize_address_hierarchy(vals) for vals in vals_list]
+        return super().create(vals_list)
+
+    def write(self, vals):
+        if not self._hierarchy_input_fields.intersection(vals):
+            return super().write(vals)
+        for record in self:
+            super(ResPartner, record).write(
+                record._normalize_address_hierarchy(vals, current=record)
+            )
+        return True
 
     @api.depends('l10n_mm_township_id')
     def _compute_l10n_mm_district_id(self):

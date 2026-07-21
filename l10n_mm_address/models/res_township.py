@@ -1,4 +1,5 @@
 from odoo import api, fields, models
+from odoo.exceptions import ValidationError
 from odoo.fields import Domain
 
 
@@ -6,7 +7,7 @@ class ResTownship(models.Model):
     _name = 'res.township'
     _description = 'Myanmar Township'
     _order = 'name'
-    _rec_names_search = ['name', 'name_mm']
+    _rec_names_search = ['name', 'name_mm', 'code']
 
     name = fields.Char(required=True)
     name_mm = fields.Char()
@@ -50,4 +51,17 @@ class ResTownship(models.Model):
 
     @api.model
     def _search_display_name(self, operator, value):
-        return Domain('name', operator, value) | Domain('name_mm', operator, value)
+        return (
+            Domain('name', operator, value)
+            | Domain('name_mm', operator, value)
+            | Domain('code', operator, value)
+        )
+
+    @api.model
+    def name_search(self, name='', domain=None, operator='ilike', limit=100):
+        result = super().name_search(name=name, domain=domain, operator=operator, limit=limit)
+        if self.env.context.get('import_file') and name and len(result) > 1:
+            raise ValidationError(
+                self.env._("Township value '%s' is ambiguous. Import the township code instead.", name)
+            )
+        return result
